@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+        .page-container {
+        background-color: #c7cbd5;
+        }
+        
+        .header {
+            position: sticky;
+            z-index: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            top: 0;
+            max-width: 100%;
+            max-height: 100px;
+            padding: 5px 20px;
+            background: #555;
+            color: #f1f1f1;
+            font-size: 20px;
+            overflow: hidden;
+            border: 1px solid white;
+        }
+
+        .header-logo-name {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .header h2 {
+            padding-left: 10px;
+        }
+
+        .header-nav-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            border-right: 1px solid #bbb;
+        }
+
+        li:last-child {
+            border-right: none;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        .active-page{
+           /*background-color: #333;*/
+           font-style: oblique;
+           background-color: #333;
+        }
+
+        li a:hover {
+            background-color: #333;
+        }
+
+        .counter-container {
+            margin: 0px 60px 60px 0px;
+            cursor: pointer;
+        }
+
+        .counter-container svg {
+            width: 50px;
+            height: 50px;
+            margin-top: 25px;
+            position: absolute;
+            transition: transform 0.3s ease;
+        }
+
+        .counter {
+            font-size: 25px;
+            font-weight: bold;
+            color: #007bff;
+            display: inline-block;
+        }
+
+        .counter span {
+            position: absolute;
+            color: white;
+            background: red;
+            border-radius: 30px;
+            margin-top: 0px;
+            margin-left: 0px;
+            padding: 0px 5px 0px 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        .counter span:hover {
+            color: red;
+            background: white;
+
+        }
+
+        .apartments-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: 1rem;
+            /* border-style: solid; */
+            background-color: #c7cbd5;
+            row-gap: 1rem;
+            margin: 0px 20px;
+        }
+
+
+        .apartment-card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 300px;
+            overflow: hidden;
+            background-color: #F2F3F6;
+        }
+
+
+        .apartment-card-top {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apartment-image {
+            max-width: 100%;
+            max-height: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+
+        .apartment-image-overlay {
+            position: absolute;
+            /* текст потім поверху*/
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            padding-left: 10px;
+        }
+
+        .added-time {
+            position: absolute;
+            left: 10px;
+            /* Distance from the left of the container */
+            border: 1px solid black;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            /* напівпрозоре тло для кращої читабельності */
+            color: white;
+            text-align: center;
+            width: 50%;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 10px;
+            /* Distance from the bottom of the container */
+            right: 15px;
+            /* Distance from the right of the container */
+            /*cursor: grab;*/
+            cursor: pointer;
+            font-size: 25px;
+            border-radius: 10px;
+            border-color: white;
+            opacity: 0.9;
+        }
+
+        .not-saved {
+            background-color: grey;
+            color: white;
+            border-radius: 10px;
+            border-color: white;
+        }
+
+        .not-saved:hover {
+            background-color: red;
+        }
+
+        .saved {
+            background-color: red;
+            color: white;
+
+        }
+
+        .card-footer {
+            line-height: 10px;
+        }
+
+        .apartment-price {
+            font-size: 26px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .apartment-details {
+            font-size: 20px;
+            color: black;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 20px;
+            height: 40px;
+        }
+
+        .apartment-adress {
+            font-size: 22px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .details-button, .order-button {
+            display: block;
+  margin: auto;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+            background: #555;
+            padding: 10px;
+        }
+        
+        .order-button {
+border: 1px solid white;
+}
+
+
+        .details-button:hover, .order-button:hover {
+            cursor: pointer;
+            background-color: #333;
+        }
+
+        h1 {
+            font-size: 3.2em;
+            line-height: 1.1;
+        }
+
+        #snackbar {
+           visibility: hidden;
+            z-index: 2;
+            background-color: white;
+            color: black;
+            text-align: center;
+            border-style: groove;
+            border-radius: 15px;
+            padding: 16px;
+            position: fixed;
+            min-width: 250px;
+  margin-left: -125px;
+  left: 50%;
+            top: 30px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                top: 0;
+                opacity: 0;
+            }
+
+            to {
+                top: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                top: 0;
+                opacity: 0;
+            }
+
+            to {
+                top: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                top: 30px;
+                opacity: 1;
+            }
+
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                top: 30px;
+                opacity: 1;
+            }
+
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 10%;
+            top: 15%;
+            width: 80%;
+            height: fit-content;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+background-color: #c7cbd5;
+            margin: 30px auto;
+            padding: 10px 20px 10px 20px;
+            border: 1px solid #888;
+            width: 350px;
+            height: fit-content;
+            
+font-size: 18px;
+            color: black;
+            }
+
+.modal-apartment-image {
+display: block;
+  margin: auto;
+            max-height: 100%;
+            border: 1px solid white;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+.modal-apartment-image:hover {
+transform: scale(1.8) translateY(50px) ;
+
+}
+
+
+.modal-apartment-card {
+}
+
+#modal-is-saved-button,
+#map-button {
+border: 1px solid black;
+border-radius: 5px;
+margin-left: 10px;
+font-size: 14px;
+cursor: pointer;
+            color: white;
+            /*background: #555;*/
+                   background: red;
+            padding: 5px;
+}
+
+
+
+        #modal-is-saved-button:hover,
+#map-button:hover {
+                        border: 1px solid white;
+                        
+}
+
+        .close {
+            color: #c7cbd5;
+            float: right;
+            font-size: 14px;
+            font-weight: bold;
+                margin-top: 10px;
+                margin-right: 25px;
+                                           }
+
+        .close:hover {
+            text-decoration: none;
+            cursor: pointer;
+            color: white;
+            
+            }
+            
+.contacts {
+padding-top: 120px;
+margin: auto;
+text-align: center;
+color: black;
+
+}
+
+
+.footer-logo {
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+
+.footer-h2 {
+margin: 0px;
+}
+
+
+.footer-h3 {
+font-size: 32px;
+margin-bottom: 50px;
+}
+
+.contact-form-container {
+margin: auto;
+            /*height: 400px;*/
+            width: 450px;
+            padding: 5px 20px;
+            color: black;
+            font-size: 20px;
+}
+
+.contact-form, .contact-details {
+background: #555;
+border: 1px solid black;
+border-radius: 5px;
+padding: 20px;
+color: white;
+/*margin-left: 10px;
+
+            */
+                  
+            
+}
+
+
+.contact-form label {
+  font-size: 22px;
+
+  /*background-color: rgba(255, 255, 255, 0.486);
+font-weight: bold;  
+  -webkit-text-stroke: 1px black;
+  */
+  
+}
+  
+  
+  .contact-form input, #message {
+  width: 80%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  overflow: auto;
+  font-size: 14px;
+  font-style: italic;
+  
+}
+
+
+#message {
+height: 100px;
+width: 80%;
+resize: none;
+}
+
+#mailing-checkbox {
+ width: 10px;
+ margin-right: 10px;
+}
+
+
+  .contact-form-buttons input {
+    border: 1px solid black;
+border-radius: 5px;
+padding: 5px 20px 5px 20px;
+margin: 10px 20px;
+font-size: 16px;
+color: black;
+            background-color: #c7cbd5;
+            padding: 10px;
+       cursor: pointer;
+       width: 90px;
+/*color: white;*/
+  
+  }
+
+  .contact-form-buttons input:hover {
+   background-color: #333;
+   color: white;
+  border: 1px solid white;
+  }
+                 
+.contact-details {
+background-image: url("https://static.euronews.com/articles/stories/08/22/14/52/1200x675_cmsv2_d280989a-36d4-5fca-93f3-84c13255373a-8221452.jpg");
+/*background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: overlay;*/
+background-position: left bottom;
+
+margin-top: 50px;
+}
+
+
+.contact-details-title {
+font-size: 32px;
+font-weight: bold;
+color:white;
+
+}
+
+.contact-details-text {
+font-size: 22px;
+font-style: oblique;
+
+font-weight: bold;
+}
+
+.contact-details-social {
+width: 100%;
+}
+
+    </style>
+</head>
+
+
+<body>
+   <div class="page-container">
+   <div id="snackbar"></div>
+    <div class="header" id="myHeader">
+        <div class="header-logo-name"><img
+                src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="60" height="60"
+                class="header-logo" alt="logo"></img>
+            <h2>RENT SPACE <br>for Living and Business</h2>
+        </div>
+        <ul class="header-nav-list">
+            <li class="active-page"><a href="">Home</a></li>
+            <li><a href="">For living</a></li>
+            <li><a href="">For business</a></li>
+            <li><a href="">Your list</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        <div class="counter-container">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+            </svg>
+            <div id="saved-apartments-counter" class="counter">
+                <span>0</span>
+            </div>
+        </div>
+    </div>
+    <div id="apartments-container" class="apartments-container"></div>
+    <div id="myModal" class="modal">
+<span class="close">&#10006</span>
+        <div class="modal-content">
+                        <div id="modal-apart-card" class="modal-apart-card"></div>
+     </div>
+    </div>
+      
+    <div id="contacts"class="contacts">
+ <hr> 
+    <div class="footer-logo-name"><img
+                src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="100" height="100"
+                class="footer-logo" alt="logo"></img>
+            <h2 class="footer-h2">RENT SPACE <br>for Living and Business</h2>
+        </div>
+    <div class="contact-form-container">
+    
+    <form class="contact-form" id="contact-form" action="">
+    <h3 class="footer-h3">Contact us</h3>
+  <label for="name">Your name:</label><br>
+  <input type="text" required id="name" name="name" value=""><br>
+  <label for="email">Your email:</label><br>
+  <input type="email" required id="email" name="email" value=""><br>
+  <label for="phone">Your phone number:</label><br>
+  <input type="text" id="phone" name="phone" value=""><br>
+  <label for="message">Your message or request:</label><br>
+  <textarea id="message" name="message" placeholder="I want to get more information about...." value="" required></textarea><br>
+    <input type="checkbox" checked id="mailing-checkbox" name="mailing-checkbox" value="subscribe">
+  <label for="mailing-checkbox">Subscribe for news</label>
+  
+  <br>
+  <div class="contact-form-buttons">
+  <input id="contact-form-button-send" type="submit" value="Send">
+  <input id="contact-form-button-reset" type="reset" value="Reset">
+  </div>
+</form> 
+  <div class="contact-details">
+       <h3 class="footer-h3">or find our office</h3>
+           <p class="contact-details-title">Warsaw</p>
+       <p class="contact-details-text">al. Jerozolimskie 179</p>
+       <p class="contact-details-title">Phone number</p>
+       <p class="contact-details-text">+48 45 35 55 405</p>
+       <p class="contact-details-title">Email</p>
+       <p class="contact-details-text">office@rentspace.com</p>
+       <div class="contact-details-social">
+       <a href="http://home.com"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Facebook_white.png" alt="" id="logo" target="blank_" width="30" height="30"></a>
+		<a href="http://home.com"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Instagram_white.png" alt="" id="logo" target="blank_" width="30" height="30"></a>
+        <a href="http://home.com"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Youtube_white.png" alt="" id="logo" target="blank_" width="30" height="30"></a>
+        <div>
+    </div>
+    </div>
+    
+    
+    
+    </div>
+</div>
+    <script>
+
+        const aparts = [
+            {
+                id: 7000901,
+                adres: 'Warsaw, Mokotow',
+                maplink: 'https://www.google.com/maps/place/Mokotow,+Warszawa',
+                price: '1075 USD',
+                details: '2-room apartment with balcony',
+                added: '2025-03-27',
+                saved: 1,
+                //image: '/img/apartment-01.jpg'
+                image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000902,
+                adres: 'Warsaw, Ursynow',
+                price: '975 USD',
+                details: '2-room apartment (open kitchen)',
+                added: '2025-02-02',
+                saved: 0,
+                // image: '/img/apartment-02.jpg'
+                image: 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000903,
+                adres: 'Warsaw, Praga PLN',
+                price: '1020 USD',
+                details: '2-room apartment with cosy kitchen',
+                added: '2025-03-08',
+                saved: 0,
+                //image: '/img/apartment-03.jpg'
+                image: 'https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000904,
+                adres: 'Warsaw, Center',
+                price: '715 USD',
+                details: '1-room apartment',
+                added: '2025-03-19',
+                saved: 0,
+                //image: '/img/apartment-04.jpg'
+                image: 'https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000905,
+                adres: 'Warsaw, Center',
+                price: '1900 USD',
+                details: '250 sq.m. office space',
+                added: '2025-01-12',
+                saved: 1,
+                //image: '/img/apartment-05.jpg'
+                image: 'https://www.rentfurniture.com/office/img/axton.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000906,
+                adres: 'Warsaw, Mokotow',
+                price: '1615 USD',
+                details: '3-room PREMIUM apartment',
+                added: '2025-03-19',
+                saved: 0,
+                //image: '/img/apartment-06.jpg'
+                image: 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000907,
+                adres: 'Warsaw, Ursus',
+                price: '1775 USD',
+                details: '250 sq.m. office space',
+                added: '2025-03-02',
+                saved: 1,
+                //image: '/img/apartment-07.jpg'
+                image: 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000908,
+                adres: 'Warsaw, Praga PLN',
+                price: '2410 USD',
+                details: 'Ready fashion store, 115 sq.m.',
+                added: '2025-03-08',
+                saved: 0,
+                //image: '/img/apartment-08.jpg'
+                image: 'https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000909,
+                adres: 'Warsaw, Center',
+                price: '1305 USD',
+                details: '230 sq.m. office space',
+                added: '2025-02-24',
+                saved: 0,
+                //image: '/img/apartment-09.jpg'
+                image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000910,
+                adres: 'Warsaw, Wawer',
+                price: '1550 USD',
+                details: 'Shop (80 sq.m.) for rent in Shopping Mall',
+                added: '2025-03-02',
+                saved: 0,
+                //image: '/img/apartment-10.jpg'
+                image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000911,
+                adres: 'Warsaw, Mokotow',
+                price: '1075 USD',
+                details: '2-room apartment with balcony',
+                added: '2024-03-11',
+                saved: 0,
+                //image: '/img/apartment-01.jpg'
+                image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000912,
+                adres: 'Warsaw, Ursynow',
+                price: '975 USD',
+                details: '2-room apartment (open kitchen)',
+                added: '2025-02-02',
+                saved: 0,
+                // image: '/img/apartment-02.jpg'
+                image: 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000913,
+                adres: 'Warsaw, Praga PLN',
+                price: '1020 USD',
+                details: '2-room apartment with cosy kitchen',
+                added: '2025-03-08',
+                saved: 0,
+                //image: '/img/apartment-03.jpg'
+                image: 'https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000914,
+                adres: 'Warsaw, Center',
+                price: '715 USD',
+                details: '1-room apartment',
+                added: '2025-03-19',
+                saved: 0,
+                //image: '/img/apartment-04.jpg'
+                image: 'https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000915,
+                adres: 'Warsaw, Center',
+                price: '1900 USD',
+                details: '250 sq.m. office space',
+                added: '2025-01-12',
+                saved: 0,
+                //image: '/img/apartment-05.jpg'
+                image: 'https://www.rentfurniture.com/office/img/axton.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000916,
+                adres: 'Warsaw, Mokotow',
+                price: '1615 USD',
+                details: '3-room PREMIUM apartment',
+                added: '2025-03-19',
+                saved: 0,
+                //image: '/img/apartment-06.jpg'
+                image: 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000917,
+                adres: 'Warsaw, Ursus',
+                price: '1775 USD',
+                details: '250 sq.m. office space',
+                added: '2025-03-02',
+                saved: 0,
+                //image: '/img/apartment-07.jpg'
+                image: 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000918,
+                adres: 'Warsaw, Praga PLN',
+                price: '2410 USD',
+                details: 'Ready fashion store, 115 sq.m.',
+                added: '2025-03-08',
+                saved: 0,
+                //image: '/img/apartment-08.jpg'
+                image: 'https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg',
+                category: 'business'
+            },
+            {
+                id: 7000919,
+                adres: 'Warsaw, Center',
+                price: '1305 USD',
+                details: '230 sq.m. office space',
+                added: '2025-02-24',
+                saved: 1,
+                //image: '/img/apartment-09.jpg'
+                image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
+                category: 'living'
+            },
+            {
+                id: 7000920,
+                adres: 'Warsaw, Wawer',
+                price: '1550 USD',
+                details: 'Shop (80 sq.m.) for rent in Shopping Mall',
+                added: '2025-03-02',
+                saved: 1,
+                //image: '/img/apartment-10.jpg'
+                image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
+                category: 'living'
+            }
+        ]
+
+const businessAparts = aparts.filter(apartment => apartment.category === 'business');
+
+//alert(businessAparts.length);
+
+const livingAparts = aparts.filter(apartment => apartment.category === 'living');
+
+//alert(livingAparts.length);
+
+
+const savedAparts = aparts.filter(apartment => apartment.saved === 1);
+
+//alert(savedAparts.length);
+
+        const savedApartmentsCounter = document.getElementById('saved-apartments-counter');
+
+const apartmentsContainer = document.getElementById('apartments-container');
+
+        const modal = document.getElementById("myModal");
+        const modalApartCard = document.getElementById("modal-apart-card");
+
+
+function closeModal() {
+
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
+    modal.style.display = "none";
+    modalApartCard.innerHTML = "";   
+}
+
+        const modalClose = document.getElementsByClassName("close")[0];
+        modalClose.onclick = function () {
+    closeModal();
+    }
+
+
+        function messageSnackbar(message) {
+            const snackbarDiv = document.getElementById("snackbar");
+            snackbarDiv.innerText = message;
+            snackbarDiv.className = "show";
+            setTimeout(function () { snackbarDiv.className = snackbarDiv.className.replace("show", ""); }, 1500);
+        }
+        
+        
+
+        function updateSavedApartmentsCounter() {
+            const savedApartmentsCount = aparts.filter(apart => apart.saved === 1).length;
+
+            const counterElement = savedApartmentsCounter.querySelector('span');
+            const currentCount = parseInt(counterElement.innerText, 10);
+
+            if (currentCount !== savedApartmentsCount) {
+                counterElement.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    counterElement.style.transform = 'scale(1)';
+                    counterElement.innerText = savedApartmentsCount;
+                }, 300);
+            }
+        }
+
+
+        function generateApartmentContent(apart) {
+            return `
+        <div class="apartment-card-top">
+            <div class="apartment-image-overlay">
+        	    <p class="added-time">Added ${apart.added}</p>           
+            </div>
+            <img class="apartment-image" src=${apart.image} alt=${apart.details} style="width:300px;height:200px;">
+        </div>
+        <div class="card-footer">
+            	<p class="apartment-price">${apart.price}</p>
+            	<p class="apartment-adress">${apart.adres}</p>
+            	<p class="apartment-details">${apart.details}</p>
+        </div>
+        `;
+        }
+
+
+        function generateModalContent(apart) {
+        const isSaved = apart.saved === 1 ? 'yes' : 'no ';
+        const isSavedButton = apart.saved === 1 ? '<button id="modal-is-saved-button">Remove</button>' : '<button id="modal-is-saved-button">Save</button>';
+        const mapButtonLink = `google.com/maps/place/${apart.adres}`;
+        const mapButton = `<a href=${mapButtonLink}>
+    <button id="map-button">Map</button></a>`
+    
+  //      const mapButton = '<button id="map-button" onclick=`google.com/maps/place/${apart.adres}`>Show on map</button>';
+        return `
+        <img class="modal-apartment-image" src=${apart.image} alt=${apart.details} style="width:300px;height:200px;">
+        <hr>
+        <p class="modal-apartment-details"><strong>Description: </strong>${apart.details}</p>
+                <p class="modal-apartment-adress"><strong>Location: </strong>${apart.adres} ${mapButton}</p>
+       <p class="modal-apartment-price"><strong>Price: </strong>${apart.price}/per month</p>
+       <p class="modal-added-time" id="modal-apartment-date"><strong>Was added: </strong> ${apart.added}</p>           
+        <p class="modal-apartment-category"><strong>Real estate category: </strong>for ${apart.category}</p>
+                 <p class="modal-apartment-id"><strong>Unique ID number: </strong>${apart.id}</p>
+                <hr>
+                <p class="modal-apartment-in-list"><strong>Saved in Your List: </strong>${isSaved}${isSavedButton}</p>
+          `;
+                
+        }
+
+
+        function handleSaveButtonClick(apart) {
+            apart.saved = apart.saved === 1 ? 0 : 1; 
+            updateApartmentCard(apart);
+            updateSavedApartmentsCounter();
+        }
+
+   function createSaveButton(apart) {
+    const saveButton = document.createElement('button');
+    saveButton.classList.add('btn', 'save-button');
+    saveButton.innerHTML = '<span class="fa fa-home"></span>';
+    apart.saved === 1 ? saveButton.classList.add('saved') : saveButton.classList.add('not-saved');
+            saveButton.addEventListener('click', () => handleSaveButtonClick(apart));
+saveButton.addEventListener('click', () => messageSnackbar("Your list was updated"));
+    return saveButton;
+}
+
+
+function createDetailsButton(apart) {
+    const detailsButton = document.createElement('button');
+    detailsButton.classList.add('details-button');
+            detailsButton.innerText = 'Show details';
+function handleDetailsButtonClick() {
+    scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    modal.style.display = "block";
+    renderModalApartment(apart);
+   }
+detailsButton.addEventListener('click', handleDetailsButtonClick);
+    return detailsButton;
+}
+   
+
+function datesCount(dateAdded) {
+const todayDate = new Date();
+const dateWasAdded = new Date(dateAdded);
+const timeDifference = todayDate.getTime() - dateWasAdded.getTime();
+var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+return daysDifference == 0 ? "<p><strong>Added: </strong>today</p>" :  `
+<p><strong>Added: </strong>${daysDifference} days ago</p>`;
+}
+
+        // Function to render an apartment card
+        function renderApartment(apart) {
+            const apartDiv = document.createElement('div');
+            apartDiv.classList.add('apartment-card');
+            apartDiv.setAttribute('id', `apartment-${apart.id}`); 
+
+            apartDiv.innerHTML = generateApartmentContent(apart);
+
+            const imageOverlayDiv = apartDiv.querySelector('.apartment-image-overlay');
+
+const saveButton = createSaveButton(apart);
+
+                imageOverlayDiv.appendChild(saveButton);
+const detailsButton = createDetailsButton(apart);
+            
+            apartDiv.appendChild(detailsButton);
+
+            apartmentsContainer.appendChild(apartDiv);
+        }
+
+
+        function renderModalApartment(apart) {
+            const modalApartDiv = document.createElement('div');
+            modalApartDiv.classList.add('modal-apartment-card');
+            modalApartDiv.setAttribute('id', `modal-apartment-${apart.id}`); 
+            modalApartDiv.innerHTML = generateModalContent(apart);
+           const imageOverlayDiv = modalApartDiv.querySelector('.apartment-image-overlay');
+            modalApartCard.appendChild(modalApartDiv);
+            
+            
+            document.getElementById("modal-apartment-date").innerHTML =     datesCount(apart.added)
+            const modalIsSavedButton = document.getElementById("modal-is-saved-button")
+            modalIsSavedButton.addEventListener('click', () => handleSaveButtonClick(apart));
+            modalIsSavedButton.addEventListener('click', () => messageSnackbar("Your list updated"));
+            modalIsSavedButton.addEventListener('click', () => modalApartCard.innerHTML = "");
+modalIsSavedButton.addEventListener('click', () => renderModalApartment(apart));
+            
+            
+            
+        const handleOrderButtonClick = () => {
+    
+    closeModal();
+     document.getElementById("contact-form").scrollIntoView({behavior: "smooth"});
+
+    document.getElementById("message").innerText = `I want to get more information about your offer (#${apart.id}). Please call or text to me so I can get details and made an appointment.`;
+    messageSnackbar(`Please fill in the form`);
+};
+
+
+const orderButton = document.createElement('button');
+            orderButton.classList.add('order-button');
+            orderButton.innerText = 'Get more info';
+	     orderButton.addEventListener('click', handleOrderButtonClick);
+         modalApartDiv.appendChild(orderButton);
+       }
+
+
+        function updateApartmentCard(apart) {
+            const apartDiv = document.getElementById(`apartment-${apart.id}`);
+            apartDiv.innerHTML = generateApartmentContent(apart);
+            const imageOverlayDiv = apartDiv.querySelector('.apartment-image-overlay');
+          const saveButton = createSaveButton(apart);
+          const detailsButton = createDetailsButton(apart);
+            
+          if (imageOverlayDiv) {
+                imageOverlayDiv.appendChild(saveButton);
+            }
+            apartDiv.appendChild(detailsButton);
+        }
+
+        aparts.forEach(renderApartment);
+
+        updateSavedApartmentsCounter();
+
+
+document.getElementById("contact-form-button-reset").addEventListener('click', () => {
+    document.getElementById("message").innerText = "";
+});
+
+
+
+    </script>
+</body>
+
+
+</html>
