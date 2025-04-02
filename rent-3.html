@@ -663,88 +663,104 @@ font-weight: bold;
 
 
 <body>
-   <div class="page-container">
-   <div id="snackbar"></div>
-    <div class="header" id="myHeader">
-        <div class="header-logo-name"><img
-                src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="60" height="60"
-                class="header-logo" alt="logo"></img>
-            <h2>RENT SPACE <br>for Living and Business</h2>
+    <div class="page-container">
+        <div id="snackbar"></div>
+        <div class="header" id="myHeader">
+            <div class="header-logo-name"><img
+                    src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="60"
+                    height="60" class="header-logo" alt="logo"></img>
+                <h2 class="header-text">RENT SPACE <br>for Living and Business</h2>
+            </div>
+            <ul id="header-nav" class="header-nav-list">
+                <li class="active-page"><a href="">Home</a></li>
+                <li><a href="">For living</a></li>
+                <li><a href="">For business</a></li>
+                <li><a href="">Your list</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+            <a href="javascript:void(0);" class="burger-icon" onclick="burgerTrigger()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="counter-container">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                </svg>
+                <div id="saved-apartments-counter" class="counter">
+                    <span>0</span>
+                </div>
+            </div>
         </div>
-        <ul class="header-nav-list">
-            <li class="active-page"><a href="">Home</a></li>
+        <ul id="burger-nav" class="burger-nav-list">
             <li><a href="">For living</a></li>
             <li><a href="">For business</a></li>
             <li><a href="">Your list</a></li>
             <li><a href="#contacts">Contacts</a></li>
-            </ul>
-        <div class="counter-container">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-            </svg>
-            <div id="saved-apartments-counter" class="counter">
-                <span>0</span>
+        </ul>
+        <div id="apartments-container" class="apartments-container"></div>
+        <div id="myModal" class="modal">
+            <span class="close">&#10006</span>
+            <div class="modal-content">
+                <div id="modal-apart-card" class="modal-apart-card"></div>
             </div>
         </div>
-    </div>
-    <div id="apartments-container" class="apartments-container"></div>
-    <div id="myModal" class="modal">
-<span class="close">&#10006</span>
-        <div class="modal-content">
-                        <div id="modal-apart-card" class="modal-apart-card"></div>
-     </div>
-    </div>
-      
-    <div id="contacts"class="contacts">
- <hr> 
-    <div class="footer-logo-name"><img
-                src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="100" height="100"
-                class="footer-logo" alt="logo"></img>
-            <h2 class="footer-h2">RENT SPACE <br>for Living and Business</h2>
-        </div>
-    <div class="contact-form-container">
-    
-    <form class="contact-form" id="contact-form" action="">
-    <h3 class="footer-h3">Contact us</h3>
-  <label for="name">Your name:</label><br>
-  <input type="text" required id="name" name="name" value=""><br>
-  <label for="email">Your email:</label><br>
-  <input type="email" required id="email" name="email" value=""><br>
-  <label for="phone">Your phone number:</label><br>
-  <input type="text" id="phone" name="phone" value=""><br>
-  <label for="message">Your message or request:</label><br>
-  <textarea id="message" name="message" placeholder="I want to get more information about...." value="" required></textarea><br>
-    <input type="checkbox" checked id="mailing-checkbox" name="mailing-checkbox" value="subscribe">
-  <label for="mailing-checkbox">Subscribe for news</label>
-  
-  <br>
-  <div class="contact-form-buttons">
-  <input id="contact-form-button-send" type="submit" value="Send">
-  <input id="contact-form-button-reset" type="reset" value="Reset">
-  </div>
-</form> 
-  <div class="contact-details">
-       <h3 class="footer-h3">or find our office</h3>
-           <p class="contact-details-title">Warsaw</p>
-       <p class="contact-details-text">al. Jerozolimskie 179</p>
-       <p class="contact-details-title">Phone number</p>
-       <p class="contact-details-text">+48 45 35 55 405</p>
-       <p class="contact-details-title">Email</p>
-       <p class="contact-details-text">office@rentspace.com</p>
-       <div class="contact-details-social">
-       <a href="http://home.com"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Facebook_white.png" alt="" id="logo" target="blank_" width="30" height="30"></a>
-		<a href="http://home.com"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Instagram_white.png" alt="" id="logo" target="blank_" width="30" height="30"></a>
-        <a href="http://home.com"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Youtube_white.png" alt="" id="logo" target="blank_" width="30" height="30"></a>
-        <div>
-    </div>
-    </div>
-    
-    
-    
-    </div>
-</div>
+
+        <div id="contacts" class="contacts">
+            <hr>
+            <div class="footer-logo-name"><img
+                    src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="100"
+                    height="100" class="footer-logo" alt="logo"></img>
+                <h2 class="footer-h2">RENT SPACE <br>for Living and Business</h2>
+            </div>
+            <div class="contact-form-container">
+
+                <form class="contact-form" id="contact-form" action="">
+                    <h3 class="footer-h3">Contact us</h3>
+                    <label for="name">Your name:</label><br>
+                    <input type="text" required id="name" name="name" value=""><br>
+                    <label for="email">Your email:</label><br>
+                    <input type="email" required id="email" name="email" value=""><br>
+                    <label for="phone">Your phone number:</label><br>
+                    <input type="text" id="phone" name="phone" value=""><br>
+                    <label for="message">Your message or request:</label><br>
+                    <textarea id="message" name="message" placeholder="I want to get more information about...."
+                        value="" required></textarea><br>
+                    <input type="checkbox" checked id="mailing-checkbox" name="mailing-checkbox" value="subscribe">
+                    <label for="mailing-checkbox">Subscribe for news</label>
+
+                    <br>
+                    <div class="contact-form-buttons">
+                        <input id="contact-form-button-send" type="submit" value="Send">
+                        <input id="contact-form-button-reset" type="reset" value="Reset">
+                    </div>
+                </form>
+                <div class="contact-details">
+                    <h3 class="footer-h3">or find our office</h3>
+                    <p class="contact-details-title">Warsaw</p>
+                    <p class="contact-details-text">al. Jerozolimskie 179</p>
+                    <p class="contact-details-title">Phone number</p>
+                    <p class="contact-details-text">+48 45 35 55 405</p>
+                    <p class="contact-details-title">Email</p>
+                    <p class="contact-details-text">office@rentspace.com</p>
+                    <div class="contact-details-social">
+                        <a href="http://home.com"><img
+                                src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Facebook_white.png"
+                                alt="" id="logo" target="blank_" width="30" height="30"></a>
+                        <a href="http://home.com"><img
+                                src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Instagram_white.png"
+                                alt="" id="logo" target="blank_" width="30" height="30"></a>
+                        <a href="http://home.com"><img
+                                src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Youtube_white.png"
+                                alt="" id="logo" target="blank_" width="30" height="30"></a>
+                        <div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
     <script>
 
         const aparts = [
