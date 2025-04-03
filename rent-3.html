@@ -761,7 +761,7 @@ font-weight: bold;
 
                 </div>
             </div>
-    <script>
+            <script>
                 const aparts = [
                     {
                         id: 7000901,
@@ -1209,15 +1209,37 @@ font-weight: bold;
                     document.getElementById("message").innerText = "";
                 });
 
+                const burgerNavBar = document.getElementById("burger-nav");
+
+
                 function burgerTrigger() {
-                    const headerNavBar = document.getElementById("burger-nav");
-                    if (headerNavBar.style.display === "grid") {
-                        headerNavBar.style.display = "none";
-                    } else {
-                        headerNavBar.style.display = "grid";
-                    }
+                    burgerNavBar.style.display === "grid" ? burgerNavBar.style.display = "none" : burgerNavBar.style.display = "grid";
                 }
-    </script>
+
+                function burgerMenuClose() {
+                    burgerNavBar.style.display = "none"
+                }
+
+
+                const burgerIcon = document.querySelector(".burger-icon");
+                const burgerMenu = document.querySelector(".burger-nav-list");
+
+
+                document.addEventListener("mouseup", function (event) {
+                    if (!burgerIcon.contains(event.target) && !burgerMenu.contains(event.target)) {
+                        burgerMenuClose();
+                    }
+                });
+
+
+                const burgerLinks = document.querySelectorAll(".burger-nav-list a");
+
+                burgerLinks.forEach(link => {
+                    link.addEventListener("click", function () {
+                        burgerMenuClose();
+                    });
+                });
+            </script>
 </body>
 
 
