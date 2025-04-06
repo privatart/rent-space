@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="https://www.iconsdb.com/icons/preview/red/house-xxl.png">
     <style>
         * {
             margin: 0;
@@ -316,8 +317,8 @@
         #snackbar {
             visibility: hidden;
             z-index: 2;
-            background-color: white;
-            color: black;
+            background-color: grey;
+            color: white;
             text-align: center;
             border-style: groove;
             border-radius: 15px;
@@ -390,8 +391,8 @@
             top: 15%;
             margin-left: 2.5%;
             width: 95%;
-            height: fit-content;
-            overflow: hidden;
+            max-height: 80%;
+            overflow-y: auto;
             background-color: rgba(0, 0, 0, 0.9);
         }
 
@@ -421,11 +422,9 @@
         .modal-apartment-image:hover {
             transform: scale(1.5) translateY(50px);
             z-index: 3;
-
         }
 
-        #modal-is-saved-button,
-        #map-button {
+        #modal-is-saved-button {
             border: 1px solid black;
             border-radius: 5px;
             width: 65px;
@@ -437,19 +436,15 @@
             background: red;
             padding: 5px;
             box-shadow: 0 3px #999;
-
         }
 
 
 
-        #modal-is-saved-button:hover,
-        #map-button:hover {
+        #modal-is-saved-button:hover {
             border: 1px solid white;
-
         }
 
-        #modal-is-saved-button:active,
-        #map-button:active {
+        #modal-is-saved-button:active {
             box-shadow: 0 1px #666;
             transform: translateY(2px);
         }
@@ -482,7 +477,6 @@
         .footer-logo {
             margin-left: auto;
             margin-right: auto;
-
         }
 
 
@@ -514,11 +508,7 @@
             padding: 20px;
             color: white;
             box-shadow: 0 3px #999;
-            /*margin-left: 10px;
-
-            */
-
-
+            /*margin-left: 10px;*/
         }
 
 
@@ -625,8 +615,8 @@ font-weight: bold;
             }
 
             .contact-form-container {
-            width: 450px;
-        }
+                width: 450px;
+            }
 
         }
 
@@ -667,9 +657,11 @@ font-weight: bold;
     <div class="page-container">
         <div id="snackbar"></div>
         <div class="header" id="myHeader">
-            <div class="header-logo-name"><img
-                    src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="60"
-                    height="60" class="header-logo" alt="logo"></img>
+            <div class="header-logo-name">
+                <a href="">
+                    <img src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="60"
+                        height="60" class="header-logo" alt="logo"></img>
+                </a>
                 <h2 class="header-text">RENT SPACE <br>for Living and Business</h2>
             </div>
             <ul id="header-nav" class="header-nav-list">
@@ -988,18 +980,8 @@ font-weight: bold;
                 ]
 
                 const businessAparts = aparts.filter(apartment => apartment.category === 'business');
-
-                //alert(businessAparts.length);
-
                 const livingAparts = aparts.filter(apartment => apartment.category === 'living');
-
-                //alert(livingAparts.length);
-
-
                 const savedAparts = aparts.filter(apartment => apartment.saved === 1);
-
-                //alert(savedAparts.length);
-
                 const savedApartmentsCounter = document.getElementById('saved-apartments-counter');
 
                 const apartmentsContainer = document.getElementById('apartments-container');
@@ -1012,7 +994,7 @@ font-weight: bold;
 
                     document.body.style.position = '';
                     document.body.style.top = '';
-                    window.scrollTo(0, scrollY);
+                    document.getElementById(`apartment-${modalClose.id}`).scrollIntoView({ behavior: 'instant' });
                     modal.style.display = "none";
                     modalApartCard.innerHTML = "";
                 }
@@ -1068,24 +1050,19 @@ font-weight: bold;
                 function generateModalContent(apart) {
                     const isSaved = apart.saved === 1 ? 'yes' : 'no ';
                     const isSavedButton = apart.saved === 1 ? '<button id="modal-is-saved-button">Remove</button>' : '<button id="modal-is-saved-button">Save</button>';
-                    const mapButtonLink = `google.com/maps/place/${apart.adres}`;
-                    const mapButton = `<a href=${mapButtonLink}>
-    <button id="map-button">Map</button></a>`
-
-                    //      const mapButton = '<button id="map-button" onclick=`google.com/maps/place/${apart.adres}`>Show on map</button>';
+                    modalClose.id = apart.id;
                     return `
         <img class="modal-apartment-image" src=${apart.image} alt=${apart.details} style="width:300px;height:200px;">
         <hr>
-        <p class="modal-apartment-details"><strong>Description: </strong>${apart.details}</p>
-                <p class="modal-apartment-adress"><strong>Location: </strong>${apart.adres} ${mapButton}</p>
-       <p class="modal-apartment-price"><strong>Price: </strong>${apart.price}/per month</p>
-       <p class="modal-added-time" id="modal-apartment-date"><strong>Was added: </strong> ${apart.added}</p>           
-        <p class="modal-apartment-category"><strong>Real estate category: </strong>for ${apart.category}</p>
-                 <p class="modal-apartment-id"><strong>Unique ID number: </strong>${apart.id}</p>
+        <p class="modal-apartment-details"><strong>Description: </strong><br>${apart.details}</p>
+                <p class="modal-apartment-adress"><strong>Location: </strong><br>${apart.adres} ${mapButton}</p>
+       <p class="modal-apartment-price"><strong>Price: </strong><br>${apart.price}/per month</p>
+       <p class="modal-added-time" id="modal-apartment-date"><strong>Was added: </strong><br>${apart.added}</p>           
+        <p class="modal-apartment-category"><strong>Real estate category: </strong><br>for ${apart.category}</p>
+                 <p class="modal-apartment-id"><strong>Unique ID number: </strong><br>${apart.id}</p>
                 <hr>
-                <p class="modal-apartment-in-list"><strong>Saved in Your List: </strong>${isSaved}${isSavedButton}</p>
+                <p class="modal-apartment-in-list"><strong>Saved in Your List: </strong><br>${isSaved}${isSavedButton}</p>
           `;
-
                 }
 
 
@@ -1111,9 +1088,9 @@ font-weight: bold;
                     detailsButton.classList.add('details-button');
                     detailsButton.innerText = 'Show details';
                     function handleDetailsButtonClick() {
-                        scrollY = window.scrollY;
+                        currentScrollY = window.scrollY;
                         document.body.style.position = 'fixed';
-                        document.body.style.top = `-${scrollY}px`;
+                        document.body.style.top = `-${currentScrollY}px`;
                         modal.style.display = "block";
                         renderModalApartment(apart);
                     }
