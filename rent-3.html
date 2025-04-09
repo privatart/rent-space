@@ -406,6 +406,10 @@
             background-color: rgba(0, 0, 0, 0.9);
         }
 
+        .modal-apartment-card p {
+            margin-top: 10px;
+        }
+
         .modal-content {
             background-color: #c7cbd5;
             margin: 30px auto;
@@ -553,7 +557,7 @@ font-weight: bold;
 
 
         #message {
-            height: 115px;
+            height: 125px;
             width: 80%;
             resize: none;
         }
@@ -622,6 +626,38 @@ font-weight: bold;
             width: 100%;
         }
 
+        .empty-list {
+            text-align: center;
+            line-height: 30px;
+            margin: 50px auto;
+
+        }
+
+        .empty-list-title {
+            font-size: 32px;
+        }
+
+        .empty-list-image {
+            margin: 20px auto;
+            box-shadow: 0 3px #999;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+
+        .empty-list-text {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .empty-list-text a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .empty-list-text a:hover {
+            color: grey;
+        }
 
 
         @media only screen and (min-width: 768px) {
@@ -687,10 +723,10 @@ font-weight: bold;
                 <h2 class="header-text">RENT SPACE <br>for Living and Business</h2>
             </div>
             <ul id="header-nav" class="header-nav-list">
-                <li class="active-page"><a href="">Home</a></li>
-                <li><a href="">For living</a></li>
-                <li><a href="">For business</a></li>
-                <li><a href="">Your list</a></li>
+                <li class="active-page"><a href="#contacts">Home</a></li>
+                <li><a href="" class="livingAparts">For living</a></li>
+                <li><a href="" class="businessAparts">For business</a></li>
+                <li><a href="" class="savedAparts">Your list</a></li>
                 <li><a href="#contacts">Contacts</a></li>
             </ul>
             <a href="javascript:void(0);" class="burger-icon" onclick="burgerTrigger()">
@@ -708,9 +744,9 @@ font-weight: bold;
             </div>
         </div>
         <ul id="burger-nav" class="burger-nav-list">
-            <li><a href="">For living</a></li>
-            <li><a href="">For business</a></li>
-            <li><a href="">Your list</a></li>
+            <li><a href="" class="livingAparts">For living</a></li>
+            <li><a href="" class="businessAparts">For business</a></li>
+            <li><a href="" class="savedAparts">Your list</a></li>
             <li><a href="#contacts">Contacts</a></li>
         </ul>
         <div id="apartments-container" class="apartments-container"></div>
@@ -1001,9 +1037,7 @@ font-weight: bold;
                     }
                 ]
 
-                const businessAparts = aparts.filter(apartment => apartment.category === 'business');
-                const livingAparts = aparts.filter(apartment => apartment.category === 'living');
-                const savedAparts = aparts.filter(apartment => apartment.saved === 1);
+
                 const savedApartmentsCounter = document.getElementById('saved-apartments-counter');
 
                 const apartmentsContainer = document.getElementById('apartments-container');
@@ -1237,6 +1271,48 @@ font-weight: bold;
                 burgerLinks.forEach(link => {
                     link.addEventListener("click", function () {
                         burgerMenuClose();
+                    });
+                });
+
+
+                function generateEmptyContent() {
+                    return `
+        <div class="empty-list">
+            <h3 class="empty-list-title">Your list is empty</h3>
+                      <img class="empty-list-image" src="https://studioopinii.pl/wp-content/uploads/2016/01/list.jpg" alt"empty list" style="width:200px;height:200px;">
+              <p class="empty-list-text">Explore the full list of our offers <a href="#contacts" class="">here</a></p>           
+            </div>
+            `;
+                }
+
+
+
+                const ArrayLinks = document.querySelectorAll('.savedAparts, .businessAparts, .livingAparts');
+
+                ArrayLinks.forEach(link => {
+                    link.addEventListener('click', function (event) {
+
+                        event.preventDefault();
+                        const businessAparts = aparts.filter(apartment => apartment.category === 'business');
+                        const livingAparts = aparts.filter(apartment => apartment.category === 'living');
+                        const savedAparts = aparts.filter(apartment => apartment.saved === 1);
+                        const apartmentsMap = {
+                            businessAparts: businessAparts,
+                            livingAparts: livingAparts,
+                            savedAparts: savedAparts
+                        };
+
+                        const arrayName = event.target.className;
+
+                        const apartmentsArray = apartmentsMap[arrayName];
+                        window.scrollTo(0, 0);
+
+                        if (apartmentsArray.length == 0) {
+                            apartmentsContainer.innerHTML = generateEmptyContent();
+                        } else {
+                            apartmentsContainer.innerHTML = '';
+                            apartmentsArray.forEach(renderApartment);
+                        }
                     });
                 });
             </script>
