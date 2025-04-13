@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="https://www.iconsdb.com/icons/preview/red/house-xxl.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <style>
         * {
             margin: 0;
@@ -41,11 +43,11 @@
         }
 
         .header-logo {
-            transition: transform 0.5s ease-in-out;
+            transition: border-radius 0.3s ease-in-out;
         }
 
         .header-logo:hover {
-            transform: scale(1.2);
+            border-radius: 15px;
         }
 
         .header-logo-name {
@@ -75,6 +77,7 @@
         li {
             float: left;
             border-right: 1px solid #bbb;
+            position: relative;
         }
 
         li:last-child {
@@ -87,6 +90,35 @@
             text-align: center;
             padding: 14px 8px;
             text-decoration: none;
+            z-index: 0;
+        }
+
+
+        .burger-nav-list li::before {
+            content: '';
+            /* Required for pseudo-elements */
+            position: absolute;
+            /* Position it absolutely within the list item */
+            top: 0;
+            left: 0;
+            height: 100%;
+            /* Full height of the list item */
+            width: 100%;
+            /* Full width of the list item */
+            background-color: #333;
+            /* Color to fill on hover (green) */
+            transform: translateX(-100%);
+            /* Start off-screen to the left */
+            transition: transform 0.5s ease;
+            /* Smooth transition for animation */
+
+
+        }
+
+        .burger-nav-list li:hover::before {
+            transform: translateX(0);
+            z-index: -1;
+
         }
 
         .burger-icon {
@@ -123,7 +155,7 @@
             background-color: #333;
         }
 
-        li a:hover {
+        .header-nav-list li a:hover {
             background-color: #333;
         }
 
@@ -164,30 +196,29 @@
 
         }
 
+
         #offers-count {
-        margin: 10px 20px;
-        color: black;
-
-font-size: 26px;
+            margin: 10px 20px;
+            color: black;
+            font-size: 24px;
             font-weight: bold;
-font-style: oblique;
-
-        
-        border: 1px solid black;
+            font-style: oblique;
+            border: 1px solid black;
             border-radius: 10px;
-            padding: 15px;
-            width: 320px;
-            /*width: fit-content;*/
-            overflow: hidden;
+            padding: 10px;
+            width: 300px;
             background-color: #F2F3F6;
             box-shadow: 0 3px #999;
         }
-        
+
         #offers-count-number {
-        font-size: 28px;
-        color: red;
-        
+            margin-left: 5px;
+            position: absolute;
+            font-size: 26px;
+            color: red;
+            transition: transform 0.3s ease-in-out;
         }
+
 
         .apartments-container {
             display: flex;
@@ -349,8 +380,8 @@ font-style: oblique;
         #snackbar {
             visibility: hidden;
             z-index: 2;
-            background-color: grey;
-            color: white;
+            background-color: white;
+            color: black;
             text-align: center;
             border-style: groove;
             border-radius: 15px;
@@ -429,10 +460,6 @@ font-style: oblique;
             background-color: rgba(0, 0, 0, 0.9);
         }
 
-        .modal-apartment-card p {
-            margin-top: 10px;
-        }
-
         .modal-content {
             background-color: #c7cbd5;
             margin: 30px auto;
@@ -447,6 +474,11 @@ font-style: oblique;
             color: black;
             overflow: hidden;
         }
+
+        .modal-apartment-card p {
+            margin-top: 10px;
+        }
+
 
         .modal-apartment-image {
             display: block;
@@ -473,7 +505,6 @@ font-style: oblique;
             font-size: 14px;
             cursor: pointer;
             color: white;
-            /*background: #555;*/
             background: red;
             padding: 2px;
             box-shadow: 0 3px #999;
@@ -497,6 +528,7 @@ font-style: oblique;
             font-weight: bold;
             margin-top: 10px;
             margin-right: 25px;
+
         }
 
         .close:hover {
@@ -507,7 +539,6 @@ font-style: oblique;
         }
 
         .contacts {
-            /* padding-top: 120px; */
             margin: auto;
             margin-top: 20px;
             text-align: center;
@@ -553,6 +584,11 @@ font-style: oblique;
             /*margin-left: 10px;*/
         }
 
+        .contact-form hr,
+        .contact-details hr {
+            margin-bottom: 15px;
+        }
+
 
         .contact-form label {
             font-size: 22px;
@@ -577,6 +613,7 @@ font-style: oblique;
             height: 125px;
             width: 80%;
             resize: none;
+
         }
 
         #mailing-checkbox {
@@ -612,10 +649,7 @@ font-style: oblique;
             transform: translateY(2px);
         }
 
-        .contact-form hr,
-        .contact-details hr {
-            margin-bottom: 15px;
-        }
+
 
         .contact-details {
             margin: 50px auto;
@@ -627,13 +661,14 @@ font-style: oblique;
             font-weight: bold;
             color: white;
             margin-bottom: 20px;
+
         }
 
         .contact-details-text {
             font-size: 22px;
             font-style: oblique;
-            margin-bottom: 20px;
             font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .contact-details-text a,
@@ -642,52 +677,38 @@ font-style: oblique;
             color: white;
         }
 
-        .contact-details-text a:hover,
-        .powered a:hover {
-            color: #333;
+
+
+        .contact-details-text,
+        .powered-links {
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
         }
+
+        .contact-details-text::after,
+        .powered-links::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #ff0000, #00ffff);
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.7s ease-out;
+        }
+
+        .contact-details-text:hover::after,
+        .powered-links:hover::after {
+            transform: scaleX(1);
+        }
+
 
         .contact-details-social {
             width: 100%;
             margin: 50px auto 20px auto;
-
-        }
-
-        .contact-details-social img {
-            margin: 0 10px;
-        }
-
-        .empty-list {
-            text-align: center;
-            line-height: 30px;
-            margin: 50px auto;
-
-        }
-
-        .empty-list-title {
-            font-size: 32px;
-        }
-
-        .empty-list-image {
-            margin: 20px auto;
-            box-shadow: 0 3px #999;
-            border: 1px solid black;
-            border-radius: 5px;
-        }
-
-
-        .empty-list-text {
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        .empty-list-text a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .empty-list-text a:hover {
-            color: grey;
         }
 
         .powered {
@@ -743,6 +764,74 @@ font-style: oblique;
                 width: 70%;
             }
         }
+
+
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            padding-left: 0;
+        }
+
+        .social-icons li {
+            list-style: none;
+            border: none;
+        }
+
+        .social-icons li a {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            line-height: 10px;
+            font-size: 20px;
+            margin: 0 10px;
+            display: block;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #fff;
+            z-index: 1;
+        }
+
+        .social-icons li a .icon {
+            position: relative;
+            color: #262626;
+            transition: 0.9s;
+            z-index: 3;
+        }
+
+        .social-icons li a:hover .icon {
+            color: #fff;
+            transform: rotateY(360deg);
+        }
+
+        .social-icons li a:before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f00;
+            transition: 0.9s;
+            z-index: 2;
+        }
+
+        .social-icons li a:hover:before {
+            top: 0;
+        }
+
+        .social-icons li:nth-child(1) a:before {
+            background: #3b5999;
+        }
+
+        .social-icons li:nth-child(2) a:before {
+            background: #C13584;
+        }
+
+        .social-icons li:nth-child(3) a:before {
+            background: #0077b5;
+        }
     </style>
 </head>
 
@@ -760,9 +849,9 @@ font-style: oblique;
             </div>
             <ul id="header-nav" class="header-nav-list">
                 <li><a href="#contacts" class="aparts active-page">All offers</a></li>
-                <li><a href="" class="livingAparts">For living</a></li>
-                <li><a href="" class="businessAparts">For business</a></li>
-                <li><a href="" class="savedAparts">Your list</a></li>
+                <li><a href="#contacts" class="livingAparts">For living</a></li>
+                <li><a href="#contacts" class="businessAparts">For business</a></li>
+                <li><a href="#contacts" class="savedAparts">Your list</a></li>
                 <li><a href="#contacts">Contacts</a></li>
             </ul>
             <a href="javascript:void(0);" class="burger-icon" onclick="burgerTrigger()">
@@ -780,10 +869,10 @@ font-style: oblique;
             </div>
         </div>
         <ul id="burger-nav" class="burger-nav-list">
-            <li><a href="" class="aparts">All offers</a></li>
-            <li><a href="" class="livingAparts">For living</a></li>
-            <li><a href="" class="businessAparts">For business</a></li>
-            <li><a href="" class="savedAparts">Your list</a></li>
+            <li><a href="#contacts" class="aparts">All offers</a></li>
+            <li><a href="#contacts" class="livingAparts">For living</a></li>
+            <li><a href="#contacts" class="businessAparts">For business</a></li>
+            <li><a href="#contacts" class="savedAparts">Your list</a></li>
             <li><a href="#contacts">Contacts</a></li>
         </ul>
         <p id="offers-count">Offers in this category: <spam id="offers-count-number"></spam>
@@ -838,249 +927,556 @@ font-style: oblique;
                     <p class="contact-details-title">Email</p>
                     <p class="contact-details-text"><a href="mailto:office@rentspace.com">office@rentspace.com</a></p>
                     <div class="contact-details-social">
-                        <a href="https://www.facebook.com" target="_blank"><img
-                                src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Facebook_white.png"
-                                alt="" id="facebook-logo" width="30" height="30"></a>
-                        <a href="https://www.instagram.com" target="_blank"><img
-                                src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Instagram_white.png"
-                                alt="" id="instagram-logo" width="30" height="30"></a>
-                        <a href="https://www.youtube.com" target="_blank"><img
-                                src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/White/Youtube_white.png"
-                                alt="" id="youtube-logo" width="30" height="30"></a>
-                        <div>
-                        </div>
 
+                        <ul class="social-icons">
+                            <li>
+                                <a href="https://www.facebook.com" target="_blank">
+                                    <i class="fab fa-facebook-f icon"></i> </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com" target="_blank"><i
+                                        class="fab fa-instagram icon"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com" target="_blank"><i
+                                        class="fab fa-linkedin-in icon"></i></a>
+                            </li>
+                        </ul>
                     </div>
-
-
-
                 </div>
+                <p class="powered">Powered by <a class="powered-links" href="https://www.mockaroo.com/
+" target="_blank">Mockaroo</a> and <a class="powered-links" href="https://github.com/privatart
+" target="_blank">privatart</a></p>
             </div>
-            <p class="powered">Powered by <a href="https://www.mockaroo.com/
-                " target="_blank">Mockaroo</a> and <a href="https://github.com/privatart
-                " target="_blank">privatart</a></p>
             <script>
                 const aparts = [
                     {
-                        id: 7000901,
-                        adres: 'Warsaw, Mokotow',
-                        maplink: 'https://www.google.com/maps/place/Mokotow,+Warszawa',
-                        price: '1075 USD',
-                        details: '2-room apartment with balcony',
-                        added: '2025-03-27',
-                        saved: 1,
-                        //image: '/img/apartment-01.jpg'
-                        image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
-                        category: 'living'
+                        "id": 7000901,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1075,
+                        "currency": "USD",
+                        "details": "2-room apartment with balcony",
+                        "added": "03.27.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000902,
-                        adres: 'Warsaw, Ursynow',
-                        price: '975 USD',
-                        details: '2-room apartment (open kitchen)',
-                        added: '2025-02-02',
-                        saved: 0,
-                        // image: '/img/apartment-02.jpg'
-                        image: 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg',
-                        category: 'living'
+                        "id": 7000902,
+                        "adres": "Warsaw, Center",
+                        "price": 1900,
+                        "currency": "EUR",
+                        "details": "250 sq.m. office space",
+                        "added": "02.02.2025",
+                        "saved": 1,
+                        "image": "https://www.rentfurniture.com/office/img/axton.jpg",
+                        "category": "business"
                     },
                     {
-                        id: 7000903,
-                        adres: 'Warsaw, Praga PLN',
-                        price: '1020 USD',
-                        details: '2-room apartment with cosy kitchen',
-                        added: '2025-03-08',
-                        saved: 0,
-                        //image: '/img/apartment-03.jpg'
-                        image: 'https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg',
-                        category: 'living'
+                        "id": 7000903,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 1020,
+                        "currency": "USD",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "01.31.2025",
+                        "saved": 1,
+                        "image": "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000904,
-                        adres: 'Warsaw, Center',
-                        price: '715 USD',
-                        details: '1-room apartment',
-                        added: '2025-03-19',
-                        saved: 0,
-                        //image: '/img/apartment-04.jpg'
-                        image: 'https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg',
-                        category: 'living'
+                        "id": 7000904,
+                        "adres": "Warsaw, Center",
+                        "price": 715,
+                        "currency": "EUR",
+                        "details": "1-room apartment",
+                        "added": "01.29.2025",
+                        "saved": 0,
+                        "image": "https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000905,
-                        adres: 'Warsaw, Center',
-                        price: '1900 USD',
-                        details: '250 sq.m. office space',
-                        added: '2025-01-12',
-                        saved: 1,
-                        //image: '/img/apartment-05.jpg'
-                        image: 'https://www.rentfurniture.com/office/img/axton.jpg',
-                        category: 'business'
+                        "id": 7000905,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 975,
+                        "currency": "USD",
+                        "details": "2-room apartment (open kitchen)",
+                        "added": "02.02.2025",
+                        "saved": 0,
+                        "image": "https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000906,
-                        adres: 'Warsaw, Mokotow',
-                        price: '1615 USD',
-                        details: '3-room PREMIUM apartment',
-                        added: '2025-03-19',
-                        saved: 0,
-                        //image: '/img/apartment-06.jpg'
-                        image: 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg',
-                        category: 'living'
+                        "id": 7000906,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1615,
+                        "currency": "EUR",
+                        "details": "3-room PREMIUM apartment",
+                        "added": "01.31.2025",
+                        "saved": 0,
+                        "image": "https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000907,
-                        adres: 'Warsaw, Ursus',
-                        price: '1775 USD',
-                        details: '250 sq.m. office space',
-                        added: '2025-03-02',
-                        saved: 1,
-                        //image: '/img/apartment-07.jpg'
-                        image: 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg',
-                        category: 'business'
+                        "id": 7000907,
+                        "adres": "Warsaw, Ursus",
+                        "price": 1775,
+                        "currency": "USD",
+                        "details": "220 sq.m. office space",
+                        "added": "02.03.2025",
+                        "saved": 1,
+                        "image": "https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg",
+                        "category": "business"
                     },
                     {
-                        id: 7000908,
-                        adres: 'Warsaw, Praga PLN',
-                        price: '2410 USD',
-                        details: 'Ready fashion store, 115 sq.m.',
-                        added: '2025-03-08',
-                        saved: 0,
-                        //image: '/img/apartment-08.jpg'
-                        image: 'https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg',
-                        category: 'business'
+                        "id": 7000908,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 2410,
+                        "currency": "EUR",
+                        "details": "Ready fashion store, 115 sq.m.",
+                        "added": "02.06.2025",
+                        "saved": 1,
+                        "image": "https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg",
+                        "category": "business"
                     },
                     {
-                        id: 7000909,
-                        adres: 'Warsaw, Center',
-                        price: '1305 USD',
-                        details: '230 sq.m. office space',
-                        added: '2025-02-24',
-                        saved: 0,
-                        //image: '/img/apartment-09.jpg'
-                        image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
-                        category: 'business'
+                        "id": 7000909,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1075,
+                        "currency": "EUR",
+                        "details": "2-room apartment with balcony",
+                        "added": "02.09.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000910,
-                        adres: 'Warsaw, Wawer',
-                        price: '1550 USD',
-                        details: 'Shop (80 sq.m.) for rent in Shopping Mall',
-                        added: '2025-03-02',
-                        saved: 0,
-                        //image: '/img/apartment-10.jpg'
-                        image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
-                        category: 'business'
+                        "id": 7000910,
+                        "adres": "Warsaw, Center",
+                        "price": 1305,
+                        "currency": "USD",
+                        "details": "190 sq.m. office space",
+                        "added": "02.12.2025",
+                        "saved": 1,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "business"
                     },
                     {
-                        id: 7000911,
-                        adres: 'Warsaw, Mokotow',
-                        price: '1075 USD',
-                        details: '2-room apartment with balcony',
-                        added: '2024-03-11',
-                        saved: 0,
-                        //image: '/img/apartment-01.jpg'
-                        image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
-                        category: 'living'
+                        "id": 7000911,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 975,
+                        "currency": "EUR",
+                        "details": "2-room apartment (open kitchen)",
+                        "added": "02.10.2025",
+                        "saved": 0,
+                        "image": "https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000912,
-                        adres: 'Warsaw, Ursynow',
-                        price: '975 USD',
-                        details: '2-room apartment (open kitchen)',
-                        added: '2025-02-02',
-                        saved: 0,
-                        // image: '/img/apartment-02.jpg'
-                        image: 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg',
-                        category: 'living'
+                        "id": 7000912,
+                        "adres": "Warsaw, Wawer",
+                        "price": 1550,
+                        "currency": "USD",
+                        "details": "Shop (80 sq.m.) for rent in Shopping Mall",
+                        "added": "02.08.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "business"
                     },
                     {
-                        id: 7000913,
-                        adres: 'Warsaw, Praga PLN',
-                        price: '1020 USD',
-                        details: '2-room apartment with cosy kitchen',
-                        added: '2025-03-08',
-                        saved: 0,
-                        //image: '/img/apartment-03.jpg'
-                        image: 'https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg',
-                        category: 'living'
+                        "id": 7000913,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 1020,
+                        "currency": "EUR",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.06.2025",
+                        "saved": 0,
+                        "image": "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000914,
-                        adres: 'Warsaw, Center',
-                        price: '715 USD',
-                        details: '1-room apartment',
-                        added: '2025-03-19',
-                        saved: 0,
-                        //image: '/img/apartment-04.jpg'
-                        image: 'https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg',
-                        category: 'living'
+                        "id": 7000914,
+                        "adres": "Warsaw, Center",
+                        "price": 715,
+                        "currency": "EUR",
+                        "details": "1-room apartment",
+                        "added": "02.10.2025",
+                        "saved": 0,
+                        "image": "https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000915,
-                        adres: 'Warsaw, Center',
-                        price: '1900 USD',
-                        details: '250 sq.m. office space',
-                        added: '2025-01-12',
-                        saved: 0,
-                        //image: '/img/apartment-05.jpg'
-                        image: 'https://www.rentfurniture.com/office/img/axton.jpg',
-                        category: 'business'
+                        "id": 7000915,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 1900,
+                        "currency": "USD",
+                        "details": "315 sq.m. office space",
+                        "added": "02.08.2025",
+                        "saved": 0,
+                        "image": "https://www.rentfurniture.com/office/img/axton.jpg",
+                        "category": "business"
                     },
                     {
-                        id: 7000916,
-                        adres: 'Warsaw, Mokotow',
-                        price: '1615 USD',
-                        details: '3-room PREMIUM apartment',
-                        added: '2025-03-19',
-                        saved: 0,
-                        //image: '/img/apartment-06.jpg'
-                        image: 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg',
-                        category: 'living'
+                        "id": 7000916,
+                        "adres": "London, Center",
+                        "price": 1200,
+                        "currency": "USD",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.06.2025",
+                        "saved": 1,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000917,
-                        adres: 'Warsaw, Ursus',
-                        price: '1775 USD',
-                        details: '250 sq.m. office space',
-                        added: '2025-03-02',
-                        saved: 0,
-                        //image: '/img/apartment-07.jpg'
-                        image: 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg',
-                        category: 'business'
+                        "id": 7000917,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1615,
+                        "currency": "EUR",
+                        "details": "3-room PREMIUM apartment",
+                        "added": "02.04.2025",
+                        "saved": 1,
+                        "image": "https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000918,
-                        adres: 'Warsaw, Praga PLN',
-                        price: '2410 USD',
-                        details: 'Ready fashion store, 115 sq.m.',
-                        added: '2025-03-08',
-                        saved: 0,
-                        //image: '/img/apartment-08.jpg'
-                        image: 'https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg',
-                        category: 'business'
+                        "id": 7000918,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 975,
+                        "currency": "USD",
+                        "details": "2-room apartment (open kitchen)",
+                        "added": "02.07.2025",
+                        "saved": 0,
+                        "image": "https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000919,
-                        adres: 'Warsaw, Center',
-                        price: '1305 USD',
-                        details: '230 sq.m. office space',
-                        added: '2025-02-24',
-                        saved: 1,
-                        //image: '/img/apartment-09.jpg'
-                        image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
-                        category: 'living'
+                        "id": 7000919,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1615,
+                        "currency": "EUR",
+                        "details": "3-room PREMIUM apartment",
+                        "added": "02.10.2025",
+                        "saved": 0,
+                        "image": "https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg",
+                        "category": "living"
                     },
                     {
-                        id: 7000920,
-                        adres: 'Warsaw, Wawer',
-                        price: '1550 USD',
-                        details: 'Shop (80 sq.m.) for rent in Shopping Mall',
-                        added: '2025-03-02',
-                        saved: 1,
-                        //image: '/img/apartment-10.jpg'
-                        image: 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg',
-                        category: 'living'
+                        "id": 7000920,
+                        "adres": "Warsaw, Ursus",
+                        "price": 1775,
+                        "currency": "USD",
+                        "details": "220 sq.m. office space",
+                        "added": "02.13.2025",
+                        "saved": 0,
+                        "image": "https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000921,
+                        "adres": "London, Center",
+                        "price": 1200,
+                        "currency": "USD",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.11.2025",
+                        "saved": 1,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000922,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1075,
+                        "currency": "USD",
+                        "details": "2-room apartment with balcony",
+                        "added": "02.14.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000923,
+                        "adres": "Warsaw, Center",
+                        "price": 1900,
+                        "currency": "EUR",
+                        "details": "250 sq.m. office space",
+                        "added": "02.18.2025",
+                        "saved": 0,
+                        "image": "https://www.rentfurniture.com/office/img/axton.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000924,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 1020,
+                        "currency": "USD",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.16.2025",
+                        "saved": 0,
+                        "image": "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000925,
+                        "adres": "Warsaw, Center",
+                        "price": 715,
+                        "currency": "EUR",
+                        "details": "1-room apartment",
+                        "added": "02.14.2025",
+                        "saved": 1,
+                        "image": "https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000926,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 975,
+                        "currency": "USD",
+                        "details": "2-room apartment (open kitchen)",
+                        "added": "02.12.2025",
+                        "saved": 1,
+                        "image": "https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000927,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1615,
+                        "currency": "EUR",
+                        "details": "3-room PREMIUM apartment",
+                        "added": "02.10.2025",
+                        "saved": 0,
+                        "image": "https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000928,
+                        "adres": "Warsaw, Ursus",
+                        "price": 1775,
+                        "currency": "USD",
+                        "details": "220 sq.m. office space",
+                        "added": "04.01.2025",
+                        "saved": 0,
+                        "image": "https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000929,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 2410,
+                        "currency": "EUR",
+                        "details": "Ready fashion store, 115 sq.m.",
+                        "added": "04.04.2025",
+                        "saved": 0,
+                        "image": "https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000930,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1075,
+                        "currency": "EUR",
+                        "details": "2-room apartment with balcony",
+                        "added": "04.07.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000931,
+                        "adres": "Warsaw, Center",
+                        "price": 1305,
+                        "currency": "USD",
+                        "details": "190 sq.m. office space",
+                        "added": "04.10.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000932,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 975,
+                        "currency": "EUR",
+                        "details": "2-room apartment (open kitchen)",
+                        "added": "04.13.2025",
+                        "saved": 0,
+                        "image": "https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000933,
+                        "adres": "Warsaw, Wawer",
+                        "price": 1550,
+                        "currency": "USD",
+                        "details": "Shop (80 sq.m.) for rent in Shopping Mall",
+                        "added": "02.24.2025",
+                        "saved": 1,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000934,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 1020,
+                        "currency": "EUR",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.22.2025",
+                        "saved": 1,
+                        "image": "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000935,
+                        "adres": "Warsaw, Center",
+                        "price": 715,
+                        "currency": "EUR",
+                        "details": "1-room apartment",
+                        "added": "02.20.2025",
+                        "saved": 0,
+                        "image": "https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000936,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 1900,
+                        "currency": "USD",
+                        "details": "315 sq.m. office space",
+                        "added": "02.18.2025",
+                        "saved": 0,
+                        "image": "https://www.rentfurniture.com/office/img/axton.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000937,
+                        "adres": "London, Center",
+                        "price": 1200,
+                        "currency": "USD",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.16.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000938,
+                        "adres": "London, Center",
+                        "price": 1200,
+                        "currency": "USD",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.14.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000939,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1075,
+                        "currency": "USD",
+                        "details": "2-room apartment with balcony",
+                        "added": "02.12.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000940,
+                        "adres": "Warsaw, Center",
+                        "price": 1900,
+                        "currency": "EUR",
+                        "details": "250 sq.m. office space",
+                        "added": "02.15.2025",
+                        "saved": 0,
+                        "image": "https://www.rentfurniture.com/office/img/axton.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000941,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 1020,
+                        "currency": "USD",
+                        "details": "2-room apartment with cosy kitchen",
+                        "added": "02.18.2025",
+                        "saved": 0,
+                        "image": "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000942,
+                        "adres": "Warsaw, Center",
+                        "price": 715,
+                        "currency": "EUR",
+                        "details": "1-room apartment",
+                        "added": "02.21.2025",
+                        "saved": 1,
+                        "image": "https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000943,
+                        "adres": "Warsaw, Ursynow",
+                        "price": 975,
+                        "currency": "USD",
+                        "details": "2-room apartment (open kitchen)",
+                        "added": "02.24.2025",
+                        "saved": 1,
+                        "image": "https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000944,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1615,
+                        "currency": "EUR",
+                        "details": "3-room PREMIUM apartment",
+                        "added": "02.28.2025",
+                        "saved": 0,
+                        "image": "https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000945,
+                        "adres": "Warsaw, Ursus",
+                        "price": 1775,
+                        "currency": "USD",
+                        "details": "220 sq.m. office space",
+                        "added": "02.26.2025",
+                        "saved": 0,
+                        "image": "https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000946,
+                        "adres": "Warsaw, Praga PLN",
+                        "price": 2410,
+                        "currency": "EUR",
+                        "details": "Ready fashion store, 115 sq.m.",
+                        "added": "02.24.2025",
+                        "saved": 0,
+                        "image": "https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg",
+                        "category": "business"
+                    },
+                    {
+                        "id": 7000947,
+                        "adres": "Warsaw, Mokotow",
+                        "price": 1075,
+                        "currency": "EUR",
+                        "details": "2-room apartment with balcony",
+                        "added": "02.22.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "living"
+                    },
+                    {
+                        "id": 7000948,
+                        "adres": "Warsaw, Center",
+                        "price": 1305,
+                        "currency": "USD",
+                        "details": "190 sq.m. office space",
+                        "added": "04.01.2025",
+                        "saved": 0,
+                        "image": "https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg",
+                        "category": "business"
                     }
                 ]
 
@@ -1089,11 +1485,11 @@ font-style: oblique;
 
                 const apartmentsContainer = document.getElementById('apartments-container');
 
-                const modal = document.getElementById("myModal");
-                const modalApartCard = document.getElementById("modal-apart-card");
-
                 const offersCount = document.getElementById("offers-count-number");
                 offersCount.innerText = aparts.length;
+
+                const modal = document.getElementById("myModal");
+                const modalApartCard = document.getElementById("modal-apart-card");
 
 
                 function closeModal() {
@@ -1145,7 +1541,7 @@ font-style: oblique;
             <img class="apartment-image" src=${apart.image} alt=${apart.details} style="width:300px;height:200px;">
         </div>
         <div class="card-footer">
-            	<p class="apartment-price">${apart.price}</p>
+            	<p class="apartment-price">${apart.price} ${apart.currency}</p>
             	<p class="apartment-adress">${apart.adres}</p>
             	<p class="apartment-details">${apart.details}</p>
         </div>
@@ -1162,7 +1558,7 @@ font-style: oblique;
         <hr>
         <p class="modal-apartment-details"><strong>Description: </strong><br>${apart.details}</p>
                 <p class="modal-apartment-adress"><strong>Location: </strong><br>${apart.adres}</p>
-       <p class="modal-apartment-price"><strong>Price: </strong><br>${apart.price}/per month</p>
+       <p class="modal-apartment-price"><strong>Price: </strong><br>${apart.price} ${apart.currency}/per month</p>
        <p class="modal-added-time" id="modal-apartment-date"><strong>Was added: </strong><br>${apart.added}</p>           
         <p class="modal-apartment-category"><strong>Real estate category: </strong><br>for ${apart.category}</p>
                  <p class="modal-apartment-id"><strong>Unique ID number: </strong><br>${apart.id}</p>
@@ -1327,13 +1723,19 @@ font-style: oblique;
 
                 function generateEmptyContent() {
                     return `
-        <div class="empty-list">
-            <h3 class="empty-list-title">Your list is empty</h3>
-                      <img class="empty-list-image" src="https://studioopinii.pl/wp-content/uploads/2016/01/list.jpg" alt"empty list" style="width:200px;height:200px;">
-              <p class="empty-list-text">Explore the full list of our offers <a href="#contacts" class="">here</a></p>           
-            </div>
+                    <div class="apartment-card">
+            <div class="apartment-card-top">
+            <img class="apartment-image" src="https://studioopinii.pl/wp-content/uploads/2016/01/list.jpg" alt="empty list" style="width:300px;height:200px;">
+        </div>
+        <div class="card-footer">
+            	<p class="apartment-price">Your list is empty</p>
+            	<p class="apartment-details">Explore the full list of our offers</p>
+        <button class="order-button" onclick="">Show full list</button>
+               </div>
+</div>
             `;
                 }
+
 
 
                 const ArrayLinks = document.querySelectorAll('.savedAparts, .businessAparts, .livingAparts, .aparts');
@@ -1367,6 +1769,12 @@ font-style: oblique;
                             document.getElementById("offers-count").style.display = "block";
                             apartmentsContainer.innerHTML = '';
                             offersCount.innerText = apartmentsArray.length;
+                            offersCount.style.transform = 'scale(1.5)';
+
+                            setTimeout(() => {
+                                offersCount.style.transform = 'scale(1)';
+
+                            }, 300);
                             apartmentsArray.forEach(renderApartment);
                         }
                     });
@@ -1382,6 +1790,8 @@ font-style: oblique;
                         this.classList.add('active-page');
                     });
                 });
+
+
             </script>
 </body>
 
