@@ -192,6 +192,39 @@
             color: red;
         }
 
+        .page-title {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .page-title-image {
+            display: block;
+            width: 100%;
+            height: 350px;
+        }
+
+
+        .page-title-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 254, 254, 0.8);
+            color: black;
+            font-size: 40px;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .page-title-text p {
+            margin-top: 10px;
+            font-size: 30px;
+        }
+
+
+
+
         .apartments-container {
             display: flex;
             flex-wrap: wrap;
@@ -862,6 +895,15 @@
             <li><a href="" class="savedAparts">Your list</a></li>
             <li><a href="#contacts">Contacts</a></li>
         </ul>
+        <div class="page-title">
+            <div class="page-title-text">
+                <h4>RENT SPACE <br>for Living and Business</h4>
+                <p>FIND YOUR DREAM SPACE WITH US
+                    <p />
+            </div>
+            <img src="src/img/background-2.jpg"
+                class="page-title-image" alt="city-lanscape"></img>
+        </div>
         <div id="apartments-container" class="apartments-container"></div>
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
