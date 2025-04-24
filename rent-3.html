@@ -202,6 +202,7 @@
             display: block;
             width: 100%;
             height: 350px;
+            object-fit: cover;
         }
 
 
@@ -212,14 +213,18 @@
             transform: translate(-50%, -50%);
             background-color: rgba(10, 10, 10, 0.7);
             color: white;
-            font-size: 40px;
+            /*font-size: 40px;*/
+            /*font-size: 4vw;*/
+            font-size: clamp(12px, 5vw + 10px, 40px);
             border-radius: 10px;
             padding: 15px;
         }
 
         .page-title-text p {
             margin-top: 10px;
-            font-size: 30px;
+            /*font-size: 30px;*/
+            /*font-size: 2.5vw;*/
+            font-size: clamp(8px, 5vw + 2px, 25px);
         }
 
 
@@ -462,11 +467,27 @@
 
 
         .modal-image-container {
+        position: relative;
             width: 95%;
             height: 190px;
             display: flex;
             justify-content: center;
             margin: 10px 5px;
+        }
+        
+        
+        .carousel-count {
+           z-index: 1;
+                      color: white;
+           font-size: 18px;
+           font-weight: bold;
+            background-color: rgba(10, 10, 10, 0.7);
+            color: white;
+            border-radius: 5px;
+            margin: auto -2.5em auto 0;
+            padding: 0px 5px;
+            
+           
         }
 
         .modal-image-container img {
@@ -900,9 +921,9 @@
                 <h4>RENT SPACE <br>for Living and Business</h4>
                 <p>FIND YOUR DREAM SPACE WITH US
                     <p />
-            </div>
+            </div>    
             <img src="src/img/background-3.jpg"
-                class="page-title-image" alt="city-lanscape"></img>
+            class="page-title-image" alt="city-lanscape"></img>
         </div>
         <div id="apartments-container" class="apartments-container"></div>
         <div id="myModal" class="modal">
@@ -983,6 +1004,7 @@
                         "price": 1075,
                         "currency": "USD",
                         "details": "2-room apartment with balcony",
+                        "size": 52,
                         "added": "27.03.2025",
                         "saved": 0,
                         "image": ['https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
@@ -994,6 +1016,7 @@
                         "price": 1900,
                         "currency": "EUR",
                         "details": "250 sq.m. office space",
+                        "size": 250,
                         "added": "02.02.2025",
                         "saved": 1,
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg", "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg", 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
@@ -1005,6 +1028,7 @@
                         "price": 1020,
                         "currency": "USD",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 43,
                         "added": "01.31.2025",
                         "saved": 1,
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg", 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
@@ -1016,6 +1040,7 @@
                         "price": 715,
                         "currency": "EUR",
                         "details": "1-room apartment",
+                        "size": 38,
                         "added": "01.29.2025",
                         "saved": 0,
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
@@ -1027,6 +1052,7 @@
                         "price": 975,
                         "currency": "USD",
                         "details": "2-room apartment (open kitchen)",
+                        "size": 52,
                         "added": "02.02.2025",
                         "saved": 0,
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
@@ -1038,6 +1064,7 @@
                         "price": 1615,
                         "currency": "EUR",
                         "details": "3-room PREMIUM apartment",
+                        "size": 73,
                         "added": "01.31.2025",
                         "saved": 0,
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
@@ -1049,6 +1076,7 @@
                         "price": 1775,
                         "currency": "USD",
                         "details": "220 sq.m. office space",
+                        "size": 220,
                         "added": "02.03.2025",
                         "saved": 1,
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
@@ -1060,6 +1088,7 @@
                         "price": 2410,
                         "currency": "EUR",
                         "details": "Ready fashion store, 115 sq.m.",
+                        "size": 115,
                         "added": "02.06.2025",
                         "saved": 1,
                         "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
@@ -1071,6 +1100,7 @@
                         "price": 1075,
                         "currency": "EUR",
                         "details": "2-room apartment with balcony",
+                        "size": 47,
                         "added": "02.09.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1082,6 +1112,7 @@
                         "price": 1305,
                         "currency": "USD",
                         "details": "190 sq.m. office space",
+                        "size": 190,
                         "added": "02.12.2025",
                         "saved": 1,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1093,6 +1124,7 @@
                         "price": 975,
                         "currency": "EUR",
                         "details": "2-room apartment (open kitchen)",
+                        "size": 51,
                         "added": "02.10.2025",
                         "saved": 0,
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
@@ -1104,6 +1136,7 @@
                         "price": 1550,
                         "currency": "USD",
                         "details": "Shop (80 sq.m.) for rent in Shopping Mall",
+                        "size": 80,
                         "added": "02.08.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1115,6 +1148,7 @@
                         "price": 1020,
                         "currency": "EUR",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 49,
                         "added": "02.06.2025",
                         "saved": 0,
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
@@ -1126,6 +1160,7 @@
                         "price": 715,
                         "currency": "EUR",
                         "details": "1-room apartment",
+                        "size": 32,
                         "added": "02.10.2025",
                         "saved": 0,
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
@@ -1137,6 +1172,7 @@
                         "price": 1900,
                         "currency": "USD",
                         "details": "315 sq.m. office space",
+                        "size": 315,
                         "added": "02.08.2025",
                         "saved": 0,
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
@@ -1148,6 +1184,7 @@
                         "price": 1200,
                         "currency": "USD",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 53,
                         "added": "02.06.2025",
                         "saved": 1,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1159,6 +1196,7 @@
                         "price": 1615,
                         "currency": "EUR",
                         "details": "3-room PREMIUM apartment",
+                        "size": 85,
                         "added": "02.04.2025",
                         "saved": 1,
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
@@ -1170,6 +1208,7 @@
                         "price": 975,
                         "currency": "USD",
                         "details": "2-room apartment (open kitchen)",
+                        "size": 47,
                         "added": "02.07.2025",
                         "saved": 0,
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
@@ -1181,6 +1220,7 @@
                         "price": 1615,
                         "currency": "EUR",
                         "details": "3-room PREMIUM apartment",
+                        "size": 73,
                         "added": "02.10.2025",
                         "saved": 0,
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
@@ -1192,6 +1232,7 @@
                         "price": 1775,
                         "currency": "USD",
                         "details": "220 sq.m. office space",
+                        "size": 220,
                         "added": "02.13.2025",
                         "saved": 0,
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
@@ -1203,6 +1244,7 @@
                         "price": 1200,
                         "currency": "USD",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 64,
                         "added": "02.11.2025",
                         "saved": 1,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1214,6 +1256,7 @@
                         "price": 1075,
                         "currency": "USD",
                         "details": "2-room apartment with balcony",
+                        "size": 54,
                         "added": "02.14.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1225,6 +1268,7 @@
                         "price": 1900,
                         "currency": "EUR",
                         "details": "250 sq.m. office space",
+                        "size": 250,
                         "added": "02.18.2025",
                         "saved": 0,
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
@@ -1236,6 +1280,7 @@
                         "price": 1020,
                         "currency": "USD",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 52,
                         "added": "02.16.2025",
                         "saved": 0,
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
@@ -1247,6 +1292,7 @@
                         "price": 715,
                         "currency": "EUR",
                         "details": "1-room apartment",
+                        "size": 36,
                         "added": "02.14.2025",
                         "saved": 1,
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
@@ -1258,6 +1304,7 @@
                         "price": 975,
                         "currency": "USD",
                         "details": "2-room apartment (open kitchen)",
+                        "size": 47,
                         "added": "02.12.2025",
                         "saved": 1,
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
@@ -1269,6 +1316,7 @@
                         "price": 1615,
                         "currency": "EUR",
                         "details": "3-room PREMIUM apartment",
+                        "size": 92,
                         "added": "02.10.2025",
                         "saved": 0,
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
@@ -1280,6 +1328,7 @@
                         "price": 1775,
                         "currency": "USD",
                         "details": "220 sq.m. office space",
+                        "size": 220,
                         "added": "04.01.2025",
                         "saved": 0,
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
@@ -1291,6 +1340,7 @@
                         "price": 2410,
                         "currency": "EUR",
                         "details": "Ready fashion store, 115 sq.m.",
+                        "size": 115,
                         "added": "04.04.2025",
                         "saved": 0,
                         "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
@@ -1302,6 +1352,7 @@
                         "price": 1075,
                         "currency": "EUR",
                         "details": "2-room apartment with balcony",
+                        "size": 57,
                         "added": "04.07.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1313,6 +1364,7 @@
                         "price": 1305,
                         "currency": "USD",
                         "details": "190 sq.m. office space",
+                        "size": 190,
                         "added": "04.10.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1324,6 +1376,7 @@
                         "price": 975,
                         "currency": "EUR",
                         "details": "2-room apartment (open kitchen)",
+                        "size": 50,
                         "added": "04.13.2025",
                         "saved": 0,
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
@@ -1335,6 +1388,7 @@
                         "price": 1550,
                         "currency": "USD",
                         "details": "Shop (80 sq.m.) for rent in Shopping Mall",
+                        "size": 80,
                         "added": "02.24.2025",
                         "saved": 1,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1346,6 +1400,7 @@
                         "price": 1020,
                         "currency": "EUR",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 49,
                         "added": "02.22.2025",
                         "saved": 1,
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
@@ -1357,6 +1412,7 @@
                         "price": 715,
                         "currency": "EUR",
                         "details": "1-room apartment",
+                        "size": 38,
                         "added": "02.20.2025",
                         "saved": 0,
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
@@ -1368,6 +1424,7 @@
                         "price": 1900,
                         "currency": "USD",
                         "details": "315 sq.m. office space",
+                        "size": 315,
                         "added": "02.18.2025",
                         "saved": 0,
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
@@ -1379,6 +1436,7 @@
                         "price": 1200,
                         "currency": "USD",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 57,
                         "added": "02.16.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1390,6 +1448,7 @@
                         "price": 1200,
                         "currency": "USD",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 57,
                         "added": "02.14.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1401,6 +1460,7 @@
                         "price": 1075,
                         "currency": "USD",
                         "details": "2-room apartment with balcony",
+                        "size": 48,
                         "added": "02.12.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1412,6 +1472,7 @@
                         "price": 1900,
                         "currency": "EUR",
                         "details": "250 sq.m. office space",
+                        "size": 250,
                         "added": "02.15.2025",
                         "saved": 0,
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
@@ -1423,6 +1484,7 @@
                         "price": 1020,
                         "currency": "USD",
                         "details": "2-room apartment with cosy kitchen",
+                        "size": 50,
                         "added": "02.18.2025",
                         "saved": 0,
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
@@ -1434,6 +1496,7 @@
                         "price": 715,
                         "currency": "EUR",
                         "details": "1-room apartment",
+                        "size": 41,
                         "added": "02.21.2025",
                         "saved": 1,
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
@@ -1445,6 +1508,7 @@
                         "price": 975,
                         "currency": "USD",
                         "details": "2-room apartment (open kitchen)",
+                        "size": 60,
                         "added": "02.24.2025",
                         "saved": 1,
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
@@ -1456,6 +1520,7 @@
                         "price": 1615,
                         "currency": "EUR",
                         "details": "3-room PREMIUM apartment",
+                        "size": 78,
                         "added": "02.28.2025",
                         "saved": 0,
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
@@ -1467,6 +1532,7 @@
                         "price": 1775,
                         "currency": "USD",
                         "details": "220 sq.m. office space",
+                        "size": 220,
                         "added": "02.26.2025",
                         "saved": 0,
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
@@ -1478,6 +1544,7 @@
                         "price": 2410,
                         "currency": "EUR",
                         "details": "Ready fashion store, 115 sq.m.",
+                        "size": 115,
                         "added": "02.24.2025",
                         "saved": 0,
                         "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
@@ -1489,6 +1556,7 @@
                         "price": 1075,
                         "currency": "EUR",
                         "details": "2-room apartment with balcony",
+                        "size": 53,
                         "added": "02.22.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1500,6 +1568,7 @@
                         "price": 1305,
                         "currency": "USD",
                         "details": "190 sq.m. office space",
+                        "size": 190,
                         "added": "04.01.2025",
                         "saved": 0,
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
@@ -1517,12 +1586,16 @@
 
 
                 function closeModal() {
-
+const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
+                    
+                    if (modalWindow) {
+                    
                     document.body.style.position = '';
                     document.body.style.top = '';
-                    document.getElementById(`apartment-${modalClose.id}`).scrollIntoView({ behavior: 'instant' });
+                    modalWindow.scrollIntoView({ behavior: 'instant' });
                     modal.style.display = "none";
                     modalApartCard.innerHTML = "";
+                }
                 }
 
                 const modalClose = document.getElementsByClassName("close")[0];
@@ -1583,7 +1656,9 @@
                     return `
         
         <div class="modal-image-container">
+            
             <button id="left-btn"><i class="fas fa-arrow-left"></i></button>
+            <p class="carousel-count"><span id="carousel-count-current">0</span>/<span id="carousel-count-total">0</span></p>
             <img id="carousel" src="" alt="">
             <button id="right-btn"><i class="fas fa-arrow-right"></i></button>
         </div>
@@ -1591,6 +1666,7 @@
         <p class="modal-apartment-details"><strong>Description: </strong><br>${apart.details}</p>
                 <p class="modal-apartment-adress"><strong>Location: </strong><br>${apart.adres}</p>
        <p class="modal-apartment-price"><strong>Price: </strong><br>${apart.price} ${apart.currency}/per month</p>
+       <p class="modal-apartment-size"><strong>Size: </strong><br>${apart.size} sq. m.</p>
        <p class="modal-added-time" id="modal-apartment-date"><strong>Was added: </strong><br>${apart.added}</p>           
         <p class="modal-apartment-category"><strong>Real estate category: </strong><br>for ${apart.category}</p>
                  <p class="modal-apartment-id"><strong>Unique ID number: </strong><br> ${apart.id}</p>
@@ -1671,7 +1747,6 @@
                     const imageOverlayDiv = modalApartDiv.querySelector('.apartment-image-overlay');
                     modalApartCard.appendChild(modalApartDiv);
                     initializeCarousel(apart.image);
-
                     document.getElementById("modal-apartment-date").innerHTML = datesCount(apart.added)
                     const modalIsSavedButton = document.getElementById("modal-is-saved-button")
                     modalIsSavedButton.addEventListener('click', () => handleSaveButtonClick(apart));
@@ -1775,6 +1850,7 @@
                 ArrayLinks.forEach(link => {
                     link.addEventListener('click', function (event) {
                         event.preventDefault();
+                        closeModal();
                         const allAparts = aparts;
                         const businessAparts = aparts.filter(apartment => apartment.category === 'business');
                         const livingAparts = aparts.filter(apartment => apartment.category === 'living');
@@ -1815,25 +1891,40 @@
                 });
 
 
+               
                 function initializeCarousel(imageArray) {
 
                     const rightButton = document.getElementById('right-btn');
                     const leftButton = document.getElementById('left-btn');
                     const imgElement = document.getElementById('carousel');
-
+                
+                const carouselElementPosition = document.getElementById('carousel-count-current');
+               const carouselTotalElements = document.getElementById('carousel-count-total');
+               carouselElementPosition.innerText = 1;
+               carouselTotalElements.innerText = imageArray.length;
+       
                     let position = 0;
                     imgElement.src = imageArray[position];
                     const updateImage = () => {
                         imgElement.src = imageArray[position];
+                    carouselElementPosition.innerText = position +1;
+                    carouselTotalElements.innerText = imageArray.length;
                     };
+                    
+                    
 
                     if (imageArray.length == 1) {
+                        carouselElementPosition.innerText = 1;
+                    carouselTotalElements.innerText = imageArray.length;
+                        
                         rightButton.style.display = 'none';
                         leftButton.style.display = 'none';
+                            
                     } else {
                         rightButton.addEventListener('click', () => {
-                            position = (position + 1) % imageArray.length; // Loop back to start
+                            position = (position + 1) % imageArray.length;
                             updateImage();
+                            
                         });
                         leftButton.addEventListener('click', () => {
                             position = (position - 1 + imageArray.length) % imageArray.length;
