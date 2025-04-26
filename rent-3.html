@@ -23,8 +23,6 @@
         }
 
 
-
-
         .header {
             position: sticky;
             z-index: 1;
@@ -113,7 +111,6 @@
         .burger-nav-list li:hover::before {
             transform: translateX(0);
             z-index: -1;
-
         }
 
         .burger-icon {
@@ -236,7 +233,6 @@
             justify-content: center;
             column-gap: 10px;
             row-gap: 10px;
-            /* border-style: solid; */
             background-color: #c7cbd5;
             margin: 0px 20px;
         }
@@ -270,7 +266,6 @@
 
         .apartment-image-overlay {
             position: absolute;
-            /* текст потім поверху*/
             top: 0;
             left: 0;
             width: 100%;
@@ -347,7 +342,8 @@
         }
 
         .details-button,
-        .order-button {
+        .order-button,
+        .empty-list-button {
             display: block;
             margin: auto;
             border: 1px solid black;
@@ -360,26 +356,32 @@
             box-shadow: 0 3px #999;
         }
 
-        .order-button {
-            border: 1px solid white;
-            margin-top: 5px;
-        }
-
-
         .details-button:hover,
-        .order-button:hover {
+        .order-button:hover,
+        .empty-list-button:hover {
             cursor: pointer;
             background-color: #333;
         }
 
 
         .details-button:active,
-        .order-button:active {
+        .order-button:active,
+        .empty-list-button:active {
             background-color: #555;
             box-shadow: 0 1px #666;
             transform: translateY(2px);
         }
 
+
+        .order-button {
+            border: 1px solid white;
+            margin-top: 5px;
+        }
+
+        .empty-list-button {
+            border: 1px solid white;
+            margin-bottom: 3px;
+        }
 
 
         h1 {
@@ -455,7 +457,6 @@
             height: fit-content;
             line-height: 25px;
             border-radius: 10px;
-
             font-size: 18px;
             color: black;
             overflow: hidden;
@@ -467,31 +468,28 @@
 
 
         .modal-image-container {
-        position: relative;
+            position: relative;
             width: 95%;
             height: 190px;
             display: flex;
             justify-content: center;
             margin: 10px 5px;
         }
-        
-        
+
+
         .carousel-count {
-           z-index: 1;
-                      color: white;
-           font-size: 18px;
-           font-weight: bold;
+            z-index: 1;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
             background-color: rgba(10, 10, 10, 0.7);
             color: white;
             border-radius: 5px;
             margin: auto -2.5em auto 0;
             padding: 0px 5px;
-            
-           
         }
 
         .modal-image-container img {
-
             border: 1px solid white;
             border-radius: 10px;
             object-fit: cover;
@@ -557,17 +555,13 @@
             right: 20px;
             font-size: 38px;
             font-weight: bold;
-
-
             z-index: 1;
-
         }
 
         .close:hover {
             text-decoration: none;
             cursor: pointer;
             color: grey;
-
         }
 
         .contacts {
@@ -575,7 +569,6 @@
             margin-top: 20px;
             text-align: center;
             color: black;
-
         }
 
 
@@ -597,8 +590,6 @@
 
         .contact-form-container {
             margin: auto;
-            /*height: 400px;*/
-            /* width: 450px; */
             width: 95%;
             padding: 5px 20px;
             color: black;
@@ -613,7 +604,6 @@
             padding: 20px;
             color: white;
             box-shadow: 0 3px #999;
-            /*margin-left: 10px;*/
         }
 
         .contact-form hr,
@@ -637,7 +627,6 @@
             overflow: auto;
             font-size: 14px;
             font-style: italic;
-
         }
 
 
@@ -645,7 +634,6 @@
             height: 125px;
             width: 80%;
             resize: none;
-
         }
 
         #mailing-checkbox {
@@ -666,8 +654,6 @@
             cursor: pointer;
             width: 90px;
             box-shadow: 0 3px #999;
-            /*color: white;*/
-
         }
 
         .contact-form-buttons input:hover {
@@ -680,7 +666,6 @@
             box-shadow: 0 1px #666;
             transform: translateY(2px);
         }
-
 
 
         .contact-details {
@@ -807,7 +792,6 @@
         }
 
 
-
         .social-icons {
             display: flex;
             justify-content: center;
@@ -889,10 +873,10 @@
                 <h2 class="header-text">RENT SPACE <br>for Living and Business</h2>
             </div>
             <ul id="header-nav" class="header-nav-list">
-                <li><a href="" class="aparts active-page">All offers</a></li>
+                <li><a href="" class="aparts active-page" id="aparts">All offers</a></li>
                 <li><a href="" class="livingAparts">For living</a></li>
                 <li><a href="" class="businessAparts">For business</a></li>
-                <li><a href="" class="savedAparts">Your list</a></li>
+                <li><a href="" class="savedAparts" id="savedAparts">Your list</a></li>
                 <li><a href="#contacts">Contacts</a></li>
             </ul>
             <a href="javascript:void(0);" class="burger-icon" onclick="burgerTrigger()">
@@ -921,11 +905,16 @@
                 <h4>RENT SPACE <br>for Living and Business</h4>
                 <p>FIND YOUR DREAM SPACE WITH US
                     <p />
-            </div>    
-            <img src="src/img/background-3.jpg"
-            class="page-title-image" alt="city-lanscape"></img>
+            </div>
+
+            <img src="https://privatart.github.io/rent-space/src/img/background-3.jpg" class="page-title-image"
+                alt="city-lanscape"></img>
+            <!-- <img src="src/img/background-3.jpg" -->
         </div>
+        <button class="empty-list-button" onclick="emptySavedList()">Clear my list
+        </button>
         <div id="apartments-container" class="apartments-container"></div>
+
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
             <div class="modal-content">
@@ -1586,16 +1575,16 @@
 
 
                 function closeModal() {
-const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
-                    
+                    const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
+
                     if (modalWindow) {
-                    
-                    document.body.style.position = '';
-                    document.body.style.top = '';
-                    modalWindow.scrollIntoView({ behavior: 'instant' });
-                    modal.style.display = "none";
-                    modalApartCard.innerHTML = "";
-                }
+
+                        document.body.style.position = '';
+                        document.body.style.top = '';
+                        modalWindow.scrollIntoView({ behavior: 'instant' });
+                        modal.style.display = "none";
+                        modalApartCard.innerHTML = "";
+                    }
                 }
 
                 const modalClose = document.getElementsByClassName("close")[0];
@@ -1718,7 +1707,6 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
 <p><strong>Added: </strong>${daysDifference} days ago</p>`;
                 }
 
-                // Function to render an apartment card
                 function renderApartment(apart) {
                     const apartDiv = document.createElement('div');
                     apartDiv.classList.add('apartment-card');
@@ -1757,7 +1745,6 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
 
 
                     const handleOrderButtonClick = () => {
-
                         closeModal();
                         document.getElementById("contact-form").scrollIntoView({ behavior: "smooth" });
 
@@ -1837,7 +1824,7 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
         <div class="card-footer">
             	<p class="apartment-price">Your list is empty</p>
             	<p class="apartment-details">Explore the full list of our offers</p>
-        <button class="order-button" onclick="">Show full list</button>
+        <button class="order-button" onclick="document.getElementById('aparts').click()">Show full list</button>
                </div>
 </div>
             `;
@@ -1864,9 +1851,6 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
 
                         const arrayName = event.target.className;
 
-
-
-
                         const apartmentsArray = apartmentsMap[arrayName];
                         window.scrollTo(0, 0);
                         messageSnackbar(`Offers in this category: <span class="offers-count-number">${apartmentsArray.length}<span>`)
@@ -1891,40 +1875,38 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
                 });
 
 
-               
+
                 function initializeCarousel(imageArray) {
 
                     const rightButton = document.getElementById('right-btn');
                     const leftButton = document.getElementById('left-btn');
                     const imgElement = document.getElementById('carousel');
-                
-                const carouselElementPosition = document.getElementById('carousel-count-current');
-               const carouselTotalElements = document.getElementById('carousel-count-total');
-               carouselElementPosition.innerText = 1;
-               carouselTotalElements.innerText = imageArray.length;
-       
+
+                    const carouselElementPosition = document.getElementById('carousel-count-current');
+                    const carouselTotalElements = document.getElementById('carousel-count-total');
+                    carouselElementPosition.innerText = 1;
+                    carouselTotalElements.innerText = imageArray.length;
+
                     let position = 0;
                     imgElement.src = imageArray[position];
                     const updateImage = () => {
                         imgElement.src = imageArray[position];
-                    carouselElementPosition.innerText = position +1;
-                    carouselTotalElements.innerText = imageArray.length;
+                        carouselElementPosition.innerText = position + 1;
+                        carouselTotalElements.innerText = imageArray.length;
                     };
-                    
-                    
 
                     if (imageArray.length == 1) {
                         carouselElementPosition.innerText = 1;
-                    carouselTotalElements.innerText = imageArray.length;
-                        
+                        carouselTotalElements.innerText = imageArray.length;
+
                         rightButton.style.display = 'none';
                         leftButton.style.display = 'none';
-                            
+
                     } else {
                         rightButton.addEventListener('click', () => {
                             position = (position + 1) % imageArray.length;
                             updateImage();
-                            
+
                         });
                         leftButton.addEventListener('click', () => {
                             position = (position - 1 + imageArray.length) % imageArray.length;
@@ -1936,6 +1918,17 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
                 }
 
 
+                function emptySavedList() {
+                    const savedAparts = aparts.filter(apartment => apartment.saved === 1);
+
+                    savedAparts.forEach(apart => {
+                        apart.saved = 0
+                    });
+                    updateSavedApartmentsCounter();
+                    apartmentsContainer.innerHTML = generateEmptyContent();
+                    window.scrollTo(0, 0);
+
+                }
             </script>
 </body>
 
