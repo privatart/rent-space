@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="https://www.iconsdb.com/icons/preview/red/house-xxl.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -123,7 +124,9 @@
 
 
         .burger-nav-list {
-            display: none;
+            /*display: none;*/
+            left: -200px;
+            display: grid;
             position: fixed;
             top: 95px;
             z-index: 2;
@@ -198,7 +201,7 @@
         .page-title-image {
             display: block;
             width: 100%;
-            height: 350px;
+            height: 300px;
             object-fit: cover;
         }
 
@@ -224,9 +227,6 @@
             font-size: clamp(8px, 5vw + 2px, 25px);
         }
 
-
-
-
         .apartments-container {
             display: flex;
             flex-wrap: wrap;
@@ -239,6 +239,7 @@
 
 
         .apartment-card {
+
             margin: 20px;
             border: 1px solid black;
             border-radius: 10px;
@@ -247,6 +248,28 @@
             overflow: hidden;
             background-color: #F2F3F6;
             box-shadow: 0 3px #999;
+        }
+
+
+        .reserved {
+            pointer-events: none;
+            filter: grayscale(80%);
+            background-color: #c7cbd5;
+
+        }
+
+        .reserved-text {
+            position: absolute;
+            top: 20%;
+            transform: rotate(-20deg);
+            font-size: 50px;
+            font-weight: bold;
+            color: red;
+            text-shadow:
+                -2px -2px 0 white,
+                2px -2px 0 white,
+                -2px 2px 0 white,
+                2px 2px 0 white;
         }
 
 
@@ -379,6 +402,11 @@
         }
 
         .empty-list-button {
+            visibility: hidden;
+            position: fixed;
+            z-index: 2;
+            right: 5px;
+            top: 125px;
             border: 1px solid white;
             margin-bottom: 3px;
         }
@@ -894,7 +922,7 @@
             </div>
         </div>
         <ul id="burger-nav" class="burger-nav-list">
-            <li><a href="" class="aparts">All offers</a></li>
+            <li><a href="" class="aparts" id="burger-aparts">All offers</a></li>
             <li><a href="" class="livingAparts">For living</a></li>
             <li><a href="" class="businessAparts">For business</a></li>
             <li><a href="" class="savedAparts">Your list</a></li>
@@ -902,17 +930,15 @@
         </ul>
         <div class="page-title">
             <div class="page-title-text">
-                <h4>RENT SPACE <br>for Living and Business</h4>
+                <h4>RENT SPACE</h4>
                 <p>FIND YOUR DREAM SPACE WITH US
-                    <p />
+                    <p/>
             </div>
-
             <img src="https://privatart.github.io/rent-space/src/img/background-3.jpg" class="page-title-image"
                 alt="city-lanscape"></img>
-            <!-- <img src="src/img/background-3.jpg" -->
         </div>
-        <button class="empty-list-button" onclick="emptySavedList()">Clear my list
-        </button>
+        <button class='empty-list-button' id='empty-list-button' onclick="emptySavedList()"><i
+                class="fa-solid fa-broom"></i></button>
         <div id="apartments-container" class="apartments-container"></div>
 
         <div id="myModal" class="modal">
@@ -996,6 +1022,7 @@
                         "size": 52,
                         "added": "27.03.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ['https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
                         "category": "living"
                     },
@@ -1008,6 +1035,7 @@
                         "size": 250,
                         "added": "02.02.2025",
                         "saved": 1,
+                        "status": "reserved",
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg", "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg", 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
                         "category": "business"
                     },
@@ -1020,6 +1048,7 @@
                         "size": 43,
                         "added": "01.31.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg", 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
                         "category": "living"
                     },
@@ -1032,6 +1061,7 @@
                         "size": 38,
                         "added": "01.29.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
                         "category": "living"
                     },
@@ -1044,6 +1074,7 @@
                         "size": 52,
                         "added": "02.02.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
                         "category": "living"
                     },
@@ -1056,6 +1087,7 @@
                         "size": 73,
                         "added": "01.31.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
                         "category": "living"
                     },
@@ -1068,6 +1100,7 @@
                         "size": 220,
                         "added": "02.03.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
                         "category": "business"
                     },
@@ -1080,6 +1113,7 @@
                         "size": 115,
                         "added": "02.06.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
                         "category": "business"
                     },
@@ -1092,6 +1126,7 @@
                         "size": 47,
                         "added": "02.09.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1104,6 +1139,7 @@
                         "size": 190,
                         "added": "02.12.2025",
                         "saved": 1,
+                        "status": "reserved",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "business"
                     },
@@ -1116,6 +1152,7 @@
                         "size": 51,
                         "added": "02.10.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
                         "category": "living"
                     },
@@ -1128,6 +1165,7 @@
                         "size": 80,
                         "added": "02.08.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "business"
                     },
@@ -1140,6 +1178,7 @@
                         "size": 49,
                         "added": "02.06.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
                         "category": "living"
                     },
@@ -1152,6 +1191,7 @@
                         "size": 32,
                         "added": "02.10.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
                         "category": "living"
                     },
@@ -1164,6 +1204,7 @@
                         "size": 315,
                         "added": "02.08.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
                         "category": "business"
                     },
@@ -1176,6 +1217,7 @@
                         "size": 53,
                         "added": "02.06.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1188,6 +1230,7 @@
                         "size": 85,
                         "added": "02.04.2025",
                         "saved": 1,
+                        "status": "reserved",
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
                         "category": "living"
                     },
@@ -1200,6 +1243,7 @@
                         "size": 47,
                         "added": "02.07.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
                         "category": "living"
                     },
@@ -1212,6 +1256,7 @@
                         "size": 73,
                         "added": "02.10.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
                         "category": "living"
                     },
@@ -1224,6 +1269,7 @@
                         "size": 220,
                         "added": "02.13.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
                         "category": "business"
                     },
@@ -1236,6 +1282,7 @@
                         "size": 64,
                         "added": "02.11.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1248,6 +1295,7 @@
                         "size": 54,
                         "added": "02.14.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1260,6 +1308,7 @@
                         "size": 250,
                         "added": "02.18.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
                         "category": "business"
                     },
@@ -1272,6 +1321,7 @@
                         "size": 52,
                         "added": "02.16.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
                         "category": "living"
                     },
@@ -1284,6 +1334,7 @@
                         "size": 36,
                         "added": "02.14.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
                         "category": "living"
                     },
@@ -1296,6 +1347,7 @@
                         "size": 47,
                         "added": "02.12.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
                         "category": "living"
                     },
@@ -1308,6 +1360,7 @@
                         "size": 92,
                         "added": "02.10.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
                         "category": "living"
                     },
@@ -1320,6 +1373,7 @@
                         "size": 220,
                         "added": "04.01.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
                         "category": "business"
                     },
@@ -1332,6 +1386,7 @@
                         "size": 115,
                         "added": "04.04.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
                         "category": "business"
                     },
@@ -1344,6 +1399,7 @@
                         "size": 57,
                         "added": "04.07.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1356,6 +1412,7 @@
                         "size": 190,
                         "added": "04.10.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "business"
                     },
@@ -1368,6 +1425,7 @@
                         "size": 50,
                         "added": "04.13.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
                         "category": "living"
                     },
@@ -1380,6 +1438,7 @@
                         "size": 80,
                         "added": "02.24.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "business"
                     },
@@ -1392,6 +1451,7 @@
                         "size": 49,
                         "added": "02.22.2025",
                         "saved": 1,
+                        "status": "reserved",
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
                         "category": "living"
                     },
@@ -1404,6 +1464,7 @@
                         "size": 38,
                         "added": "02.20.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
                         "category": "living"
                     },
@@ -1416,6 +1477,7 @@
                         "size": 315,
                         "added": "02.18.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
                         "category": "business"
                     },
@@ -1428,6 +1490,7 @@
                         "size": 57,
                         "added": "02.16.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1440,6 +1503,7 @@
                         "size": 57,
                         "added": "02.14.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1452,6 +1516,7 @@
                         "size": 48,
                         "added": "02.12.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1464,6 +1529,7 @@
                         "size": 250,
                         "added": "02.15.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
                         "category": "business"
                     },
@@ -1476,6 +1542,7 @@
                         "size": 50,
                         "added": "02.18.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
                         "category": "living"
                     },
@@ -1488,6 +1555,7 @@
                         "size": 41,
                         "added": "02.21.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
                         "category": "living"
                     },
@@ -1500,6 +1568,7 @@
                         "size": 60,
                         "added": "02.24.2025",
                         "saved": 1,
+                        "status": "available",
                         "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
                         "category": "living"
                     },
@@ -1512,6 +1581,7 @@
                         "size": 78,
                         "added": "02.28.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
                         "category": "living"
                     },
@@ -1524,6 +1594,7 @@
                         "size": 220,
                         "added": "02.26.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
                         "category": "business"
                     },
@@ -1536,6 +1607,7 @@
                         "size": 115,
                         "added": "02.24.2025",
                         "saved": 0,
+                        "status": "reserved",
                         "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
                         "category": "business"
                     },
@@ -1548,6 +1620,7 @@
                         "size": 53,
                         "added": "02.22.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "living"
                     },
@@ -1560,6 +1633,7 @@
                         "size": 190,
                         "added": "04.01.2025",
                         "saved": 0,
+                        "status": "available",
                         "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
                         "category": "business"
                     }
@@ -1584,6 +1658,7 @@
                         modalWindow.scrollIntoView({ behavior: 'instant' });
                         modal.style.display = "none";
                         modalApartCard.innerHTML = "";
+                        document.getElementById('empty-list-button').style.visibility = 'visible';
                     }
                 }
 
@@ -1690,8 +1765,9 @@
                         currentScrollY = window.scrollY;
                         document.body.style.position = 'fixed';
                         document.body.style.top = `-${currentScrollY}px`;
-                        modal.style.display = "block";
+                        modal.style.display = 'block';
                         renderModalApartment(apart);
+                        document.getElementById('empty-list-button').style.visibility = 'hidden';
                     }
                     detailsButton.addEventListener('click', handleDetailsButtonClick);
                     return detailsButton;
@@ -1710,6 +1786,7 @@
                 function renderApartment(apart) {
                     const apartDiv = document.createElement('div');
                     apartDiv.classList.add('apartment-card');
+                    apartDiv.classList.add(apart.status);
                     apartDiv.setAttribute('id', `apartment-${apart.id}`);
 
                     apartDiv.innerHTML = generateApartmentContent(apart);
@@ -1724,6 +1801,15 @@
                     apartDiv.appendChild(detailsButton);
 
                     apartmentsContainer.appendChild(apartDiv);
+
+                    if (apart.status == "reserved") {
+                        const reservedText = document.createElement('span');
+                        reservedText.classList.add('reserved-text');
+                        reservedText.innerText = apart.status.toUpperCase(); // Fixed syntax error here
+                        apartDiv.appendChild(reservedText);
+                    }
+
+
                 }
 
 
@@ -1787,11 +1873,11 @@
 
 
                 function burgerTrigger() {
-                    burgerNavBar.style.display === "grid" ? burgerNavBar.style.display = "none" : burgerNavBar.style.display = "grid";
+                    burgerNavBar.style.left === "0px" ? burgerNavBar.style.left = "-200px" : burgerNavBar.style.left = "0";
                 }
 
                 function burgerMenuClose() {
-                    burgerNavBar.style.display = "none"
+                    burgerNavBar.style.left = "-200px"
                 }
 
 
@@ -1824,10 +1910,18 @@
         <div class="card-footer">
             	<p class="apartment-price">Your list is empty</p>
             	<p class="apartment-details">Explore the full list of our offers</p>
-        <button class="order-button" onclick="document.getElementById('aparts').click()">Show full list</button>
+        <button class="order-button" onclick="showFullList()">Show full list</button>
                </div>
 </div>
             `;
+                }
+
+
+                function showFullList() {
+
+                    document.getElementById('burger-aparts').click();
+                    document.getElementById('savedAparts').classList.remove('active-page');
+                    document.getElementById('aparts').classList.add('active-page');
                 }
 
 
@@ -1854,6 +1948,13 @@
                         const apartmentsArray = apartmentsMap[arrayName];
                         window.scrollTo(0, 0);
                         messageSnackbar(`Offers in this category: <span class="offers-count-number">${apartmentsArray.length}<span>`)
+                        if (arrayName == 'savedAparts') {
+                            document.getElementById('empty-list-button').style.visibility = "visible"
+                        } else {
+                            document.getElementById('empty-list-button').style.visibility = "hidden"
+
+                        }
+
                         if (apartmentsArray.length == 0) {
                             apartmentsContainer.innerHTML = generateEmptyContent();
                         } else {
