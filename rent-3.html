@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="https://www.iconsdb.com/icons/preview/red/house-xxl.png">
+    <link rel="icon" type="image/x-icon" href="https://github.com/privatart/rent-space/blob/main/src/img/ico.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
@@ -17,6 +17,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
 
         * {
             margin: 0;
@@ -51,16 +52,6 @@
             border: 1px solid white;
         }
 
-        .header-logo,
-        .footer-logo {
-            transition: border-radius 0.3s ease-in-out;
-        }
-
-        .header-logo:hover,
-        .footer-logo:hover {
-            border-radius: 25px;
-        }
-
         .header-logo-name {
             display: flex;
             align-items: center;
@@ -69,7 +60,10 @@
 
         .header-text {
             padding-left: 10px;
-            font-size: 18px;
+            padding-bottom: 8px;
+            font-size: 20px;
+            /* font-family: "Purple Purse", serif; */
+color: white;
             font-family: "DM Serif Text", serif;
             /* color:black; */
         }
@@ -160,10 +154,13 @@
 
         .active-page {
             background-color: #333;
+            color:#52b238;
         }
 
-        .header-nav-list li a:hover {
+        .header-nav-list li a:hover,
+        .burger-nav-list li a:hover {
             background-color: #333;
+            color:#52b238;
         }
 
         .counter-container {
@@ -179,29 +176,21 @@
         }
 
         .counter {
-            font-size: 25px;
-            font-weight: bold;
-            color: #007bff;
             display: inline-block;
-
         }
 
         .counter span {
             position: absolute;
             color: white;
-            background: red;
-            border-radius: 30px;
-            margin-top: -5px;
-            margin-left: -8px;
-            padding: 0px 5px 0px 5px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-
-        .offers-count-number {
-            font-size: 22px;
+            background: #52b238;
+            font-size: 25px;
             font-weight: bold;
-            color: red;
+            
+            border-radius: 30px;
+            margin-top: -10px;
+            margin-left: -8px;
+            padding: 0px 5px 3px 5px;
+            transition: transform 0.3s ease-in-out;
         }
 
         .page-title {
@@ -219,17 +208,15 @@
 
 
         .page-title-text {
-            font-family: "DM Serif Text", serif;
+            font-family: "DM Serif Text", swap;
   font-weight: 700;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: rgba(10, 10, 10, 0.7);
-            color: white;
-            /*font-size: 40px;*/
-            /*font-size: 4vw;*/
-            font-size: clamp(12px, 5vw + 10px, 40px);
+              color: #52b238;
+            font-size: clamp(20px, 5vw + 10px, 60px);
             border-radius: 10px;
             padding: 15px;
         }
@@ -237,10 +224,9 @@
         .page-title-text p {
             font-family: "Purple Purse", serif;
   font-weight: 400;
-            margin-top: 10px;
-            /*font-size: 30px;*/
-            /*font-size: 2.5vw;*/
-            font-size: clamp(8px, 5vw + 2px, 25px);
+  color:white;
+  margin-top: 10px;
+            font-size: clamp(4px, 5vw + 2px, 20px);
         }
 
         .apartments-container {
@@ -254,8 +240,7 @@
         }
 
 
-        .apartment-card {
-        
+        .apartment-card {        
             margin: 20px;
             border: 1px solid black;
             border-radius: 10px;
@@ -338,7 +323,7 @@
             color: white;
             border-radius: 10px;
             border-color: white;
-            opacity: 0.9;
+            /* opacity: 0.9; */
         }
 
         .not-saved {
@@ -347,11 +332,11 @@
         }
 
         .not-saved:hover {
-            background-color: red;
+            background-color: #2aa308;
         }
 
         .saved {
-            background-color: red;
+            background-color: #2aa308;
         }
 
         .saved:hover {
@@ -415,6 +400,9 @@
             transform: translateY(2px);
         }
 
+.empty-list-button:hover {
+    color: #52b238;
+}
 
 .order-button {
             border: 1px solid white;
@@ -460,12 +448,15 @@ color: white;
         #snackbar {
             visibility: hidden;
             z-index: 2;
-            background-color: white;
-            color: black;
+            /* background-color: white;
+            color: black; */
+            background-color: #555;
+            color: white;
+
             text-align: center;
             border-style: groove;
             border-radius: 15px;
-            padding: 16px;
+            padding: 5px 5px 10px 5px;
             position: fixed;
             min-width: 250px;
             margin-left: -125px;
@@ -502,6 +493,13 @@ color: white;
                 opacity: 0;
             }
         }
+
+        .offers-count-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: #52b238;
+        }
+
 
         .modal {
             display: none;
@@ -548,7 +546,6 @@ color: white;
         
         .carousel-count {
            z-index: 1;
-          color: white;
            font-size: 18px;
            font-weight: bold;
             background-color: rgba(10, 10, 10, 0.7);
@@ -603,7 +600,7 @@ color: white;
             font-size: 14px;
             cursor: pointer;
             color: white;
-            background: red;
+            background: #196604;
             padding: 2px;
             box-shadow: 0 3px #999;
         }
@@ -651,6 +648,9 @@ color: white;
 
         .footer-h2 {
             margin: 0px;
+            color: black;
+            font-family: "DM Serif Text", serif;
+            margin-bottom: 20px;
         }
 
 
@@ -762,7 +762,8 @@ color: white;
         .contact-details-text a,
         .powered a {
             text-decoration: none;
-            color: rgb(43, 41, 41);
+            color: #52b238;
+font-size: 30px;
         }
 
 
@@ -938,9 +939,9 @@ color: white;
         <div class="header" id="myHeader">
             <div class="header-logo-name">
                 <a href="">
-                    <img src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="60"
-                        height="60" class="header-logo" alt="logo"></img>
-                </a>
+                    <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" width="50"
+                        height="50" class="header-logo" alt="logo"></img>
+                    </a>
                 <h2 class="header-text">RENT SPACE <br>for Living and Business</h2>
             </div>
             <ul id="header-nav" class="header-nav-list">
@@ -973,6 +974,7 @@ color: white;
         </ul>
         <div class="page-title">
             <div class="page-title-text">
+<p>REAL ESTATE AGENCY</p>
                 <h4>RENT SPACE</h4>
                 <p>FIND YOUR DREAM SPACE WITH US</p>
             </div>    
@@ -994,9 +996,9 @@ color: white;
         <hr>
         <div id="contacts" class="contacts">
 
-            <div class="footer-logo-name"><img
-                    src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg" width="100"
-                    height="100" class="footer-logo" alt="logo"></img>
+            <div class="footer-logo-name">
+                <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" width="100"
+                        height="100" class="footer-logo" alt="logo"></img>
                 <h2 class="footer-h2">RENT SPACE <br>for Living and Business</h2>
             </div>
             <div class="contact-form-container">
