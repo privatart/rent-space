@@ -10,14 +10,11 @@
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <style>
-  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tangerine:wght@400;700&display=swap');
 
         * {
             margin: 0;
@@ -43,7 +40,7 @@
             align-items: center;
             top: 0;
             max-width: 100%;
-            max-height: 100px;
+            height: 90px;
             padding: 5px 20px;
             background: #555;
             color: #f1f1f1;
@@ -62,10 +59,8 @@
             padding-left: 10px;
             padding-bottom: 8px;
             font-size: 16px;
-            /* font-family: "Purple Purse", serif; */
-color: white;
+            color: white;
             font-family: "DM Serif Text", serif;
-            /* color:black; */
         }
 
         .header-nav-list {
@@ -130,7 +125,7 @@ color: white;
 
 
         .burger-nav-list {
-            left:-200px;
+            left: -200px;
             display: grid;
             position: fixed;
             top: 95px;
@@ -153,13 +148,13 @@ color: white;
 
         .active-page {
             background-color: #333;
-            color:#52b238;
+            color: #52b238;
         }
 
         .header-nav-list li a:hover,
         .burger-nav-list li a:hover {
             background-color: #333;
-            color:#52b238;
+            color: #52b238;
         }
 
         .counter-container {
@@ -176,44 +171,47 @@ color: white;
 
         .counter {
             display: inline-block;
-        }
-
-        .counter span {
             position: absolute;
             color: white;
             background: #52b238;
             font-size: 25px;
             font-weight: bold;
             border-radius: 30px;
-            margin-top: -10px;
+            margin-top: 5px;
             margin-left: -8px;
             padding: 0px 5px 3px 5px;
             transition: transform 0.3s ease-in-out;
         }
-        
+
         .page-title {
             position: relative;
             display: inline-block;
             text-align: center;
+            width: 100%;
+            /* Ensure full width */
+            overflow: hidden;
+            transition: transform 1s ease;
         }
 
         .page-title-image {
             display: block;
             width: 100%;
-            height: 280px;
+            height: 250px;
             object-fit: cover;
+
         }
 
 
-        .page-title-text {
+        .page-title-text,
+        .page-footer-text {
             font-family: "DM Serif Text", swap;
-  font-weight: 700;
-            position: absolute;
+            border: 1px solid black;
+            box-shadow: 0 3px #999;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(10, 10, 10, 0.7);
-              color: #52b238;
+            margin: auto;
+            background-color: rgba(10, 10, 10, 0.6);
+            color: #52b238;
             font-size: clamp(20px, 5vw + 10px, 60px);
             border-radius: 10px;
             padding: 15px;
@@ -221,17 +219,26 @@ color: white;
 
         }
 
-        .page-title-text p {
-            font-family: "Purple Purse", serif;
-  font-weight: 400;
-  color:white;
-  margin-top: 10px;
-            font-size: clamp(10px, 5vw + 2px, 28px);
+        .page-title-text {
+            position: absolute;
+            transform: translate(-50%, -50%);
         }
-        
-        .page-title-agency {
-        text-align: start;
+
+        .page-footer-text {
+            min-width: 400px;
+            max-width: 850px;
+            font-size: 32px;
         }
+
+
+        .page-title-text p,
+        .page-footer-text p {
+            letter-spacing: 0.2rem;
+            color: white;
+            font-size: clamp(10px, 5vw + 2px, 26px);
+        }
+
+
 
         .apartments-container {
             display: flex;
@@ -241,10 +248,11 @@ color: white;
             row-gap: 10px;
             background-color: #c7cbd5;
             margin: 0px 20px;
+            transition: transform 1s ease;
         }
 
 
-        .apartment-card {        
+        .apartment-card {
             margin: 20px;
             border: 1px solid black;
             border-radius: 10px;
@@ -253,34 +261,33 @@ color: white;
             overflow: hidden;
             background-color: #F2F3F6;
             box-shadow: 0 3px #999;
-            
+
         }
 
 
         .reserved {
-        pointer-events: none;
-         filter: grayscale(80%);
-         background-color: #d9d9d9;
-         cursor: not-allowed;
+            pointer-events: none;
+            filter: blur(0.8px);
+            /*         filter: grayscale(80%);*/
         }
-        
+
         .reserved-text {
-        position: absolute;
-        top: 30%;
-        left:-5%;
-        transform: rotate(-50deg);
-        font-size: 70px;
-        font-weight: bold;
-        color: red;
-        text-shadow:
-        -2px -2px 0 white,
-        2px -2px 0 white,
-        -2px 2px 0 white,
-        2px 2px 0 white;
-        z-index: 3;
+            position: absolute;
+            top: 30%;
+            left: -5%;
+            transform: rotate(-50deg);
+            font-size: 70px;
+            font-weight: bold;
+            color: #52b238;
+            text-shadow:
+                -2px -2px 0 white,
+                2px -2px 0 white,
+                -2px 2px 0 white,
+                2px 2px 0 white;
+            z-index: 3;
         }
-        
-        
+
+
         .apartment-card-top {
             position: relative;
             overflow: hidden;
@@ -328,7 +335,6 @@ color: white;
             color: white;
             border-radius: 10px;
             border-color: white;
-            /* opacity: 0.9; */
         }
 
         .not-saved {
@@ -362,7 +368,7 @@ color: white;
         .apartment-details {
             font-size: 20px;
             color: black;
-            
+
             font-style: italic;
             height: 60px;
         }
@@ -399,47 +405,47 @@ color: white;
 
         .details-button:active,
         .order-button:active,
-        .empty-list-button:active{
+        .empty-list-button:active {
             background-color: #555;
             box-shadow: 0 1px #666;
             transform: translateY(2px);
         }
 
-.empty-list-button:hover {
-    color: #52b238;
-}
+        .empty-list-button:hover {
+            color: #52b238;
+        }
 
-.order-button {
+        .order-button {
             border: 1px solid white;
             margin-top: 5px;
         }
-        
+
         .empty-list-button-tip {
-  visibility: hidden;      
-        position: fixed; 
-z-index: 2;
-color: white;
-        right:5px;
-        top:175px;
-        opacity: 0;
-        transition: opacity 1.2s;
-                background: #555;
+            visibility: hidden;
+            position: fixed;
+            z-index: 2;
+            color: white;
+            right: 5px;
+            top: 175px;
+            opacity: 0;
+            transition: opacity 1.2s;
+            background: #555;
             padding: 2px;
             border: 1px solid black;
             border-radius: 5px;
-            }
-        
-        .empty-list-button:hover + .empty-list-button-tip {
-        visibility: visible;
-        opacity: 0.8;
         }
-        
+
+        .empty-list-button:hover+.empty-list-button-tip {
+            visibility: visible;
+            opacity: 0.8;
+        }
+
         .empty-list-button {
-        visibility : hidden;
-        position: fixed;
-        z-index:2;
-        right:5px;
-        top:125px;
+            visibility: hidden;
+            position: fixed;
+            z-index: 2;
+            right: 5px;
+            top: 125px;
             border: 1px solid white;
             margin-bottom: 3px;
         }
@@ -453,9 +459,7 @@ color: white;
         #snackbar {
             visibility: hidden;
             z-index: 2;
-            /* background-color: white;
-            color: black; */
-            background-color: #555;
+            background-color: rgba(10, 10, 10, 0.7);
             color: white;
 
             text-align: center;
@@ -469,7 +473,7 @@ color: white;
             bottom: 30px;
         }
 
- #snackbar.show {
+        #snackbar.show {
             visibility: visible;
             -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -511,10 +515,10 @@ color: white;
             display: none;
             position: fixed;
             z-index: 1;
-            top: 13%;
+            top: 20px;
             margin-left: 2.5%;
             width: 95%;
-            height: 90%;
+            height: 100%;
             border-radius: 10px;
             overflow-y: auto;
             background-color: rgba(0, 0, 0, 0.9);
@@ -533,32 +537,33 @@ color: white;
             color: black;
             overflow: hidden;
             -webkit-animation: zoom 0.9s;
-animation: zoom 0.9s;
-            
+            animation: zoom 0.9s;
+
         }
 
         .modal-apartment-card p {
-            margin-top: 10px;
+            margin: 10px 0 0 10px;
+
         }
 
 
         .modal-image-container {
-        position: relative;
+            position: relative;
             width: 95%;
             height: 190px;
             display: flex;
             justify-content: center;
             margin: 10px 5px;
         }
-        
-        
+
+
         .carousel-count {
-           z-index: 1;
-           font-size: 18px;
+            z-index: 1;
+            font-size: 18px;
             background-color: rgba(10, 10, 10, 0.7);
             color: white;
             border-radius: 5px;
-            margin: auto -2.5em auto 0;
+            margin: 10px -2.5em auto 0;
             padding: 0px 5px;
         }
 
@@ -568,21 +573,21 @@ animation: zoom 0.9s;
             object-fit: cover;
             width: 90%;
             max-width: 450px;
-            cursor:zoom-in;
+            cursor: zoom-in;
         }
 
         #right-btn {
             z-index: 1;
             margin: auto 0 auto -2.5em;
-            color:#2aa308;
+            color: #2aa308;
         }
 
 
         #left-btn {
-        display: block;
+            display: block;
             z-index: 1;
             margin: auto -1.5em auto 0;
-            color:#2aa308;
+            color: #2aa308;
         }
 
         #modal-is-saved-button {
@@ -599,7 +604,7 @@ animation: zoom 0.9s;
         }
 
         #modal-is-saved-button:hover {
-            border: 1px solid white;
+            background: #2a7a15;
         }
 
         #modal-is-saved-button:active {
@@ -615,7 +620,7 @@ animation: zoom 0.9s;
             font-size: 32px;
             font-weight: bold;
             z-index: 1;
-              transition: 0.3s;
+            transition: 0.3s;
         }
 
         .modal-close:hover,
@@ -624,60 +629,62 @@ animation: zoom 0.9s;
             cursor: pointer;
             color: grey;
         }
-        
-          .fullsize-modal {
-  display: none;
-  position: fixed;
-  z-index: 3;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.9);
-}
 
-.fullsize-modal-image {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 900px;
-  border-radius: 10px;
-  border: 3px solid white;
--webkit-animation: zoom 0.9s;
-animation: zoom 0.9s;
-}
+        .fullsize-modal {
+            display: none;
+            position: fixed;
+            z-index: 3;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
 
-@keyframes zoom {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
-}
+        .fullsize-modal-image {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+            border: 3px solid white;
+            -webkit-animation: zoom 0.9s;
+            animation: zoom 0.9s;
+        }
 
-.fullsize-modal-close {
-  top: 15px;
-  right: 35px;
-}
+        @keyframes zoom {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .fullsize-modal-close {
+            top: 15px;
+            right: 35px;
+        }
+
         .contacts {
             font-family: "Caveat", cursive;
             margin: auto;
             margin-top: 20px;
             text-align: center;
             color: black;
+            scroll-margin-top: 100px;
         }
 
 
         .footer-logo {
-            margin-left: auto;
-            margin-right: auto;
+            margin-top: 20px;
         }
 
-
-        .footer-h2 {
-            margin: 0px;
-            color: black;
-            font-family: "DM Serif Text", serif;
-            margin-bottom: 20px;
+        .page-footer-text hr {
+            margin: 15px 0;
         }
 
 
@@ -687,11 +694,15 @@ animation: zoom 0.9s;
         }
 
         .contact-form-container {
-            margin: auto;
-            width: 95%;
+            margin: 20px auto auto auto;
             padding: 5px 20px;
             color: black;
             font-size: 20px;
+            display: flex;
+            column-gap: 50px;
+            row-gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .contact-form,
@@ -702,6 +713,9 @@ animation: zoom 0.9s;
             padding: 20px;
             color: white;
             box-shadow: 0 3px #999;
+            width: 400px;
+            margin-top: 10px;
+            margin-bottom: 30px;
         }
 
         .contact-form hr,
@@ -709,10 +723,11 @@ animation: zoom 0.9s;
             margin-bottom: 15px;
         }
 
-
-        .contact-form label {
-            font-size: 26px;
-            color:#2aa308;
+        .contact-form label,
+        .contact-details-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2aa308;
         }
 
 
@@ -731,24 +746,18 @@ animation: zoom 0.9s;
 
         #message {
             height: 125px;
-            width: 80%;
             resize: none;
         }
-
-        #mailing-checkbox {
-            width: 10px;
-            margin-right: 10px;
-        }
-
 
         .contact-form-buttons input {
             border: 1px solid black;
             border-radius: 5px;
             padding: 5px 20px 5px 20px;
             margin: 10px 20px;
+            font-family: "DM Serif Text", serif;
             font-size: 16px;
             color: black;
-            background-color: #c7cbd5;
+            background-color: white;
             padding: 10px;
             cursor: pointer;
             width: 90px;
@@ -756,8 +765,8 @@ animation: zoom 0.9s;
         }
 
         .contact-form-buttons input:hover {
-            background-color: #333;
-            color: white;
+            background-color: #c7cbd5;
+            color: black;
             border: 1px solid white;
         }
 
@@ -766,35 +775,23 @@ animation: zoom 0.9s;
             transform: translateY(2px);
         }
 
-
-        .contact-details {
-            margin: 50px auto 30px auto;
-        }
-
-
-        .contact-details-title {
-            font-size: 32px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 20px;
-
+        .contact-details hr {
+            margin-bottom: 110px;
         }
 
         .contact-details-text {
-            font-size: 22px;
+            font-size: 26px;
             font-style: oblique;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .contact-details-text a,
         .powered a {
             text-decoration: none;
-            color: #52b238;
-font-size: 30px;
+            color: white;
+            font-size: 30px;
         }
-
-
 
         .contact-details-text,
         .powered-links {
@@ -822,94 +819,10 @@ font-size: 30px;
             transform: scaleX(1);
         }
 
-
         .contact-details-social {
             width: 100%;
-            margin: 50px auto 20px auto;
+            margin: 20px auto 20px auto;
         }
-
-        .powered {
-            font-size: 22px;
-            font-style: oblique;
-            margin-bottom: 15px;
-        }
-
-
-        @media only screen and (min-width: 768px) {
-
-            .modal-content {
-                width: 50%;
-            }
-
-
-            .modal-image-container {
-                height: 280px;
-
-            }
-
-            .contact-form-container {
-                width: 450px;
-            }
-
-
-
-        }
-
-
-        @media only screen and (max-width: 925px) {
-
-            .header-text {
-                display: none;
-            }
-            
-                        .page-title-text {
-               width: 70%;
-}
-
-.page-title-agency {
-        text-align: center;
-        }
-
-        }
-
-
-        @media only screen and (max-width: 620px) {
-
-            .header-nav-list {
-                display: none;
-            }
-
-            .header-text {
-                display: block;
-            }
-
-            .burger-icon {
-                display: block;
-            }
-
-            .modal-content {
-                width: 90%;
-                padding: 10px 5px 10px 5px;
-
-            }
-            
-            .modal-image-container {
-                width: 100%;
-                margin: 10px 0;
-
-            }
-            
-            .page-title-text {
-               width: 90%;
-}
-
-.page-title-agency {
-        text-align: center;
-        }
-        
-        
-        }
-
 
         .social-icons {
             display: flex;
@@ -939,7 +852,7 @@ font-size: 30px;
 
         .social-icons li a .icon {
             position: relative;
-            color: #262626;
+            color: black;
             transition: 0.9s;
             z-index: 3;
         }
@@ -976,17 +889,89 @@ font-size: 30px;
         .social-icons li:nth-child(3) a:before {
             background: #0077b5;
         }
-        
-                
+
+        .powered {
+            font-size: 22px;
+            font-style: oblique;
+            padding-bottom: 20px;
+        }
 
 
-@media only screen and (max-width: 700px){
-  .fullsize-modal-image {
-    width: 95%;
-  }
-}
+        @media only screen and (min-width: 768px) {
+
+            .modal-content {
+                width: 50%;
+            }
 
 
+            .modal-image-container {
+                height: 280px;
+
+            }
+
+        }
+
+
+        @media only screen and (max-width: 925px) {
+
+            .header-text {
+                display: none;
+            }
+
+            .page-title-text {
+                width: 70%;
+            }
+
+
+        }
+
+
+        @media only screen and (max-width: 620px) {
+
+            .header-nav-list {
+                display: none;
+            }
+
+            .header-text {
+                display: block;
+            }
+
+            .burger-icon {
+                display: block;
+            }
+
+            .modal-content {
+                width: 90%;
+                padding: 10px 5px 10px 5px;
+
+            }
+
+            .modal-image-container {
+                width: 100%;
+                margin: 10px 0;
+
+            }
+
+            .page-title-text {
+                width: 90%;
+            }
+
+
+
+        }
+
+
+
+
+        @media only screen and (max-width: 700px) {
+            .fullsize-modal-image {
+                width: 95%;
+            }
+
+            .contact-details hr {
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -997,9 +982,9 @@ font-size: 30px;
         <div class="header" id="myHeader">
             <div class="header-logo-name">
                 <a href="">
-                    <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" width="50"
-                        height="50" class="header-logo" alt="logo"></img>
-                    </a>
+                    <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" width="50" height="50"
+                        class="header-logo" alt="logo"></img>
+                </a>
                 <h2 class="header-text">RENT SPACE <br>for Living and Business</h2>
             </div>
             <ul id="header-nav" class="header-nav-list">
@@ -1018,8 +1003,8 @@ font-size: 30px;
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                 </svg>
-                <div id="saved-apartments-counter" class="counter">
-                    <span>0</span>
+                <div>
+                    <span class="counter">0</span>
                 </div>
             </div>
         </div>
@@ -1032,39 +1017,50 @@ font-size: 30px;
         </ul>
         <div class="page-title">
             <div class="page-title-text">
-<p class="page-title-agency">REAL ESTATE AGENCY</p>
+                <p>REAL ESTATE AGENCY</p>
                 <h4>RENT SPACE</h4>
-   
-                <p>WARSAW, POLAND</p>
-            </div>    
-            <img src="https://privatart.github.io/rent-space/src/img/background.jpg"                 class="page-title-image" alt="city-lanscape"></img>
+
+                <p>WARSAW / KYIV / LONDON</p>
+            </div>
+            <img src="https://privatart.github.io/rent-space/src/img/background.jpg" class="page-title-image"
+                alt="city-lanscape"></img>
         </div>
-         <div class='empty-list-button-container'>
-         <button class='empty-list-button' id='empty-list-button' onclick="emptySavedList()" ><i class="fa-solid fa-broom"></i>
-                  </button>
-                  <span class="empty-list-button-tip">clear list</span>
-         </div>
+        <div class='empty-list-button-container'>
+            <button class='empty-list-button' id='empty-list-button' onclick="emptySavedList()"><i
+                    class="fa-solid fa-broom"></i>
+            </button>
+            <span class="empty-list-button-tip">clear list</span>
+        </div>
         <div id="apartments-container" class="apartments-container"></div>
-                   
+
         <div id="modal" class="modal">
             <span class="modal-close">&times;</span>
             <div class="modal-content">
                 <div id="modal-apart-card" class="modal-apart-card"></div>
             </div>
         </div>
-        
+
         <div id="fullsize-modal" class="fullsize-modal">
             <span class="fullsize-modal-close">&times;</span>
             <img class="fullsize-modal-image" id="fullsize-modal-image">
         </div>
-        
-        <hr>
-        <div id="contacts" class="contacts">
 
+        <hr>
+        <section id="contacts" class="contacts">
+            <div class="page-footer">
+                <div class="page-footer-text">
+                    <p>REAL ESTATE AGENCY</p>
+                    <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" width="100" height="100"
+                        class="footer-logo" alt="logo"></img>
+                    <h4>RENT SPACE</h4>
+                    <p>for Living and Business</p>
+                    <hr>
+                    <p>WARSAW / KYIV / LONDON</p>
+                </div>
+            </div>
             <div class="footer-logo-name">
-                <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" width="100"
-                        height="100" class="footer-logo" alt="logo"></img>
-                <h2 class="footer-h2">RENT SPACE <br>for Living and Business</h2>
+
+
             </div>
             <div class="contact-form-container">
 
@@ -1080,14 +1076,15 @@ font-size: 30px;
                     <label for="message">Your message or request:</label><br>
                     <textarea id="message" name="message" placeholder="I want to get more information about...."
                         value="" required></textarea><br>
-                                        <br>
+                    <br>
                     <div class="contact-form-buttons">
                         <input id="contact-form-button-send" type="submit" value="Send">
                         <input id="contact-form-button-reset" type="reset" value="Reset">
                     </div>
                 </form>
+
                 <div class="contact-details">
-                    <h3 class="footer-h3">or find our office</h3>
+                    <h3 class="footer-h3">or find our central office</h3>
                     <hr>
                     <p class="contact-details-title">Warsaw</p>
                     <p class="contact-details-text"><a href="https://plus.codes/9G426X74+45" target="_blank">al.
@@ -1115,691 +1112,653 @@ font-size: 30px;
                         </ul>
                     </div>
                 </div>
-                <p class="powered">Powered by <a class="powered-links" href="https://github.com/privatart
-" target="_blank">privatart</a></p>
+
             </div>
-            <script>
-                const aparts = [
-                    {
-                        "id": 7000901,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1075,
-                        "currency": "USD",
-                        "details": "2-room apartment with balcony",
-                        "size": 52,
-                        "added": "2025-03-27",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ['https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000902,
-                        "adres": "Warsaw, Center",
-                        "price": 1900,
-                        "currency": "EUR",
-                        "details": "250 sq.m. office space",
-                        "size": 250,
-                        "added": "2025-02-02",
-                        "saved": 1,
-                        "status" : "reserved",
-                        "image": ["https://www.rentfurniture.com/office/img/axton.jpg", "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg", 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000903,
-                        "adres": "Warsaw, Center",
-                        "price": 3220,
-                        "currency": "USD",
-                        "details": "Fitness club in city center",
-                        "size": 430,
-                        "added": "2025-01-31",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://top-gym.pl//wp-content/uploads/2020/10/2bbe19b224b5aea85c79cb61fbcc30be.jpg", 'https://justgym.pl/wp-content/uploads/2021/08/JustGYM_Katowice_otwarcie_9-scaled.jpg', 'https://justgym.pl/wp-content/uploads/2021/07/Lodz_piotrkowska_gotowe_8-768x503.jpg', 'https://justgym.pl/wp-content/uploads/2021/07/justGYM_8_male-768x503.jpg'],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000904,
-                        "adres": "Warsaw, Center",
-                        "price": 715,
-                        "currency": "EUR",
-                        "details": "1-room apartment",
-                        "size": 38,
-                        "added": "2025-01-29",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000905,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 975,
-                        "currency": "USD",
-                        "details": "2-room apartment (open kitchen)",
-                        "size": 52,
-                        "added": "2025-02-02",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000906,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1615,
-                        "currency": "EUR",
-                        "details": "3-room PREMIUM apartment",
-                        "size": 73,
-                        "added": "2025-01-31",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000907,
-                        "adres": "Warsaw, Ursus",
-                        "price": 1775,
-                        "currency": "USD",
-                        "details": "220 sq.m. office space",
-                        "size": 220,
-                        "added": "2025-03-02",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000908,
-                        "adres": "Warsaw, Praga PLN",
-                        "price": 2410,
-                        "currency": "EUR",
-                        "details": "Ready fashion store, 115 sq.m.",
-                        "size": 115,
-                        "added": "2025-04-06",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000909,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1075,
-                        "currency": "EUR",
-                        "details": "2-room apartment with balcony",
-                        "size": 47,
-                        "added": "2025-04-18",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000910,
-                        "adres": "Warsaw, Center",
-                        "price": 1305,
-                        "currency": "USD",
-                        "details": "190 sq.m. office space",
-                        "size": 190,
-                        "added": "02.12.2025",
-                        "saved": 1,
-                        "status" : "reserved",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000911,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 975,
-                        "currency": "EUR",
-                        "details": "2-room apartment (open kitchen)",
-                        "size": 51,
-                        "added": "2025-03-29",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000912,
-                        "adres": "Warsaw, Wawer",
-                        "price": 1550,
-                        "currency": "USD",
-                        "details": "Shop (80 sq.m.) for rent in Shopping Mall",
-                        "size": 80,
-                        "added": "2025-04-26",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000913,
-                        "adres": "Warsaw, Praga PLN",
-                        "price": 1020,
-                        "currency": "EUR",
-                        "details": "2-room apartment with cosy kitchen",
-                        "size": 49,
-                        "added": "2025-04-13",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000914,
-                        "adres": "Warsaw, Center",
-                        "price": 715,
-                        "currency": "EUR",
-                        "details": "1-room apartment",
-                        "size": 32,
-                        "added": "2025-04-10",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000915,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 1900,
-                        "currency": "USD",
-                        "details": "315 sq.m. office space",
-                        "size": 315,
-                        "added": "2025-04-18",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000916,
-                        "adres": "London, Center",
-                        "price": 1200,
-                        "currency": "USD",
-                        "details": "2-room apartment with cosy kitchen",
-                        "size": 53,
-                        "added": "2025-04-11",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000917,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1615,
-                        "currency": "EUR",
-                        "details": "3-room PREMIUM apartment",
-                        "size": 85,
-                        "added": "2025-04-02",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000918,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 975,
-                        "currency": "USD",
-                        "details": "2-room apartment (open kitchen)",
-                        "size": 47,
-                        "added": "2025-03-19",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000919,
-                        "adres": "Warsaw, Marysin",
-                        "price": 3115,
-                        "currency": "EUR",
-                        "details": "1400 sq.m. warehouse in logistic park",
-                        "size": 1400,
-                        "added": "2025-03-10",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://www.p3parks.com/imgm/YTE5NDIyfGExMDk1NTN8YTE5NDAxfGExMDQ5MjPT4LEA/-I8A1863.jpg","https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg", "https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg", "https://www.eastmidlandsbusinesslink.co.uk/mag/wp-content/uploads/2024/02/AdobeStock_289332658.jpeg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000920,
-                        "adres": "Warsaw, Ursus",
-                        "price": 1775,
-                        "currency": "USD",
-                        "details": "220 sq.m. office space",
-                        "size": 220,
-                        "added": "2025-04-23",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000921,
-                        "adres": "London, Center",
-                        "price": 3400,
-                        "currency": "USD",
-                        "details": "Grocery store in city center",
-                        "size": 64,
-                        "added": "2025-04-02",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://assets.epicurious.com/photos/5720d8dadb3cd6fd5a7dd0fc/16:9/w_1280,c_limit/HEB---Store-Front.jpg","https://assets.epicurious.com/photos/57eebe2eb382c3c017d3fff0/16:9/w_2560%2Cc_limit/supermarket-shelves.jpg", "https://www.driveresearch.com/wp-content/uploads/2020/04/Fruits-in-grocery-store.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000922,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1075,
-                        "currency": "USD",
-                        "details": "2-room apartment with balcony",
-                        "size": 54,
-                        "added": "2025-04-08",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000923,
-                        "adres": "Warsaw, Targowek",
-                        "price": 2100,
-                        "currency": "EUR",
-                        "details": "280 sq.m. fitness club",
-                        "size": 280,
-                        "added": "2025-04-27",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://glosseniora.pl/wp-content/uploads/calypso_0544-1024x683.jpg", "https://glosseniora.pl/wp-content/uploads/calypso_0549-1024x683.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000924,
-                        "adres": "Warsaw, Praga PLN",
-                        "price": 1020,
-                        "currency": "USD",
-                        "details": "2-room apartment with cosy kitchen",
-                        "size": 52,
-                        "added": "2025-04-26",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000925,
-                        "adres": "Warsaw, Center",
-                        "price": 715,
-                        "currency": "EUR",
-                        "details": "1-room apartment",
-                        "size": 36,
-                        "added": "2025-04-19",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000926,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 3975,
-                        "currency": "USD",
-                        "details": "Modern auto service (450 sq.m.)",
-                        "size": 450,
-                        "added": "2025-04-16",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://luxsto.com.ua/wp-content/uploads/2024/05/AF1QipPFjcuW0OR-uqByypOj14EpiIJeIKnGl7TlhffPw800-h500-k-no.jpeg","https://sklep.skoda.pl/_next/image?url=https%3A%2F%2Fakcesoria-vgp.pl%2Fupload%2Fproduct%2F9c1676f1-8fc6-4eb4-9fa5-11c8d981bcb0%2Fprofile_img%2F22bc3efc-629b-41fc-ba41-ec07949efdf6-stavebnice-service-station-3.jpg&w=3840&q=75", "https://blog.friday-ad.co.uk/wp-content/uploads/2017/12/photo-1570071677470-c04398af73ca-912x675.jpeg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000927,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1615,
-                        "currency": "EUR",
-                        "details": "3-room PREMIUM apartment",
-                        "size": 92,
-                        "added": "2025-04-27",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000928,
-                        "adres": "Warsaw, Ursus",
-                        "price": 1775,
-                        "currency": "USD",
-                        "details": "220 sq.m. office space",
-                        "size": 220,
-                        "added": "2025-04-06",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000929,
-                        "adres": "Warsaw, Praga PLN",
-                        "price": 2410,
-                        "currency": "EUR",
-                        "details": "Ready fashion store, 115 sq.m.",
-                        "size": 115,
-                        "added": "2025-02-10",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000930,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1075,
-                        "currency": "EUR",
-                        "details": "2-room apartment with balcony",
-                        "size": 57,
-                        "added": "2025-03-11",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000931,
-                        "adres": "Wroclaw, DownTown",
-                        "price": 4300,
-                        "currency": "USD",
-                        "details": "Petrol Station",
-                        "size": 350,
-                        "added": "2025-04-13",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://lumiteam.eu/wp-content/uploads/2021/05/lotos-09.jpg","https://lumiteam.eu/wp-content/uploads/2021/05/lotos-04b.jpg","https://topauto.co.za/wp-content/uploads/2025/02/The-Pantry-petrol-station-5.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000932,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 975,
-                        "currency": "EUR",
-                        "details": "2-room apartment (open kitchen)",
-                        "size": 50,
-                        "added": "2025-04-10",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000933,
-                        "adres": "Warsaw, Wawer",
-                        "price": 1550,
-                        "currency": "USD",
-                        "details": "Shop (80 sq.m.) for rent in Shopping Mall",
-                        "size": 80,
-                        "added": "2025-03-19",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000934,
-                        "adres": "Warsaw, Praga PLN",
-                        "price": 1020,
-                        "currency": "EUR",
-                        "details": "2-room apartment with cosy kitchen",
-                        "size": 49,
-                        "added": "2025-04-10",
-                        "saved": 1,
-                        "status" : "reserved",
-                        "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000935,
-                        "adres": "Warsaw, Center",
-                        "price": 715,
-                        "currency": "EUR",
-                        "details": "1-room apartment",
-                        "size": 38,
-                        "added": "2025-02-19",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000936,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 1900,
-                        "currency": "USD",
-                        "details": "Pharmacy",
-                        "size": 65,
-                        "added": "2025-01-31",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://visionshopfitters.co.uk/wp-content/uploads/2019/11/Mansons-Pharmacy-Shopfront-1800x1200.jpg","https://antdisplay.com/pub/media/furniture/022e9691c5ba65d23cbf27a53f83163e.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000937,
-                        "adres": "London, Center",
-                        "price": 1200,
-                        "currency": "USD",
-                        "details": "2-room apartment with cosy kitchen",
-                        "size": 57,
-                        "added": "2025-03-10",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000938,
-                        "adres": "London, Center",
-                        "price": 1200,
-                        "currency": "USD",
-                        "details": "2-room apartment with cosy kitchen",
-                        "size": 57,
-                        "added": "2025-03-03",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000939,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1075,
-                        "currency": "USD",
-                        "details": "2-room apartment with balcony",
-                        "size": 48,
-                        "added": "2025-04-17",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000940,
-                        "adres": "Warsaw, Center",
-                        "price": 1900,
-                        "currency": "EUR",
-                        "details": "250 sq.m. office space",
-                        "size": 250,
-                        "added": "2025-02-10",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000941,
-                        "adres": "Warsaw, Praga PLN",
-                        "price": 1020,
-                        "currency": "USD",
-                        "details": "2-room apartment with cosy kitchen",
-                        "size": 50,
-                        "added": "2025-04-22",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000942,
-                        "adres": "Warsaw, Center",
-                        "price": 715,
-                        "currency": "EUR",
-                        "details": "1-room apartment",
-                        "size": 41,
-                        "added": "2025-03-19",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000943,
-                        "adres": "Warsaw, Ursynow",
-                        "price": 975,
-                        "currency": "USD",
-                        "details": "2-room apartment (open kitchen)",
-                        "size": 60,
-                        "added": "2025-04-21",
-                        "saved": 1,
-                        "status" : "available",
-                        "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000944,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1615,
-                        "currency": "EUR",
-                        "details": "3-room PREMIUM apartment",
-                        "size": 78,
-                        "added": "2025-04-10",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000945,
-                        "adres": "Warsaw, Ursus",
-                        "price": 1775,
-                        "currency": "USD",
-                        "details": "220 sq.m. office space",
-                        "size": 220,
-                        "added": "2025-03-15",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000946,
-                        "adres": "Warsaw, Praga PLN",
-                        "price": 2410,
-                        "currency": "EUR",
-                        "details": "Ready fashion store, 115 sq.m.",
-                        "size": 115,
-                        "added": "2025-02-19",
-                        "saved": 0,
-                        "status" : "reserved",
-                        "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
-                        "category": "business"
-                    },
-                    {
-                        "id": 7000947,
-                        "adres": "Warsaw, Mokotow",
-                        "price": 1075,
-                        "currency": "EUR",
-                        "details": "2-room apartment with balcony",
-                        "size": 53,
-                        "added": "2025-04-23",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "living"
-                    },
-                    {
-                        "id": 7000948,
-                        "adres": "Warsaw, Center",
-                        "price": 1305,
-                        "currency": "USD",
-                        "details": "190 sq.m. office space",
-                        "size": 190,
-                        "added": "2025-04-26",
-                        "saved": 0,
-                        "status" : "available",
-                        "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
-                        "category": "business"
-                    }
-                ]
+            <p class="powered">Powered by <a class="powered-links" href="https://github.com/privatart
+" target="_blank">privatart</a></p>
+        </section>
+    </div>
+    <script>
+        const aparts = [
+            {
+                "id": 7000901,
+                "adres": "Warsaw, Mokotow",
+                "price": 1075,
+                "currency": "USD",
+                "details": "2-room apartment with balcony",
+                "size": 52,
+                "added": "2025-03-27",
+                "saved": 0,
+                "status": "available",
+                "image": ['https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
+                "category": "living"
+            },
+            {
+                "id": 7000902,
+                "adres": "Warsaw, Center",
+                "price": 1900,
+                "currency": "EUR",
+                "details": "250 sq.m. office space",
+                "size": 250,
+                "added": "2025-02-02",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://www.rentfurniture.com/office/img/axton.jpg", "https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg", 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
+                "category": "business"
+            },
+            {
+                "id": 7000903,
+                "adres": "Warsaw, Center",
+                "price": 3220,
+                "currency": "USD",
+                "details": "Fitness club in city center",
+                "size": 430,
+                "added": "2025-01-31",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://top-gym.pl//wp-content/uploads/2020/10/2bbe19b224b5aea85c79cb61fbcc30be.jpg", 'https://justgym.pl/wp-content/uploads/2021/08/JustGYM_Katowice_otwarcie_9-scaled.jpg', 'https://justgym.pl/wp-content/uploads/2021/07/Lodz_piotrkowska_gotowe_8-768x503.jpg', 'https://justgym.pl/wp-content/uploads/2021/07/justGYM_8_male-768x503.jpg'],
+                "category": "business"
+            },
+            {
+                "id": 7000904,
+                "adres": "Warsaw, Center",
+                "price": 715,
+                "currency": "EUR",
+                "details": "1-room apartment",
+                "size": 38,
+                "added": "2025-01-29",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
+                "category": "living"
+            },
+            {
+                "id": 7000905,
+                "adres": "Warsaw, Ursynow",
+                "price": 975,
+                "currency": "USD",
+                "details": "2-room apartment (open kitchen)",
+                "size": 52,
+                "added": "2025-02-02",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg", 'https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
+                "category": "living"
+            },
+            {
+                "id": 7000906,
+                "adres": "Warsaw, Mokotow",
+                "price": 1615,
+                "currency": "EUR",
+                "details": "3-room PREMIUM apartment",
+                "size": 73,
+                "added": "2025-01-31",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000907,
+                "adres": "Warsaw, Ursus",
+                "price": 1775,
+                "currency": "USD",
+                "details": "220 sq.m. office space",
+                "size": 220,
+                "added": "2025-03-02",
+                "saved": 1,
+                "status": "reserved",
+                "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000908,
+                "adres": "Warsaw, Praga PLN",
+                "price": 2410,
+                "currency": "EUR",
+                "details": "Ready fashion store, 115 sq.m.",
+                "size": 115,
+                "added": "2025-04-06",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000909,
+                "adres": "Warsaw, Mokotow",
+                "price": 1075,
+                "currency": "EUR",
+                "details": "2-room apartment with balcony",
+                "size": 47,
+                "added": "2025-04-18",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000910,
+                "adres": "Warsaw, Center",
+                "price": 1305,
+                "currency": "USD",
+                "details": "190 sq.m. office space",
+                "size": 190,
+                "added": "02.12.2025",
+                "saved": 1,
+                "status": "reserved",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000911,
+                "adres": "Warsaw, Ursynow",
+                "price": 975,
+                "currency": "EUR",
+                "details": "2-room apartment (open kitchen)",
+                "size": 51,
+                "added": "2025-03-29",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000913,
+                "adres": "Warsaw, Praga PLN",
+                "price": 1020,
+                "currency": "EUR",
+                "details": "2-room apartment with cosy kitchen",
+                "size": 49,
+                "added": "2025-04-13",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000914,
+                "adres": "Warsaw, Center",
+                "price": 715,
+                "currency": "EUR",
+                "details": "1-room apartment",
+                "size": 32,
+                "added": "2025-04-10",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000915,
+                "adres": "Warsaw, Ursynow",
+                "price": 1900,
+                "currency": "USD",
+                "details": "315 sq.m. office space",
+                "size": 315,
+                "added": "2025-04-18",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000916,
+                "adres": "London, Center",
+                "price": 1200,
+                "currency": "USD",
+                "details": "2-room apartment with cosy kitchen",
+                "size": 53,
+                "added": "2025-04-11",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000917,
+                "adres": "Warsaw, Mokotow",
+                "price": 1615,
+                "currency": "EUR",
+                "details": "3-room PREMIUM apartment",
+                "size": 85,
+                "added": "2025-04-02",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000918,
+                "adres": "Warsaw, Ursynow",
+                "price": 975,
+                "currency": "USD",
+                "details": "2-room apartment (open kitchen)",
+                "size": 47,
+                "added": "2025-03-19",
+                "saved": 0,
+                "status": "reserved",
+                "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000919,
+                "adres": "Warsaw, Marysin",
+                "price": 3115,
+                "currency": "EUR",
+                "details": "1400 sq.m. warehouse in logistic park",
+                "size": 1400,
+                "added": "2025-03-10",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.p3parks.com/imgm/YTE5NDIyfGExMDk1NTN8YTE5NDAxfGExMDQ5MjPT4LEA/-I8A1863.jpg", "https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg", "https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg", "https://www.eastmidlandsbusinesslink.co.uk/mag/wp-content/uploads/2024/02/AdobeStock_289332658.jpeg"],
+                "category": "business"
+            },
+            {
+                "id": 7000920,
+                "adres": "Warsaw, Ursus",
+                "price": 1775,
+                "currency": "USD",
+                "details": "220 sq.m. office space",
+                "size": 220,
+                "added": "2025-04-23",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000921,
+                "adres": "London, Center",
+                "price": 3400,
+                "currency": "USD",
+                "details": "Grocery store in city center",
+                "size": 64,
+                "added": "2025-04-02",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://assets.epicurious.com/photos/5720d8dadb3cd6fd5a7dd0fc/16:9/w_1280,c_limit/HEB---Store-Front.jpg", "https://assets.epicurious.com/photos/57eebe2eb382c3c017d3fff0/16:9/w_2560%2Cc_limit/supermarket-shelves.jpg", "https://www.driveresearch.com/wp-content/uploads/2020/04/Fruits-in-grocery-store.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000922,
+                "adres": "Warsaw, Mokotow",
+                "price": 1075,
+                "currency": "USD",
+                "details": "2-room apartment with balcony",
+                "size": 54,
+                "added": "2025-04-08",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000923,
+                "adres": "Warsaw, Targowek",
+                "price": 2100,
+                "currency": "EUR",
+                "details": "280 sq.m. fitness club",
+                "size": 280,
+                "added": "2025-04-27",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://glosseniora.pl/wp-content/uploads/calypso_0544-1024x683.jpg", "https://glosseniora.pl/wp-content/uploads/calypso_0549-1024x683.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000924,
+                "adres": "Warsaw, Praga PLN",
+                "price": 1020,
+                "currency": "USD",
+                "details": "2-room apartment with cosy kitchen",
+                "size": 52,
+                "added": "2025-04-26",
+                "saved": 0,
+                "status": "reserved",
+                "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000925,
+                "adres": "Warsaw, Center",
+                "price": 715,
+                "currency": "EUR",
+                "details": "1-room apartment",
+                "size": 36,
+                "added": "2025-04-19",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000926,
+                "adres": "Kyiv, Center",
+                "price": 3975,
+                "currency": "USD",
+                "details": "Modern auto service (450 sq.m.)",
+                "size": 450,
+                "added": "2025-04-16",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://luxsto.com.ua/wp-content/uploads/2024/05/AF1QipPFjcuW0OR-uqByypOj14EpiIJeIKnGl7TlhffPw800-h500-k-no.jpeg", "https://sklep.skoda.pl/_next/image?url=https%3A%2F%2Fakcesoria-vgp.pl%2Fupload%2Fproduct%2F9c1676f1-8fc6-4eb4-9fa5-11c8d981bcb0%2Fprofile_img%2F22bc3efc-629b-41fc-ba41-ec07949efdf6-stavebnice-service-station-3.jpg&w=3840&q=75", "https://blog.friday-ad.co.uk/wp-content/uploads/2017/12/photo-1570071677470-c04398af73ca-912x675.jpeg"],
+                "category": "business"
+            },
+            {
+                "id": 7000927,
+                "adres": "Warsaw, Mokotow",
+                "price": 1615,
+                "currency": "EUR",
+                "details": "3-room PREMIUM apartment",
+                "size": 92,
+                "added": "2025-04-27",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000928,
+                "adres": "Warsaw, Ursus",
+                "price": 1775,
+                "currency": "USD",
+                "details": "220 sq.m. office space",
+                "size": 220,
+                "added": "2025-04-06",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000929,
+                "adres": "Warsaw, Praga PLN",
+                "price": 2410,
+                "currency": "EUR",
+                "details": "Ready fashion store, 115 sq.m.",
+                "size": 115,
+                "added": "2025-02-10",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000930,
+                "adres": "Warsaw, Mokotow",
+                "price": 1075,
+                "currency": "EUR",
+                "details": "2-room apartment with balcony",
+                "size": 57,
+                "added": "2025-03-11",
+                "saved": 0,
+                "status": "reserved",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000931,
+                "adres": "Wroclaw, DownTown",
+                "price": 4300,
+                "currency": "USD",
+                "details": "Petrol Station",
+                "size": 350,
+                "added": "2025-04-13",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://lumiteam.eu/wp-content/uploads/2021/05/lotos-09.jpg", "https://lumiteam.eu/wp-content/uploads/2021/05/lotos-04b.jpg", "https://topauto.co.za/wp-content/uploads/2025/02/The-Pantry-petrol-station-5.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000932,
+                "adres": "Warsaw, Ursynow",
+                "price": 975,
+                "currency": "EUR",
+                "details": "2-room apartment (open kitchen)",
+                "size": 50,
+                "added": "2025-04-10",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000933,
+                "adres": "Warsaw, Wawer",
+                "price": 1550,
+                "currency": "USD",
+                "details": "Shop (80 sq.m.) for rent in Shopping Mall",
+                "size": 80,
+                "added": "2025-03-19",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000934,
+                "adres": "Warsaw, Praga PLN",
+                "price": 1020,
+                "currency": "EUR",
+                "details": "2-room apartment with cosy kitchen",
+                "size": 49,
+                "added": "2025-04-10",
+                "saved": 1,
+                "status": "reserved",
+                "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000935,
+                "adres": "Warsaw, Center",
+                "price": 715,
+                "currency": "EUR",
+                "details": "1-room apartment",
+                "size": 38,
+                "added": "2025-02-19",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000936,
+                "adres": "Warsaw, Ursynow",
+                "price": 1900,
+                "currency": "USD",
+                "details": "Pharmacy",
+                "size": 65,
+                "added": "2025-01-31",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://visionshopfitters.co.uk/wp-content/uploads/2019/11/Mansons-Pharmacy-Shopfront-1800x1200.jpg", "https://antdisplay.com/pub/media/furniture/022e9691c5ba65d23cbf27a53f83163e.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000937,
+                "adres": "London, Center",
+                "price": 1200,
+                "currency": "USD",
+                "details": "2-room apartment with cosy kitchen",
+                "size": 57,
+                "added": "2025-03-10",
+                "saved": 0,
+                "status": "reserved",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000938,
+                "adres": "London, Center",
+                "price": 1200,
+                "currency": "USD",
+                "details": "2-room apartment with cosy kitchen",
+                "size": 57,
+                "added": "2025-03-03",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000939,
+                "adres": "Warsaw, Mokotow",
+                "price": 1075,
+                "currency": "USD",
+                "details": "2-room apartment with balcony",
+                "size": 48,
+                "added": "2025-04-17",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000940,
+                "adres": "Warsaw, Center",
+                "price": 1900,
+                "currency": "EUR",
+                "details": "250 sq.m. office space",
+                "size": 250,
+                "added": "2025-02-10",
+                "saved": 0,
+                "status": "reserved",
+                "image": ["https://www.rentfurniture.com/office/img/axton.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000941,
+                "adres": "Warsaw, Praga PLN",
+                "price": 1020,
+                "currency": "USD",
+                "details": "2-room apartment with cosy kitchen",
+                "size": 50,
+                "added": "2025-04-22",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000942,
+                "adres": "Warsaw, Center",
+                "price": 715,
+                "currency": "EUR",
+                "details": "1-room apartment",
+                "size": 41,
+                "added": "2025-03-19",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://images1.apartments.com/i2/rpFjUhcei-XpnXE02TOyU3BLtqw0Dwy8kEyD61HJltM/117/image.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000943,
+                "adres": "Warsaw, Ursynow",
+                "price": 975,
+                "currency": "USD",
+                "details": "2-room apartment (open kitchen)",
+                "size": 60,
+                "added": "2025-04-21",
+                "saved": 1,
+                "status": "available",
+                "image": ["https://www.astraapartments.com.au/wp-content/uploads/2024/05/Astra-Apartments-Sydney-CBD-2-bed-r-es-living-520x320.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000944,
+                "adres": "Warsaw, Mokotow",
+                "price": 1615,
+                "currency": "EUR",
+                "details": "3-room PREMIUM apartment",
+                "size": 78,
+                "added": "2025-04-10",
+                "saved": 0,
+                "status": "reserved",
+                "image": ["https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg"],
+                "category": "living"
+            },
+            {
+                "id": 7000945,
+                "adres": "Warsaw, Ursus",
+                "price": 1775,
+                "currency": "USD",
+                "details": "220 sq.m. office space",
+                "size": 220,
+                "added": "2025-03-15",
+                "saved": 0,
+                "status": "available",
+                "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
+                "category": "business"
+            },
+            {
+                "id": 7000946,
+                "adres": "Warsaw, Praga PLN",
+                "price": 2410,
+                "currency": "EUR",
+                "details": "Ready fashion store, 115 sq.m.",
+                "size": 115,
+                "added": "2025-02-19",
+                "saved": 0,
+                "status": "reserved",
+                "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg"],
+                "category": "business"
+            }
+        ]
 
 
-                const savedApartmentsCounter = document.getElementById('saved-apartments-counter');
+        const apartmentsContainer = document.getElementById('apartments-container');
 
-                const apartmentsContainer = document.getElementById('apartments-container');
-
-                const modal = document.getElementById("modal");
-                const modalApartCard = document.getElementById("modal-apart-card");
+        const modal = document.getElementById("modal");
+        const modalApartCard = document.getElementById("modal-apart-card");
 
 
-                function closeModal() {
-const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
-                    
-                    if (modalWindow) {
-                    
-                    document.body.style.position = '';
-                    document.body.style.top = '';
-                    modalWindow.scrollIntoView({ behavior: 'instant' });
-                    modal.style.display = "none";
-                    modalApartCard.innerHTML = "";
-                    document.getElementById('savedAparts').classList.contains('active-page') || document.getElementById('savedApartsBurger').classList.contains('active-page') ?                   document.getElementById('empty-list-button').style.visibility = 'visible' :    document.getElementById('empty-list-button').style.visibility = 'hidden';
-                }
-                }
+        function closeModal() {
+            const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
 
-                const modalClose = document.querySelector(".modal-close");
-                modalClose.onclick  = () => closeModal();
+            if (modalWindow) {
+
+                document.body.style.position = '';
+                document.body.style.top = '';
+                modalWindow.scrollIntoView({ behavior: 'instant' });
+                modal.style.display = "none";
+                modalApartCard.innerHTML = "";
+                document.getElementById('savedAparts').classList.contains('active-page') || document.getElementById('savedApartsBurger').classList.contains('active-page') ? document.getElementById('empty-list-button').style.visibility = 'visible' : document.getElementById('empty-list-button').style.visibility = 'hidden';
+            }
+        }
+
+        const modalClose = document.querySelector(".modal-close");
+        modalClose.onclick = () => closeModal();
 
 
-                function messageSnackbar(message) {
-                    const snackbarDiv = document.getElementById("snackbar");
-                    snackbarDiv.innerHTML = message;
-                    snackbarDiv.className = "show";
-                    setTimeout(function () { snackbarDiv.className = snackbarDiv.className.replace("show", ""); }, 1500);
-                }
+        function messageSnackbar(message) {
+            const snackbarDiv = document.getElementById("snackbar");
+            snackbarDiv.innerHTML = message;
+            snackbarDiv.className = "show";
+            setTimeout(function () { snackbarDiv.className = snackbarDiv.className.replace("show", ""); }, 1500);
+        }
 
 
 
-                function updateSavedApartmentsCounter() {
-                    const savedApartmentsCount = aparts.filter(apart => apart.saved === 1).length;
+        function updateSavedApartmentsCounter() {
+            const savedApartmentsCount = aparts.filter(apart => apart.saved === 1).length;
 
-                    const counterElement = savedApartmentsCounter.querySelector('span');
-                    const currentCount = parseInt(counterElement.innerText, 10);
+            const counterElement = document.querySelector('.counter');
+            const currentCount = parseInt(counterElement.innerText, 10);
 
-                    if (currentCount !== savedApartmentsCount) {
-                        counterElement.style.transform = 'scale(1.2)';
-                        setTimeout(() => {
-                            counterElement.style.transform = 'scale(1)';
-                            counterElement.innerText = savedApartmentsCount;
-                        }, 300);
-                    }
-                }
+            if (currentCount !== savedApartmentsCount) {
+                counterElement.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    counterElement.style.transform = 'scale(1)';
+                    counterElement.innerText = savedApartmentsCount;
+                }, 300);
+            }
+        }
 
 
-                function generateApartmentContent(apart) {
-                    return `
+        function generateApartmentContent(apart) {
+            return `
         <div class="apartment-card-top">
             <div class="apartment-image-overlay">
         	    <p class="added-time">Added ${apart.added}</p>           
@@ -1812,22 +1771,18 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
             	<p class="apartment-details">${apart.details}</p>
         </div>
         `;
-                }
+        }
 
-
-                //<img class="modal-apartment-image" src=${apart.image[0]} alt=${apart.details} style="width:300px;height:200px;">
-                //<hr>
-
-                function generateModalContent(apart) {
-                    const isSaved = apart.saved === 1 ? 'yes' : 'no ';
-                    const isSavedButton = apart.saved === 1 ? '<button id="modal-is-saved-button">Remove</button>' : '<button id="modal-is-saved-button">Save</button>';
-                    modalClose.id = apart.id;
-                    return `
+        function generateModalContent(apart) {
+            const isSaved = apart.saved === 1 ? 'yes' : 'no ';
+            const isSavedButton = apart.saved === 1 ? '<button id="modal-is-saved-button">Remove</button>' : '<button id="modal-is-saved-button">Save</button>';
+            modalClose.id = apart.id;
+            return `
         
         <div class="modal-image-container">
             
             <button id="left-btn"><i class="fas fa-arrow-left"></i></button>
-            <p class="carousel-count"><span id="carousel-count-current">0</span>/<span id="carousel-count-total">0</span></p>
+            <span class="carousel-count"><span id="carousel-count-current">0</span>/<span id="carousel-count-total">0</span></span>
             <img id="carousel" src="" alt="">
             <button id="right-btn"><i class="fas fa-arrow-right"></i></button>
         </div>
@@ -1836,178 +1791,183 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
                 <p class="modal-apartment-adress"><strong>Location: </strong><br>${apart.adres}</p>
        <p class="modal-apartment-price"><strong>Price: </strong><br>${apart.price} ${apart.currency}/per month</p>
        <p class="modal-apartment-size"><strong>Size: </strong><br>${apart.size} sq. m.</p>
-       <p class="modal-added-time" id="modal-apartment-date"><strong>Was added: </strong><br>${apart.added}</p>           
+       <p class="modal-added-time" ><strong>Was added: </strong><br><span class="modal-added-time-text">${apart.added}</span></p>           
         <p class="modal-apartment-category"><strong>Real estate category: </strong><br>for ${apart.category}</p>
                  <p class="modal-apartment-id"><strong>Unique ID number: </strong><br> ${apart.id}</p>
                 <hr>
                 <p class="modal-apartment-in-list"><strong>Saved in Your List: </strong><br>${isSaved}${isSavedButton}</p>
           `;
-                }
+        }
 
 
-                function handleSaveButtonClick(apart) {
-                    apart.saved = apart.saved === 1 ? 0 : 1;
-                    updateApartmentCard(apart);
-                    updateSavedApartmentsCounter();
-                }
+        function handleSaveButtonClick(apart) {
+            apart.saved = apart.saved === 1 ? 0 : 1;
+            updateApartmentCard(apart);
+            updateSavedApartmentsCounter();
+        }
 
-                function createSaveButton(apart) {
-                    const saveButton = document.createElement('button');
-                    saveButton.classList.add('btn', 'save-button');
-                    saveButton.innerHTML = '<span class="fa fa-home"></span>';
-                    apart.saved === 1 ? saveButton.classList.add('saved') : saveButton.classList.add('not-saved');
-                    saveButton.addEventListener('click', () => handleSaveButtonClick(apart));
-                    saveButton.addEventListener('click', () => messageSnackbar("Your list was updated"));
-                    return saveButton;
-                }
-
-
-                function createDetailsButton(apart) {
-                    const detailsButton = document.createElement('button');
-                    detailsButton.classList.add('details-button');
-                    detailsButton.innerText = 'Show details';
-                    function handleDetailsButtonClick() {
-                        currentScrollY = window.scrollY;
-                        document.body.style.position = 'fixed';
-                        document.body.style.top = `-${currentScrollY}px`;
-                        modal.style.display = 'block';
-                        renderModalApartment(apart);
-                        fullSizeModal();
-                        document.getElementById('empty-list-button').style.visibility = 'hidden';
-                    }
-                    detailsButton.addEventListener('click', handleDetailsButtonClick);
-                    return detailsButton;
-                }
+        function createSaveButton(apart) {
+            const saveButton = document.createElement('button');
+            saveButton.classList.add('btn', 'save-button');
+            saveButton.innerHTML = '<span class="fa fa-home"></span>';
+            apart.saved === 1 ? saveButton.classList.add('saved') : saveButton.classList.add('not-saved');
+            saveButton.addEventListener('click', () => handleSaveButtonClick(apart));
+            saveButton.addEventListener('click', () => messageSnackbar("Your list was updated"));
+            return saveButton;
+        }
 
 
-                function datesCount(dateAdded) {
-                    const todayDate = new Date();
-                    const dateWasAdded = new Date(dateAdded);
-                    const timeDifference = todayDate.getTime() - dateWasAdded.getTime();
-                    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
-                    return daysDifference == 0 ? "<p><strong>Added: </strong>today</p>" : `
-<p><strong>Added: </strong>${daysDifference} days ago</p>`;
-                }
-
-                function renderApartment(apart) {
-                    const apartDiv = document.createElement('div');
-                    apartDiv.classList.add('apartment-card');
-                    apartDiv.classList.add(apart.status);
-                    apartDiv.setAttribute('id', `apartment-${apart.id}`);
-
-                    apartDiv.innerHTML = generateApartmentContent(apart);
-                    
-                    const imageOverlayDiv = apartDiv.querySelector('.apartment-image-overlay');
-
-                    const saveButton = createSaveButton(apart);
-
-                    imageOverlayDiv.appendChild(saveButton);
-                    const detailsButton = createDetailsButton(apart);
-
-                    apartDiv.appendChild(detailsButton);
-
-                    apartmentsContainer.appendChild(apartDiv);
-                    
-                    if (apart.status == "reserved") {
-    const reservedText = document.createElement('span');
-    reservedText.classList.add('reserved-text');
-    reservedText.innerText = apart.status.toUpperCase();    apartDiv.appendChild(reservedText);
-}
-                    
-                    
-                }
+        function createDetailsButton(apart) {
+            const detailsButton = document.createElement('button');
+            detailsButton.classList.add('details-button');
+            detailsButton.innerText = 'Show details';
+            function handleDetailsButtonClick() {
+                currentScrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${currentScrollY}px`;
+                modal.style.display = 'block';
+                renderModalApartment(apart);
+                fullSizeModal();
+                document.getElementById('empty-list-button').style.visibility = 'hidden';
+            }
+            detailsButton.addEventListener('click', handleDetailsButtonClick);
+            return detailsButton;
+        }
 
 
-                function renderModalApartment(apart) {
-                    const modalApartDiv = document.createElement('div');
-                    modalApartDiv.classList.add('modal-apartment-card');
-                    modalApartDiv.setAttribute('id', `modal-apartment-${apart.id}`);
-                    modalApartDiv.innerHTML = generateModalContent(apart);
-                    const imageOverlayDiv = modalApartDiv.querySelector('.apartment-image-overlay');
-                    modalApartCard.appendChild(modalApartDiv);
-                    initializeCarousel(apart.image);
-                    document.getElementById("modal-apartment-date").innerHTML = datesCount(apart.added)
-                    const modalIsSavedButton = document.getElementById("modal-is-saved-button")
-                    modalIsSavedButton.addEventListener('click', () => handleSaveButtonClick(apart));
-                    modalIsSavedButton.addEventListener('click', () => messageSnackbar("Your list updated"));
-                    modalIsSavedButton.addEventListener('click', () => modalApartCard.innerHTML = "");
-                    modalIsSavedButton.addEventListener('click', () => renderModalApartment(apart));
+        function datesCount(dateAdded) {
+            const todayDate = new Date();
+            const dateWasAdded = new Date(dateAdded);
+            const timeDifference = todayDate.getTime() - dateWasAdded.getTime();
+            const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+
+            return daysDifference == 0 ? `today` : `${daysDifference} days ago`;
+        }
+
+        function renderApartment(apart) {
+            const apartDiv = document.createElement('div');
+            apartDiv.classList.add('apartment-card');
+            apartDiv.classList.add(apart.status);
+            apartDiv.setAttribute('id', `apartment-${apart.id}`);
+
+            apartDiv.innerHTML = generateApartmentContent(apart);
+
+            const imageOverlayDiv = apartDiv.querySelector('.apartment-image-overlay');
+
+            const saveButton = createSaveButton(apart);
+
+            imageOverlayDiv.appendChild(saveButton);
+            const detailsButton = createDetailsButton(apart);
+
+            apartDiv.appendChild(detailsButton);
+
+            apartmentsContainer.appendChild(apartDiv);
+
+            if (apart.status == "reserved") {
+                const reservedText = document.createElement('span');
+                reservedText.classList.add('reserved-text');
+                reservedText.innerText = apart.status.toUpperCase(); apartDiv.appendChild(reservedText);
+            }
+
+
+        }
+
+
+        function modalIsSavedButtonClick(apart) {
+            handleSaveButtonClick(apart);
+            messageSnackbar("Your list updated");
+            modalApartCard.innerHTML = "";
+            renderModalApartment(apart);
+        };
+
+
+        function renderModalApartment(apart) {
+            const modalApartDiv = document.createElement('div');
+            modalApartDiv.classList.add('modal-apartment-card');
+            modalApartDiv.setAttribute('id', `modal-apartment-${apart.id}`);
+            modalApartDiv.innerHTML = generateModalContent(apart);
+            const imageOverlayDiv = modalApartDiv.querySelector('.apartment-image-overlay');
+            modalApartCard.appendChild(modalApartDiv);
+            initializeCarousel(apart.image);
+            document.querySelector(".modal-added-time-text").innerHTML = datesCount(apart.added)
+            const modalIsSavedButton = document.getElementById("modal-is-saved-button")
+            modalIsSavedButton.addEventListener('click', () => modalIsSavedButtonClick(apart));
 
 
 
-                    const handleOrderButtonClick = () => {
-                        closeModal();
-                        document.getElementById("contact-form").scrollIntoView({ behavior: "smooth" });
+            const handleOrderButtonClick = () => {
+                closeModal();
+                document.getElementById("contact-form").scrollIntoView({ behavior: "smooth" });
 
-                        document.getElementById("message").innerText = `I want to get more information about your offer (#${apart.id}). Please call or text to me so I can get details and made an appointment.`;
-                        messageSnackbar(`Please fill in the form`);
-                    };
-
-
-                    const orderButton = document.createElement('button');
-                    orderButton.classList.add('order-button');
-                    orderButton.innerText = 'Get more info';
-                    orderButton.addEventListener('click', handleOrderButtonClick);
-                    modalApartDiv.appendChild(orderButton);
-                }
+                document.getElementById("message").innerText = `I want to get more information about your offer (#${apart.id}). Please call or text to me so I can get details and made an appointment.`;
+                messageSnackbar(`Please fill in the form`);
+            };
 
 
-                function updateApartmentCard(apart) {
-                    const apartDiv = document.getElementById(`apartment-${apart.id}`);
-                    apartDiv.innerHTML = generateApartmentContent(apart);
-                    const imageOverlayDiv = apartDiv.querySelector('.apartment-image-overlay');
-                    const saveButton = createSaveButton(apart);
-                    const detailsButton = createDetailsButton(apart);
-
-                    if (imageOverlayDiv) {
-                        imageOverlayDiv.appendChild(saveButton);
-                    }
-                    apartDiv.appendChild(detailsButton);
-                }
-
-                aparts.forEach(renderApartment);
-
-                updateSavedApartmentsCounter();
+            const orderButton = document.createElement('button');
+            orderButton.classList.add('order-button');
+            orderButton.innerText = 'Get more info';
+            orderButton.addEventListener('click', handleOrderButtonClick);
+            modalApartDiv.appendChild(orderButton);
+        }
 
 
-                document.getElementById("contact-form-button-reset").addEventListener('click', () => {
-                    document.getElementById("message").innerText = "";
-                });
+        function updateApartmentCard(apart) {
+            const apartDiv = document.getElementById(`apartment-${apart.id}`);
+            apartDiv.innerHTML = generateApartmentContent(apart);
+            const imageOverlayDiv = apartDiv.querySelector('.apartment-image-overlay');
+            const saveButton = createSaveButton(apart);
+            const detailsButton = createDetailsButton(apart);
 
-                const burgerNavBar = document.getElementById("burger-nav");
+            if (imageOverlayDiv) {
+                imageOverlayDiv.appendChild(saveButton);
+            }
+            apartDiv.appendChild(detailsButton);
+        }
 
+        aparts.forEach(renderApartment);
 
-                function burgerTrigger() {
-                    burgerNavBar.style.left === "0px" ? burgerNavBar.style.left = "-200px" : burgerNavBar.style.left = "0";
-                }
-
-                function burgerMenuClose() {
-                    burgerNavBar.style.left = "-200px"
-                }
-
-
-                const burgerIcon = document.querySelector(".burger-icon");
-                const burgerMenu = document.querySelector(".burger-nav-list");
+        updateSavedApartmentsCounter();
 
 
-                document.addEventListener("mouseup", function (event) {
-                    if (!burgerIcon.contains(event.target) && !burgerMenu.contains(event.target)) {
-                        burgerMenuClose();
-                    }
-                });
+        document.getElementById("contact-form-button-reset").addEventListener('click', () => {
+            document.getElementById("message").innerText = "";
+        });
+
+        const burgerNavBar = document.getElementById("burger-nav");
 
 
-                const burgerLinks = document.querySelectorAll(".burger-nav-list a");
+        function burgerTrigger() {
+            burgerNavBar.style.left === "0px" ? burgerNavBar.style.left = "-200px" : burgerNavBar.style.left = "0";
+        }
 
-                burgerLinks.forEach(link => {
-                    link.addEventListener("click", function () {
-                        burgerMenuClose();
-                    });
-                });
+        function burgerMenuClose() {
+            burgerNavBar.style.left = "-200px"
+        }
 
 
-                function generateEmptyContent() {
-                    return `
+        const burgerIcon = document.querySelector(".burger-icon");
+        const burgerMenu = document.querySelector(".burger-nav-list");
+
+
+        document.addEventListener("mouseup", function (event) {
+            if (!burgerIcon.contains(event.target) && !burgerMenu.contains(event.target)) {
+                burgerMenuClose();
+            }
+        });
+
+
+        const burgerLinks = document.querySelectorAll(".burger-nav-list a");
+
+        burgerLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                burgerMenuClose();
+            });
+        });
+
+
+        function generateEmptyContent() {
+            return `
                     <div class="apartment-card">
             <div class="apartment-card-top">
             <img class="apartment-image" src="https://studioopinii.pl/wp-content/uploads/2016/01/list.jpg" alt="empty list" style="width:300px;height:200px;">
@@ -2019,159 +1979,161 @@ const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
                </div>
 </div>
             `;
+        }
+
+
+        function showFullList() {
+
+            document.getElementById('burger-aparts').click();
+            document.getElementById('savedAparts').classList.remove('active-page');
+            document.getElementById('aparts').classList.add('active-page');
+        }
+
+
+        const ArrayLinks = document.querySelectorAll('.savedAparts, .businessAparts, .livingAparts, .aparts');
+
+        ArrayLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                closeModal();
+
+                const allAparts = aparts;
+                const businessAparts = aparts.filter(apartment => apartment.category === 'business');
+                const livingAparts = aparts.filter(apartment => apartment.category === 'living');
+                const savedAparts = aparts.filter(apartment => apartment.saved === 1);
+
+                const apartmentsMap = {
+                    aparts: aparts,
+                    businessAparts: businessAparts,
+                    livingAparts: livingAparts,
+                    savedAparts: savedAparts
+                };
+
+                const arrayName = event.target.className;
+
+                const apartmentsArray = apartmentsMap[arrayName];
+                window.scrollTo(0, 0);
+                messageSnackbar(`Offers in this category: <span class="offers-count-number">${apartmentsArray.length}<span>`)
+
+                if (arrayName == 'savedAparts') {
+                    document.getElementById('empty-list-button').style.visibility = "visible"
+                } else {
+                    document.getElementById('empty-list-button').style.visibility = "hidden";
                 }
-                
-                
-                function showFullList() {
-                
-                document.getElementById('burger-aparts').click();
-                document.getElementById('savedAparts').classList.remove('active-page');
-                document.getElementById('aparts').classList.add('active-page');
-                        }
 
+                if (arrayName == 'aparts') {
 
+                    document.querySelector('.page-title').style.transform = `translateY(0)`;
+                    document.querySelector('.apartments-container').style.transform = `translateY(0)`;
+                } else {
 
-                const ArrayLinks = document.querySelectorAll('.savedAparts, .businessAparts, .livingAparts, .aparts');
-
-                ArrayLinks.forEach(link => {
-                    link.addEventListener('click', function (event) {
-                        event.preventDefault();
-                                             
-                        closeModal();
-                        
-                        const allAparts = aparts;
-                        const businessAparts = aparts.filter(apartment => apartment.category === 'business');
-                        const livingAparts = aparts.filter(apartment => apartment.category === 'living');
-                        const savedAparts = aparts.filter(apartment => apartment.saved === 1);
-                        
-                        const apartmentsMap = {
-                            aparts: aparts,
-                            businessAparts: businessAparts,
-                            livingAparts: livingAparts,
-                            savedAparts: savedAparts
-                        };
-
-                        const arrayName = event.target.className;
-
-                        const apartmentsArray = apartmentsMap[arrayName];
-                        window.scrollTo(0, 0);
-                        messageSnackbar(`Offers in this category: <span class="offers-count-number">${apartmentsArray.length}<span>`)
-                        
-                        if (arrayName == 'savedAparts') {
-                        document.getElementById('empty-list-button').style.visibility  = "visible"
-                        } else {
-                        document.getElementById('empty-list-button').style.visibility = "hidden";         
-                        }
-                        
-                         if (arrayName == 'aparts') {
-                   document.querySelector('.page-title-text').style.display = "inline-block";
-                              } else {
-                   document.querySelector('.page-title-text').style.display = "none";
-                        }
-                        
-                        
-                        
-                        if (apartmentsArray.length == 0) {
-                            apartmentsContainer.innerHTML = generateEmptyContent();
-                        } else {
-                            apartmentsContainer.innerHTML = '';
-                            apartmentsArray.forEach(renderApartment);
-                        }
-                        
-                    });
-                });
-
-
-                const menuLinks = document.querySelectorAll('.header-nav-list li a, .burger-nav-list li a');
-                
-                menuLinks.forEach(link => {
-                
-                link.addEventListener('click', function (event) {
-                        menuLinks.forEach(item => {
-                            item.classList.remove('active-page');
-                        });
-                        this.classList.add('active-page');
-                    });
-                
-                });
-
-
-               
-                function initializeCarousel(imageArray) {
-
-                    const rightButton = document.getElementById('right-btn');
-                    const leftButton = document.getElementById('left-btn');
-                    const imgElement = document.getElementById('carousel');
-                
-                const carouselElementPosition = document.getElementById('carousel-count-current');
-               const carouselTotalElements = document.getElementById('carousel-count-total');
-               carouselElementPosition.innerText = 1;
-               carouselTotalElements.innerText = imageArray.length;
-       
-                    let position = 0;
-                    imgElement.src = imageArray[position];
-                    const updateImage = () => {
-                        imgElement.src = imageArray[position];
-                    carouselElementPosition.innerText = position +1;
-                    carouselTotalElements.innerText = imageArray.length;
-                    };
-                    
-                    if (imageArray.length == 1) {
-                        carouselElementPosition.innerText = 1;
-                    carouselTotalElements.innerText = imageArray.length;
-                        
-                        rightButton.style.display = 'none';
-                        leftButton.style.display = 'none';
-                            
-                    } else {
-                        rightButton.addEventListener('click', () => {
-                            position = (position + 1) % imageArray.length;
-                            updateImage();
-                            
-                        });
-                        leftButton.addEventListener('click', () => {
-                            position = (position - 1 + imageArray.length) % imageArray.length;
-                            updateImage();
-                        });
-
-                    }
+                    document.querySelector('.page-title').style.transform = `translateY(-400px)`;
+                    document.querySelector('.apartments-container').style.transform = `translateY(-260px)`;
 
                 }
 
 
-function emptySavedList() {
-const savedAparts = aparts.filter(apartment => apartment.saved === 1);
+                if (apartmentsArray.length == 0) {
+                    apartmentsContainer.innerHTML = generateEmptyContent();
+                } else {
+                    apartmentsContainer.innerHTML = '';
+                    apartmentsArray.forEach(renderApartment);
+                }
 
-savedAparts.forEach(apart => {
-                    apart.saved = 0});
-                    updateSavedApartmentsCounter();
- apartmentsContainer.innerHTML = generateEmptyContent();
- window.scrollTo(0, 0);
-
-}
-
+            });
+        });
 
 
-function fullSizeModal() {
-const fullSizeModal = document.getElementById("fullsize-modal");
-const imageForModal = document.getElementById("carousel");
-const modalFullSizeImg = document.getElementById("fullsize-modal-image");
-imageForModal.onclick = function(){
-  fullSizeModal.style.display = "block";
-  modalFullSizeImg.src = this.src;
-  }
+        const menuLinks = document.querySelectorAll('.header-nav-list li a, .burger-nav-list li a');
 
-function closeFullSizeModal() {
-    fullSizeModal.style.display = "none";
-}
+        menuLinks.forEach(link => {
 
-document.querySelector(".fullsize-modal-close").onclick = () => closeFullSizeModal();
+            link.addEventListener('click', function (event) {
+                menuLinks.forEach(item => {
+                    item.classList.remove('active-page');
+                });
+                this.classList.add('active-page');
+            });
 
-modalFullSizeImg.onclick = () => closeFullSizeModal();
+        });
 
-}
 
-            </script>
+
+        function initializeCarousel(imageArray) {
+
+            const rightButton = document.getElementById('right-btn');
+            const leftButton = document.getElementById('left-btn');
+            const imgElement = document.getElementById('carousel');
+
+            const carouselElementPosition = document.getElementById('carousel-count-current');
+            const carouselTotalElements = document.getElementById('carousel-count-total');
+            carouselElementPosition.innerText = 1;
+            carouselTotalElements.innerText = imageArray.length;
+
+            let position = 0;
+            imgElement.src = imageArray[position];
+            const updateImage = () => {
+                imgElement.src = imageArray[position];
+                carouselElementPosition.innerText = position + 1;
+                carouselTotalElements.innerText = imageArray.length;
+            };
+
+            if (imageArray.length == 1) {
+                carouselElementPosition.innerText = 1;
+                carouselTotalElements.innerText = imageArray.length;
+
+                rightButton.style.display = 'none';
+                leftButton.style.display = 'none';
+
+            } else {
+                rightButton.addEventListener('click', () => {
+                    position = (position + 1) % imageArray.length;
+                    updateImage();
+
+                });
+                leftButton.addEventListener('click', () => {
+                    position = (position - 1 + imageArray.length) % imageArray.length;
+                    updateImage();
+                });
+
+            }
+
+        }
+
+
+        function emptySavedList() {
+            const savedAparts = aparts.filter(apartment => apartment.saved === 1);
+
+            savedAparts.forEach(apart => {
+                apart.saved = 0
+            });
+            updateSavedApartmentsCounter();
+            apartmentsContainer.innerHTML = generateEmptyContent();
+            window.scrollTo(0, 0);
+
+        }
+
+        function fullSizeModal() {
+            const fullSizeModal = document.getElementById("fullsize-modal");
+            const imageForModal = document.getElementById("carousel");
+            const modalFullSizeImg = document.getElementById("fullsize-modal-image");
+            imageForModal.onclick = function () {
+                fullSizeModal.style.display = "block";
+                modalFullSizeImg.src = this.src;
+            }
+
+            function closeFullSizeModal() {
+                fullSizeModal.style.display = "none";
+            }
+
+            document.querySelector(".fullsize-modal-close").onclick = () => closeFullSizeModal();
+
+            modalFullSizeImg.onclick = () => closeFullSizeModal();
+
+        }
+
+    </script>
 </body>
 
 
