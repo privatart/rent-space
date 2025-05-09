@@ -139,7 +139,7 @@ const aparts = [
         "added": "2025-03-29",
         "saved": 0,
         "status": "available",
-        "image": ['http://www.decorilla.com/online-decorating/wp-content/uploads/2020/07/Modern-apartment-design-lounge-with-a-minimal-kitchen-by-Maurizio.jpg', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2023/05/Moody-contemporary-bedroom-style-by-Ibrahim-H.jpg'],
+        "image": ['https://www.decorilla.com/online-decorating/wp-content/uploads/2020/07/Modern-apartment-design-lounge-with-a-minimal-kitchen-by-Maurizio.jpg', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2023/05/Moody-contemporary-bedroom-style-by-Ibrahim-H.jpg'],
         "category": "living"
     },
     {

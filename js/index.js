@@ -9,6 +9,7 @@ const modalClose = document.querySelector(".modal-close");
 
 const emptyListButon = document.getElementById('empty-list-button')
 
+let currentScrollY;
 
 function closeModal() {
     const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
@@ -117,11 +118,8 @@ function createSaveButton(apart) {
     return saveButton;
 }
 
-
-
-
 function handleDetailsButtonClick(apart) {
-    const currentScrollY = window.scrollY;
+    currentScrollY = window.scrollY;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${currentScrollY}px`;
     modal.style.display = 'block';
@@ -129,9 +127,6 @@ function handleDetailsButtonClick(apart) {
     fullSizeModal();
     emptyListButon.style.visibility = 'hidden';
 }
-
-
-
 
 function createDetailsButton(apart) {
     const detailsButton = document.createElement('button');
@@ -143,7 +138,6 @@ function createDetailsButton(apart) {
         handleDetailsButtonClick(apart);
     });
     return detailsButton;
-
 }
 
 
