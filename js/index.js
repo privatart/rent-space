@@ -27,9 +27,7 @@ function closeModal() {
     emptyListButon.style.visibility = isMainPageActive ? 'visible' : 'hidden';
 }
 
-modalClose.addEventListener("click", function () {
-    closeModal();
-});
+modalClose.addEventListener("click", closeModal);
 
 function messageSnackbar(message) {
     const snackbar = document.getElementById("snackbar");
@@ -247,9 +245,7 @@ function burgerTrigger() {
     burgerNavBar.style.left === "0px" ? burgerNavBar.style.left = "-200px" : burgerNavBar.style.left = "0";
 }
 
-burgerIcon.addEventListener("click", function () {
-    burgerTrigger();
-});
+burgerIcon.addEventListener("click", burgerTrigger);
 
 
 function burgerMenuClose() {
@@ -268,9 +264,7 @@ document.addEventListener("mouseup", function (event) {
 const burgerLinks = document.querySelectorAll(".burger-nav-list a");
 
 burgerLinks.forEach(link => {
-    link.addEventListener("click", function () {
-        burgerMenuClose();
-    });
+    link.addEventListener("click", burgerMenuClose);
 });
 
 
@@ -283,7 +277,7 @@ function generateEmptyContent() {
 <div class="card-footer">
         <p class="apartment-price">Your list is empty</p>
         <p class="apartment-details">Explore the full list of our offers</p>
-<button class="order-button" onclick="showFullList()">Show full list</button>
+<button class="order-button" id="show-full-list-btn">Show full list</button>
        </div>
 </div>
     `;
@@ -297,6 +291,9 @@ function showFullList() {
     document.getElementById('aparts').classList.add('active-page');
 }
 
+const fullListBtn= document.getElementById('show-full-list-btn')
+
+fullListBtn.addEventListener('click', showFullList);
 
 const ArrayLinks = document.querySelectorAll('.savedAparts, .businessAparts, .livingAparts, .aparts');
 
@@ -411,9 +408,7 @@ function emptySavedList() {
     window.scrollTo(0, 0);
 }
 
-emptyListButon.addEventListener("click", function () {
-    emptySavedList();
-});
+emptyListButon.addEventListener("click", emptySavedList);
 
 function fullSizeModal() {
     const fullSizeModal = document.getElementById("fullsize-modal");
