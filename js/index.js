@@ -283,6 +283,10 @@ function generateEmptyContent() {
     `;
 }
 
+function fullListBtnTrigger() {
+    const fullListBtn= document.getElementById('show-full-list-btn')
+    fullListBtn.addEventListener('click', showFullList);
+    }
 
 function showFullList() {
 
@@ -290,10 +294,6 @@ function showFullList() {
     document.getElementById('savedAparts').classList.remove('active-page');
     document.getElementById('aparts').classList.add('active-page');
 }
-
-const fullListBtn= document.getElementById('show-full-list-btn')
-
-fullListBtn.addEventListener('click', showFullList);
 
 const ArrayLinks = document.querySelectorAll('.savedAparts, .businessAparts, .livingAparts, .aparts');
 
@@ -334,7 +334,7 @@ ArrayLinks.forEach(link => {
 
         }
 
-        apartmentsArray.length == 0 ? apartmentsContainer.innerHTML = generateEmptyContent() : apartmentsContainer.innerHTML = '', apartmentsArray.forEach(renderApartment);
+        apartmentsArray.length == 0 ? apartmentsContainer.innerHTML = generateEmptyContent(),fullListBtnTrigger() : apartmentsContainer.innerHTML = '', apartmentsArray.forEach(renderApartment);
 
 
     });
@@ -405,6 +405,8 @@ function emptySavedList() {
     });
     updateSavedApartmentsCounter();
     apartmentsContainer.innerHTML = generateEmptyContent();
+    fullListBtnTrigger();
+
     window.scrollTo(0, 0);
 }
 
