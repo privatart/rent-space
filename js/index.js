@@ -27,6 +27,9 @@ function closeModal() {
     emptyListButon.style.visibility = isMainPageActive ? 'visible' : 'hidden';
 }
 
+modalClose.addEventListener("click", function () {
+    closeModal();
+});
 
 function messageSnackbar(message) {
     const snackbar = document.getElementById("snackbar");
@@ -238,19 +241,22 @@ document.getElementById("contact-form-button-reset").addEventListener('click', (
 
 const burgerNavBar = document.getElementById("burger-nav");
 
+const burgerIcon = document.querySelector(".burger-icon");
 
 function burgerTrigger() {
     burgerNavBar.style.left === "0px" ? burgerNavBar.style.left = "-200px" : burgerNavBar.style.left = "0";
 }
 
+burgerIcon.addEventListener("click", function () {
+    burgerTrigger();
+});
+
+
 function burgerMenuClose() {
     burgerNavBar.style.left = "-200px"
 }
 
-
-const burgerIcon = document.querySelector(".burger-icon");
 const burgerMenu = document.querySelector(".burger-nav-list");
-
 
 document.addEventListener("mouseup", function (event) {
     if (!burgerIcon.contains(event.target) && !burgerMenu.contains(event.target)) {
@@ -390,9 +396,7 @@ function initializeCarousel(imageArray) {
             position = (position - 1 + imageArray.length) % imageArray.length;
             updateImage();
         });
-
     }
-
 }
 
 
@@ -405,8 +409,11 @@ function emptySavedList() {
     updateSavedApartmentsCounter();
     apartmentsContainer.innerHTML = generateEmptyContent();
     window.scrollTo(0, 0);
-
 }
+
+emptyListButon.addEventListener("click", function () {
+    emptySavedList();
+});
 
 function fullSizeModal() {
     const fullSizeModal = document.getElementById("fullsize-modal");
