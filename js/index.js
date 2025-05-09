@@ -284,9 +284,9 @@ function generateEmptyContent() {
 }
 
 function fullListBtnTrigger() {
-    const fullListBtn= document.getElementById('show-full-list-btn')
+    const fullListBtn = document.getElementById('show-full-list-btn')
     fullListBtn.addEventListener('click', showFullList);
-    }
+}
 
 function showFullList() {
 
@@ -334,7 +334,7 @@ ArrayLinks.forEach(link => {
 
         }
 
-        apartmentsArray.length == 0 ? apartmentsContainer.innerHTML = generateEmptyContent(),fullListBtnTrigger() : apartmentsContainer.innerHTML = '', apartmentsArray.forEach(renderApartment);
+        apartmentsArray.length == 0 ? apartmentsContainer.innerHTML = generateEmptyContent() && fullListBtnTrigger() : apartmentsContainer.innerHTML = '', apartmentsArray.forEach(renderApartment);
 
 
     });
