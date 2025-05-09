@@ -1,0 +1,53 @@
+#snackbar {
+    visibility: hidden;
+    z-index: 2;
+    background-color: rgba(10, 10, 10, 0.7);
+    color: white;
+
+    text-align: center;
+    border-style: groove;
+    border-radius: 15px;
+    padding: 5px 5px 10px 5px;
+    position: fixed;
+    min-width: 250px;
+    margin-left: -125px;
+    left: 50%;
+    bottom: 30px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+
+.offers-count-number {
+    font-size: 22px;
+    font-weight: bold;
+    color: #52b238;
+}

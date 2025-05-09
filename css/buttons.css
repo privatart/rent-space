@@ -1,0 +1,70 @@
+.details-button,
+        .order-button,
+        .empty-list-button {
+            font-family: "Bree Serif", serif;
+            display: block;
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            color: white;
+            background: #555;
+            padding: 10px;
+            box-shadow: 0 3px #999;
+        }
+
+        .details-button:hover,
+        .order-button:hover,
+        .empty-list-button:hover {
+            cursor: pointer;
+            background-color: #333;
+        }
+
+
+        .details-button:active,
+        .order-button:active,
+        .empty-list-button:active {
+            background-color: #555;
+            box-shadow: 0 1px #666;
+            transform: translateY(2px);
+        }
+
+        .empty-list-button:hover {
+            color: #52b238;
+        }
+
+        .order-button {
+            border: 1px solid white;
+            margin-top: 5px;
+        }
+
+        .empty-list-button-tip {
+            visibility: hidden;
+            position: fixed;
+            z-index: 2;
+            color: white;
+            right: 5px;
+            top: 175px;
+            opacity: 0;
+            transition: opacity 1.2s;
+            background: #555;
+            padding: 2px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .empty-list-button:hover+.empty-list-button-tip {
+            visibility: visible;
+            opacity: 0.8;
+        }
+
+        .empty-list-button {
+            visibility: hidden;
+            position: fixed;
+            z-index: 2;
+            right: 5px;
+            top: 125px;
+            border: 1px solid white;
+            margin-bottom: 3px;
+        }

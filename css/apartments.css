@@ -1,0 +1,144 @@
+.apartments-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 10px;
+    background-color: #c7cbd5;
+    margin: 0px 20px;
+    transition: transform 1s ease;
+}
+
+
+.apartment-card {
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 300px;
+    overflow: hidden;
+    background-color: #F2F3F6;
+    box-shadow: 0 3px #999;
+    -webkit-animation: zoom 0.9s;
+    animation: zoom 0.9s;
+
+
+}
+
+.apartment-card:hover {
+    box-shadow: 0 0 20px 8px white;
+}
+
+
+.reserved {
+    pointer-events: none;
+    filter: blur(0.8px);
+}
+
+.reserved-text {
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    transform: rotate(-50deg);
+    font-size: 70px;
+    font-weight: bold;
+    color: #52b238;
+    text-shadow:
+        -2px -2px 0 white,
+        2px -2px 0 white,
+        -2px 2px 0 white,
+        2px 2px 0 white;
+    z-index: 3;
+}
+
+
+.apartment-card-top {
+    position: relative;
+    overflow: hidden;
+}
+
+.apartment-image {
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.apartment-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.added-time {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    width: 50%;
+    font-size: 15px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    border-color: white;
+}
+
+.not-saved {
+    background-color: grey;
+
+}
+
+.not-saved:hover {
+    background-color: #2aa308;
+}
+
+.saved {
+    background-color: #2aa308;
+}
+
+.saved:hover {
+    background-color: grey;
+}
+
+
+.card-footer {
+    line-height: 30px;
+}
+
+.apartment-price {
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+}
+
+.apartment-details {
+    font-size: 20px;
+    color: black;
+
+    font-style: italic;
+    height: 60px;
+}
+
+.apartment-adress {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}

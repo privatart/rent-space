@@ -1,0 +1,56 @@
+
+.page-title {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    transition: transform 1s ease;
+}
+
+.page-title-image {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+}
+
+
+.page-title-text,
+.page-footer-text {
+    font-family: "DM Serif Text", swap;
+    border: 1px solid black;
+    box-shadow: 0 3px #999;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    background-color: rgba(10, 10, 10, 0.6);
+    color: #52b238;
+    font-size: clamp(20px, 5vw + 10px, 60px);
+    border-radius: 10px;
+    padding: 15px;
+    width: 50%;
+
+}
+
+.page-title-text {
+
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.page-footer-text {
+    min-width: 300px;
+    max-width: 850px;
+    font-size: 32px;
+
+}
+
+
+.page-title-text p,
+.page-footer-text p {
+    letter-spacing: 0.2rem;
+    color: white;
+    font-size: clamp(10px, 5vw + 2px, 26px);
+}
