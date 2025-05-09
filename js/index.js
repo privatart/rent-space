@@ -334,8 +334,14 @@ ArrayLinks.forEach(link => {
 
         }
 
-        apartmentsArray.length == 0 ? apartmentsContainer.innerHTML = generateEmptyContent() && fullListBtnTrigger() : apartmentsContainer.innerHTML = '', apartmentsArray.forEach(renderApartment);
+        if (apartmentsArray.length == 0) {
 
+            apartmentsContainer.innerHTML = generateEmptyContent();
+            fullListBtnTrigger()
+        } else {
+            apartmentsContainer.innerHTML = '';
+            apartmentsArray.forEach(renderApartment);
+        }
 
     });
 });
