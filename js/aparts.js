@@ -1,4 +1,4 @@
-const aparts = [
+const startAparts = [
     {
         "id": 7000901,
         "adres": "Warsaw, Mokotow",
@@ -586,4 +586,4 @@ const aparts = [
     }
 ]
 
-export default aparts;
+export default startAparts;

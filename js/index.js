@@ -1,4 +1,4 @@
-import aparts from "./aparts.js";
+import startAparts from "./aparts.js";
 
 
 const apartmentsContainer = document.getElementById('apartments-container');
@@ -10,6 +10,56 @@ const modalClose = document.querySelector(".modal-close");
 const emptyListButon = document.getElementById('empty-list-button')
 
 let currentScrollY;
+
+
+
+let newContactFormData;
+const contactForm = document.getElementById('contact-form');
+
+function getContactFormData() {
+
+    newContactFormData = { 
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    message: document.getElementById('message').value,
+    time: new Date()
+    };
+return newContactFormData;
+}
+
+
+contactForm.addEventListener('submit', function(event) {
+event.preventDefault();
+    getContactFormData();
+    const storedContactFormData = JSON.parse(localStorage.getItem('contactFormData')) || []; storedContactFormData.push(newContactFormData); 
+    localStorage.setItem('contactFormData', JSON.stringify(storedContactFormData));
+  
+contactForm.reset();
+ document.getElementById("message").innerText = "";
+document.getElementById('message').placeholder = 'I want to get more information about....';
+messageSnackbar('Your message has been send');
+  })
+  
+
+let storedLocalData = localStorage.getItem('savedApartsArray');
+
+let aparts = [];
+
+if (storedLocalData) {
+ aparts = JSON.parse(storedLocalData);
+} else {
+
+localStorage.setItem("savedApartsArray", JSON.stringify(startAparts));
+storedLocalData = localStorage.getItem('savedApartsArray'); 
+aparts = JSON.parse(storedLocalData);
+}
+
+
+function updateSavedArray() {
+localStorage.setItem("savedApartsArray", JSON.stringify(aparts));
+}
+
 
 function closeModal() {
     const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
@@ -200,7 +250,7 @@ function renderModalApartment(apart) {
 
     const handleOrderButtonClick = () => {
         closeModal();
-        document.getElementById("contact-form").scrollIntoView({ behavior: "smooth" });
+        contactForm.scrollIntoView({ behavior: "smooth" });
 
         document.getElementById("message").innerText = `I want to get more information about your offer (#${apart.id}). Please call or text to me so I can get details and made an appointment.`;
         messageSnackbar(`Please fill in the form`);
