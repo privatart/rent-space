@@ -18,46 +18,46 @@ const contactForm = document.getElementById('contact-form');
 
 function getContactFormData() {
 
-    newContactFormData = { 
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value,
-    message: document.getElementById('message').value,
-    time: new Date()
+    newContactFormData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value,
+        time: new Date()
     };
-return newContactFormData;
+    return newContactFormData;
 }
 
 
-contactForm.addEventListener('submit', function(event) {
-event.preventDefault();
+contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
     getContactFormData();
-    const storedContactFormData = JSON.parse(localStorage.getItem('contactFormData')) || []; storedContactFormData.push(newContactFormData); 
+    const storedContactFormData = JSON.parse(localStorage.getItem('contactFormData')) || []; storedContactFormData.push(newContactFormData);
     localStorage.setItem('contactFormData', JSON.stringify(storedContactFormData));
-  
-contactForm.reset();
- document.getElementById("message").innerText = "";
-document.getElementById('message').placeholder = 'I want to get more information about....';
-messageSnackbar('Your message has been send');
-  })
-  
+
+    contactForm.reset();
+    document.getElementById("message").innerText = "";
+    document.getElementById('message').placeholder = 'I want to get more information about....';
+    messageSnackbar('Your message has been send');
+})
+
 
 let storedLocalData = localStorage.getItem('savedApartsArray');
 
 let aparts = [];
 
 if (storedLocalData) {
- aparts = JSON.parse(storedLocalData);
+    aparts = JSON.parse(storedLocalData);
 } else {
 
-localStorage.setItem("savedApartsArray", JSON.stringify(startAparts));
-storedLocalData = localStorage.getItem('savedApartsArray'); 
-aparts = JSON.parse(storedLocalData);
+    localStorage.setItem("savedApartsArray", JSON.stringify(startAparts));
+    storedLocalData = localStorage.getItem('savedApartsArray');
+    aparts = JSON.parse(storedLocalData);
 }
 
 
 function updateSavedArray() {
-localStorage.setItem("savedApartsArray", JSON.stringify(aparts));
+    localStorage.setItem("savedApartsArray", JSON.stringify(aparts));
 }
 
 
@@ -151,6 +151,7 @@ function handleSaveButtonClick(apart) {
     apart.saved = apart.saved === 1 ? 0 : 1;
     updateApartmentCard(apart);
     updateSavedApartmentsCounter();
+    updateSavedArray();
 }
 
 function createSaveButton(apart) {
@@ -281,7 +282,7 @@ function updateApartmentCard(apart) {
 aparts.forEach(renderApartment);
 
 updateSavedApartmentsCounter();
-
+updateSavedArray();
 
 document.getElementById("contact-form-button-reset").addEventListener('click', () => {
     document.getElementById("message").innerText = "";
@@ -460,6 +461,7 @@ function emptySavedList() {
         }
     });
     updateSavedApartmentsCounter();
+    updateSavedArray();
     apartmentsContainer.innerHTML = generateEmptyContent();
     fullListBtnTrigger();
 

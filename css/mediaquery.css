@@ -47,6 +47,11 @@
 
     }
 
+    .modal-close,
+    .fullsize-modal-close {
+        right: 35px;
+    }
+
     .page-title-text {
         width: 90%;
     }
