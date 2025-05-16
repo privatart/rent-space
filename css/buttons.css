@@ -47,8 +47,8 @@
             position: fixed;
             z-index: 2;
             color: white;
-            right: 5px;
-            top: 175px;
+            right: 40px;
+            top: 105px;
             opacity: 0;
             transition: opacity 1.2s;
             background: #555;
