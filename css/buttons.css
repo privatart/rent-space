@@ -1,6 +1,7 @@
 .details-button,
         .order-button,
-        .empty-list-button {
+        .empty-list-button,
+        .sort-buttons-dropdown {
             font-family: "Bree Serif", serif;
             display: block;
             margin: auto;
@@ -30,7 +31,8 @@
             transform: translateY(2px);
         }
 
-        .empty-list-button:hover {
+        .empty-list-button:hover,
+        .sort-buttons-dropdown:hover {
             color: #52b238;
         }
 
@@ -39,7 +41,8 @@
             margin-top: 5px;
         }
 
-        .empty-list-button-tip {
+        .empty-list-button-tip,
+        .sort-button-tip {
             visibility: hidden;
             position: fixed;
             z-index: 2;

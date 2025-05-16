@@ -60,6 +60,60 @@ function updateSavedArray() {
     localStorage.setItem("savedApartsArray", JSON.stringify(aparts));
 }
 
+document.querySelector('.sort-buttons-dropdown').addEventListener('click', () => document.getElementById("sortButtons").classList.toggle("show"))
+
+
+let activeArray = aparts;
+
+function arraySort(value, order) {
+    if (activeArray.length == 0) {
+        return;
+    } else {
+        if (value === 'price') {
+            activeArray.sort((a, b) => {
+                return order === 'ascending' ? a.price - b.price : b.price - a.price;
+            })
+            apartmentsContainer.innerHTML = ''
+            activeArray.forEach(renderApartment);
+        } else if (value === 'added') {
+            activeArray.sort((a, b) => {
+                return order === 'ascending' ? new Date(b.added) - new Date(a.added) : new Date(a.added) - new Date(b.added);
+            })
+
+            apartmentsContainer.innerHTML = ''; activeArray.forEach(renderApartment)
+        }
+    }
+}
+
+
+window.onclick = function (event) {
+    if (!event.target.matches('.sort-buttons-dropdown')) {
+        document.getElementById("sortButtons").classList.remove('show');
+    }
+}
+
+
+const sortButtons = document.querySelectorAll('.sort-button');
+
+sortButtons.forEach(button => {
+    button.addEventListener('click', function (event) {
+        sortButtons.forEach(item => {
+            item.classList.remove('active-sort');
+        });
+        this.classList.add('active-sort');
+        switch (this.id) {
+            case 'sort-cheaper': arraySort('price', 'ascending');
+                break;
+            case 'sort-expensive': arraySort('price', 'descending');
+                break;
+            case 'sort-newer': arraySort('added', 'ascending');
+                break;
+            case 'sort-older': arraySort('added', 'descending');
+                break;
+        }
+    });
+});
+
 
 function closeModal() {
     const modalWindow = document.getElementById(`apartment-${modalClose.id}`);
@@ -392,6 +446,7 @@ ArrayLinks.forEach(link => {
         } else {
             apartmentsContainer.innerHTML = '';
             apartmentsArray.forEach(renderApartment);
+            activeArray = apartmentsArray;
         }
 
     });
@@ -464,7 +519,7 @@ function emptySavedList() {
     updateSavedArray();
     apartmentsContainer.innerHTML = generateEmptyContent();
     fullListBtnTrigger();
-
+    activeArray = [];
     window.scrollTo(0, 0);
 }
 
