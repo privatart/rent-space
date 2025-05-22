@@ -123,7 +123,6 @@ function closeModal() {
     document.body.style.position = '';
     document.body.style.top = '';
     modalWindow.scrollIntoView({ top: currentScrollY, behavior: 'instant' });
-    window.scrollBy(0, 90);
     modal.style.display = "none";
     modalApartCard.innerHTML = "";
 
