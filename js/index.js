@@ -225,7 +225,7 @@ function createSaveButton(apart) {
 }
 
 function handleDetailsButtonClick(apart) {
-    currentScrollY = window.scrollY;
+    currentScrollY = window.scrollY + 90;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${currentScrollY}px`;
     modal.style.display = 'block';
