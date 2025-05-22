@@ -122,7 +122,7 @@ function closeModal() {
 
     document.body.style.position = '';
     document.body.style.top = '';
-    modalWindow.scrollIntoView({ behavior: 'instant' });
+    modalWindow.scrollIntoView({ top: currentScrollY, behavior: 'instant' });
     window.scrollBy(0, 90);
     modal.style.display = "none";
     modalApartCard.innerHTML = "";
@@ -226,9 +226,9 @@ function createSaveButton(apart) {
 }
 
 function handleDetailsButtonClick(apart) {
-    currentScrollY = window.scrollY + 90;
+    currentScrollY = window.scrollY;
     document.body.style.position = 'fixed';
-    document.body.style.top = `-${currentScrollY}px`;
+    // document.body.style.top = `-${currentScrollY}px`;
     modal.style.display = 'block';
     renderModalApartment(apart);
     fullSizeModal();
