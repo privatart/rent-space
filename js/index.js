@@ -7,13 +7,14 @@ const modal = document.getElementById("modal");
 const modalApartCard = document.getElementById("modal-apart-card");
 const modalClose = document.querySelector(".modal-close");
 
-const emptyListButon = document.getElementById('empty-list-button')
+const fullSizeModal = document.getElementById("fullsize-modal");
+
+const emptyListButton = document.getElementById('empty-list-button')
 
 let currentScrollY;
 
-
-
 let newContactFormData;
+
 const contactForm = document.getElementById('contact-form');
 
 function getContactFormData() {
@@ -128,10 +129,20 @@ function closeModal() {
 
     const isMainPageActive = document.getElementById('savedAparts').classList.contains('active-page') || document.getElementById('savedApartsBurger').classList.contains('active-page');
 
-    emptyListButon.style.visibility = isMainPageActive ? 'visible' : 'hidden';
+    emptyListButton.style.visibility = isMainPageActive ? 'visible' : 'hidden';
 }
 
 modalClose.addEventListener("click", closeModal);
+
+function handleEscapeBtn(event) {
+    if (event.key === 'Escape') {
+        if (fullSizeModal.style.display == "block") {
+            fullSizeModal.style.display = "none";
+        } else {
+            closeModal();
+        }
+    }
+}
 
 function messageSnackbar(message) {
     const snackbar = document.getElementById("snackbar");
@@ -139,7 +150,6 @@ function messageSnackbar(message) {
     snackbar.className = "show";
     setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 1500);
 }
-
 
 
 function updateSavedApartmentsCounter() {
@@ -227,11 +237,12 @@ function createSaveButton(apart) {
 function handleDetailsButtonClick(apart) {
     currentScrollY = window.scrollY;
     document.body.style.position = 'fixed';
+    document.addEventListener('keydown', handleEscapeBtn);
     // document.body.style.top = `-${currentScrollY}px`;
     modal.style.display = 'block';
     renderModalApartment(apart);
-    fullSizeModal();
-    emptyListButon.style.visibility = 'hidden';
+    openFullSizeModal();
+    emptyListButton.style.visibility = 'hidden';
 }
 
 function createDetailsButton(apart) {
@@ -426,7 +437,7 @@ ArrayLinks.forEach(link => {
         window.scrollTo(0, 0);
         messageSnackbar(`Offers in this category: <span class="offers-count-number">${apartmentsArray.length}<span>`)
 
-        emptyListButon.style.visibility = (arrayName == 'savedAparts') ? "visible" : "hidden";
+        emptyListButton.style.visibility = (arrayName == 'savedAparts') ? "visible" : "hidden";
 
         if (arrayName == 'aparts') {
 
@@ -523,13 +534,11 @@ function emptySavedList() {
     window.scrollTo(0, 0);
 }
 
-emptyListButon.addEventListener("click", emptySavedList);
+emptyListButton.addEventListener("click", emptySavedList);
 
-function fullSizeModal() {
-    const fullSizeModal = document.getElementById("fullsize-modal");
+function openFullSizeModal() {
     const imageForModal = document.getElementById("carousel");
     const modalFullSizeImg = document.getElementById("fullsize-modal-image");
-
 
     imageForModal.onclick = function () {
         fullSizeModal.style.display = "block";
@@ -537,6 +546,4 @@ function fullSizeModal() {
     }
 
     fullSizeModal.onclick = () => { fullSizeModal.style.display = "none" };
-
-
 }
