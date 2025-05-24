@@ -11,8 +11,6 @@ const fullSizeModal = document.getElementById("fullsize-modal");
 
 const emptyListButton = document.getElementById('empty-list-button')
 
-let currentScrollY;
-
 let newContactFormData;
 
 const contactForm = document.getElementById('contact-form');
@@ -123,7 +121,7 @@ function closeModal() {
 
     document.body.style.position = '';
     document.body.style.top = '';
-    modalWindow.scrollIntoView({ top: currentScrollY, behavior: 'instant' });
+    modalWindow.scrollIntoView({ block: "center", behavior: 'instant' });
     modal.style.display = "none";
     modalApartCard.innerHTML = "";
 
@@ -235,10 +233,8 @@ function createSaveButton(apart) {
 }
 
 function handleDetailsButtonClick(apart) {
-    currentScrollY = window.scrollY;
     document.body.style.position = 'fixed';
     document.addEventListener('keydown', handleEscapeBtn);
-    // document.body.style.top = `-${currentScrollY}px`;
     modal.style.display = 'block';
     renderModalApartment(apart);
     openFullSizeModal();
