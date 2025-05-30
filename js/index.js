@@ -1,5 +1,6 @@
 import startAparts from "./aparts.js";
-
+import { messageSnackbar } from "./messageSnackbar.js";
+import { initializeCarousel } from "./initializeCarousel.js";
 
 const apartmentsContainer = document.getElementById('apartments-container');
 
@@ -141,14 +142,6 @@ function handleEscapeBtn(event) {
         }
     }
 }
-
-function messageSnackbar(message) {
-    const snackbar = document.getElementById("snackbar");
-    snackbar.innerHTML = message;
-    snackbar.className = "show";
-    setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 1500);
-}
-
 
 function updateSavedApartmentsCounter() {
     const savedApartmentsCount = aparts.filter(apart => apart.saved === 1).length;
@@ -472,49 +465,6 @@ menuLinks.forEach(link => {
     });
 
 });
-
-
-
-function initializeCarousel(imageArray) {
-
-    const rightButton = document.getElementById('right-btn');
-    const leftButton = document.getElementById('left-btn');
-    const imgElement = document.getElementById('carousel');
-
-    const carouselElementPosition = document.getElementById('carousel-count-current');
-    const carouselTotalElements = document.getElementById('carousel-count-total');
-    carouselElementPosition.innerText = 1;
-    carouselTotalElements.innerText = imageArray.length;
-
-    let position = 0;
-    imgElement.src = imageArray[position];
-
-    const updateImage = () => {
-        imgElement.src = imageArray[position];
-        carouselElementPosition.innerText = position + 1;
-        carouselTotalElements.innerText = imageArray.length;
-    };
-
-    if (imageArray.length == 1) {
-        carouselElementPosition.innerText = 1;
-        carouselTotalElements.innerText = imageArray.length;
-
-        rightButton.style.display = 'none';
-        leftButton.style.display = 'none';
-
-    } else {
-        rightButton.addEventListener('click', () => {
-            position = (position + 1) % imageArray.length;
-            updateImage();
-
-        });
-        leftButton.addEventListener('click', () => {
-            position = (position - 1 + imageArray.length) % imageArray.length;
-            updateImage();
-        });
-    }
-}
-
 
 function emptySavedList() {
     aparts.forEach(apart => {
