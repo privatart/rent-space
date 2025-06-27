@@ -15,14 +15,15 @@
 
 <body>
     <div class="page-container">
-        <div id="snackbar"></div>
-        <div class="header" id="myHeader">
-            <div class="header-logo-name">
+        <section id="snackbar"></section>
+        <header class="header" id="myHeader">
+            <hgroup class="header-logo-name">
                 <a href="">
-                    <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" class="header-logo" alt="logo"></img>
+                    <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" class="header-logo"
+                        alt="logo"></img>
                 </a>
                 <h2 class="header-text">RENT SPACE <br>for Living and Business</h2>
-            </div>
+            </hgroup>
             <ul id="header-nav" class="header-nav-list">
                 <li><a href="" class="aparts active-page" id="aparts">All offers</a></li>
                 <li><a href="" class="livingAparts">For living</a></li>
@@ -33,7 +34,7 @@
             <a href="javascript:void(0);" class="burger-icon">
                 <i class="fa fa-bars"></i>
             </a>
-            <div class="counter-container">
+            <figure class="counter-container">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -42,8 +43,8 @@
                 <div>
                     <span class="counter">0</span>
                 </div>
-            </div>
-        </div>
+            </figure>
+        </header>
         <ul id="burger-nav" class="burger-nav-list">
             <li><a href="" class="aparts" id="burger-aparts">All offers</a></li>
             <li><a href="" class="livingAparts">For living</a></li>
@@ -51,7 +52,7 @@
             <li><a href="" class="savedAparts" id="savedApartsBurger">Your list</a></li>
             <li><a href="#contacts">Contacts</a></li>
         </ul>
-        <div class="page-title">
+        <hgroup class="page-title">
             <div class="page-title-text">
                 <p>REAL ESTATE AGENCY</p>
                 <h4>RENT SPACE</h4>
@@ -60,41 +61,40 @@
             </div>
             <img src="https://privatart.github.io/rent-space/src/img/background.jpg" class="page-title-image"
                 alt="city-lanscape"></img>
-        </div>
+        </hgroup>
         <div class='empty-list-button-container'>
-            <button class='empty-list-button' id='empty-list-button'><i
-                    class="fa-solid fa-broom"></i>
+            <button class='empty-list-button' id='empty-list-button'><i class="fa-solid fa-broom"></i>
             </button>
             <span class="empty-list-button-tip">clear list</span>
         </div>
         <div class='sort-buttons-container'>
-  <button class="sort-buttons-dropdown"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></button>
-  <span class="sort-button-tip">sort offers</span>
-  <div id="sortButtons" class="sort-buttons">
-    <a class='sort-button' href="#" id='sort-cheaper'>Price:  from cheaper</a>
-    <a class='sort-button' href="#" id='sort-expensive'>Price:  from expensive</a>
-    <a class='sort-button' href="#" id='sort-newer'>Date:  from newer</a>
-    <a class='sort-button' href="#" id='sort-older'>Date:  from older</a>
-  </div>
-</div>
-        <div id="apartments-container" class="apartments-container"></div>
+            <button class="sort-buttons-dropdown"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></button>
+            <span class="sort-button-tip">sort offers</span>
+            <nav id="sortButtons" class="sort-buttons">
+                <a class='sort-button' href="#" id='sort-cheaper'>Price: from cheaper</a>
+                <a class='sort-button' href="#" id='sort-expensive'>Price: from expensive</a>
+                <a class='sort-button' href="#" id='sort-newer'>Date: from newer</a>
+                <a class='sort-button' href="#" id='sort-older'>Date: from older</a>
+            </nav>
+        </div>
+        <section id="apartments-container" class="apartments-container"></section>
 
-        <div id="modal" class="modal">
+        <section id="modal" class="modal">
             <span class="modal-close">&times;</span>
             <div class="modal-content">
                 <div id="modal-apart-card" class="modal-apart-card"></div>
             </div>
-        </div>
+        </section>
 
-        <div id="fullsize-modal" class="fullsize-modal">
+        <figure id="fullsize-modal" class="fullsize-modal">
             <span class="fullsize-modal-close">&times;</span>
             <img class="fullsize-modal-image" id="fullsize-modal-image">
-        </div>
+        </figure>
 
         <hr>
         <section id="contacts" class="contacts">
-            <div class="page-footer">
-                <div class="page-footer-text">
+            <footer class="page-footer">
+                <hgroup class="page-footer-text">
                     <p>REAL ESTATE AGENCY</p>
                     <img src="https://privatart.github.io/rent-space/src/img/logo.JPG" width="100" height="100"
                         class="footer-logo" alt="logo"></img>
@@ -102,30 +102,30 @@
                     <p>for Living and Business</p>
                     <hr>
                     <p>WARSAW / KYIV / LONDON</p>
-                </div>
-            </div>
-            <div class="contact-form-container">
+                </hgroup>
+            </footer>
+            <section class="contact-form-container">
 
                 <form class="contact-form" id="contact-form" action="">
                     <h3 class="footer-h3">Contact us</h3>
                     <hr>
                     <label for="name">Your name:</label><br>
-                    <input type="text" required id="name" name="name" ><br>
+                    <input type="text" required id="name" name="name"><br>
                     <label for="email">Your email:</label><br>
-                    <input type="email" required id="email" name="email" ><br>
+                    <input type="email" required id="email" name="email"><br>
                     <label for="phone">Your phone number:</label><br>
-                    <input type="text" id="phone" name="phone" ><br>
+                    <input type="text" id="phone" name="phone"><br>
                     <label for="message">Your message or request:</label><br>
                     <textarea id="message" name="message" placeholder="I want to get more information about...."
-                     required></textarea><br>
+                        required></textarea><br>
                     <br>
-                    <div class="contact-form-buttons">
+                    <fieldset class="contact-form-buttons">
                         <input id="contact-form-button-send" type="submit" value="Send">
                         <input id="contact-form-button-reset" type="reset" value="Reset">
-                    </div>
+                    </fieldset>
                 </form>
 
-                <div class="contact-details">
+                <section class="contact-details">
                     <h3 class="footer-h3">or find our central office</h3>
                     <hr>
                     <p class="contact-details-title">Warsaw</p>
@@ -136,7 +136,7 @@
                     <p class="contact-details-text"><a href="tel:+48474644434">+48 47 46 44 434</a></p>
                     <p class="contact-details-title">Email</p>
                     <p class="contact-details-text"><a href="mailto:office@rentspace.com">office@rentspace.com</a></p>
-                    <div class="contact-details-social">
+                    <nav class="contact-details-social">
 
                         <ul class="social-icons">
                             <li>
@@ -152,10 +152,10 @@
                                         class="fab fa-linkedin-in icon"></i></a>
                             </li>
                         </ul>
-                    </div>
-                </div>
+                    </nav>
+                </section>
 
-            </div>
+            </section>
             <p class="powered">Powered by <a class="powered-links" href="https://github.com/privatart
 " target="_blank">privatart</a></p>
         </section>
