@@ -22,7 +22,7 @@ const startAparts = [
         "added": "2025-02-02",
         "saved": 1,
         "status": "available",
-        "image": ['https://www.rentfurniture.com/office/img/axton.jpg', 'https://maisonoffice.vn/en/wp-content/uploads/2024/03/modern-office-1.jpg', 'https://www.pressglass.com/wp-content/uploads/2024/02/MicrosoftTeams-image-20-2-1030x687.jpeg'],
+        "image": ['https://bfplsyd.com/wp-content/uploads/2020/08/meeting-800x800-1.jpg', 'https://maisonoffice.vn/en/wp-content/uploads/2024/03/modern-office-1.jpg', 'https://www.pressglass.com/wp-content/uploads/2024/02/MicrosoftTeams-image-20-2-1030x687.jpeg'],
         "category": "business"
     },
     {
@@ -35,7 +35,7 @@ const startAparts = [
         "added": "2025-01-31",
         "saved": 1,
         "status": "available",
-        "image": ["https://top-gym.pl//wp-content/uploads/2020/10/2bbe19b224b5aea85c79cb61fbcc30be.jpg", 'https://justgym.pl/wp-content/uploads/2021/08/JustGYM_Katowice_otwarcie_9-scaled.jpg', 'https://justgym.pl/wp-content/uploads/2021/07/Lodz_piotrkowska_gotowe_8-768x503.jpg', 'https://justgym.pl/wp-content/uploads/2021/07/justGYM_8_male-768x503.jpg'],
+        "image": ['https://top-gym.pl//wp-content/uploads/2020/10/2bbe19b224b5aea85c79cb61fbcc30be.jpg', 'https://hospitalitydesign.com/wp-content/uploads/2025/03/750_3888.jpg', 'https://r2.sportlife.ua/083_A9574_45c56e2cf4.jpg'],
         "category": "business"
     },
     {
@@ -87,7 +87,7 @@ const startAparts = [
         "added": "2025-03-02",
         "saved": 1,
         "status": "reserved",
-        "image": ["https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
+        "image": ['https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
         "category": "business"
     },
     {
@@ -100,7 +100,7 @@ const startAparts = [
         "added": "2025-04-06",
         "saved": 1,
         "status": "available",
-        "image": ["https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg", 'https://www.therugmaker.com.sg/wp-content/uploads/2021/11/Rugmaker_Blog-Piece-SideImages_luxury-and-fashionable-brand-new-interior-of-cloth-store.jpg'],
+        "image": ['https://pliki.propertydesign.pl/i/12/48/95/124895_r0_1140.jpg', 'https://www.therugmaker.com.sg/wp-content/uploads/2021/11/Rugmaker_Blog-Piece-SideImages_luxury-and-fashionable-brand-new-interior-of-cloth-store.jpg'],
         "category": "business"
     },
     {
@@ -152,7 +152,7 @@ const startAparts = [
         "added": "2025-04-13",
         "saved": 0,
         "status": "available",
-        "image": ["https://polpo-apartments.pl/images/frontpageGallery/pictures/large/0/0/14.jpg", "https://www.decorilla.com/online-decorating/wp-content/uploads/2020/08/Transitional-luxury-modern-apartment-design.jpg"],
+        "image": ['https://symphony-group.co.uk/wp-content/uploads/Melrose-Harbour-Main-Shot-RT-01.07.25-small-1-1920x1440.jpg', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2020/08/Transitional-luxury-modern-apartment-design.jpg'],
         "category": "living"
     },
     {
@@ -165,7 +165,7 @@ const startAparts = [
         "added": "2025-04-10",
         "saved": 0,
         "status": "available",
-        "image": ["https://www.decorilla.com/online-decorating/wp-content/uploads/2020/08/Modern-Apartment-Decor-.jpg"],
+        "image": ['https://www.decorilla.com/online-decorating/wp-content/uploads/2020/08/Modern-Apartment-Decor-.jpg'],
         "category": "living"
     },
     {
@@ -230,7 +230,7 @@ const startAparts = [
         "added": "2025-03-10",
         "saved": 0,
         "status": "available",
-        "image": ["https://www.p3parks.com/imgm/YTE5NDIyfGExMDk1NTN8YTE5NDAxfGExMDQ5MjPT4LEA/-I8A1863.jpg", "https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg", "https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg", "https://www.eastmidlandsbusinesslink.co.uk/mag/wp-content/uploads/2024/02/AdobeStock_289332658.jpeg"],
+        "image": ['https://www.theconstructionindex.co.uk/assets/news_articles/2026/08/1787552934_im02---units-4-5-&-6.jpeg', 'https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg", "https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg', 'https://www.eastmidlandsbusinesslink.co.uk/mag/wp-content/uploads/2024/02/AdobeStock_289332658.jpeg'],
         "category": "business"
     },
     {
@@ -243,7 +243,7 @@ const startAparts = [
         "added": "2025-04-23",
         "saved": 0,
         "status": "available",
-        "image": ['https://assets.artifactuprising.com/assets/campaigns/2020/Q1/02-06+Office+Decor+Blog+Post/4.jpg', "https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg"],
+        "image": ['https://assets.artifactuprising.com/assets/campaigns/2020/Q1/02-06+Office+Decor+Blog+Post/4.jpg', 'https://www.constructionweekonline.in/cloud/2022/01/10/4-office.jpg'],
         "category": "business"
     },
     {
@@ -256,7 +256,7 @@ const startAparts = [
         "added": "2025-04-02",
         "saved": 1,
         "status": "available",
-        "image": ["https://assets.epicurious.com/photos/5720d8dadb3cd6fd5a7dd0fc/16:9/w_1280,c_limit/HEB---Store-Front.jpg", "https://assets.epicurious.com/photos/57eebe2eb382c3c017d3fff0/16:9/w_2560%2Cc_limit/supermarket-shelves.jpg", "https://www.driveresearch.com/wp-content/uploads/2020/04/Fruits-in-grocery-store.jpg"],
+        "image": ['https://assets.epicurious.com/photos/5720d8dadb3cd6fd5a7dd0fc/16:9/w_1280,c_limit/HEB---Store-Front.jpg', 'https://assets.epicurious.com/photos/57eebe2eb382c3c017d3fff0/16:9/w_2560%2Cc_limit/supermarket-shelves.jpg', 'https://www.driveresearch.com/wp-content/uploads/2020/04/Fruits-in-grocery-store.jpg'],
         "category": "business"
     },
     {
@@ -282,7 +282,7 @@ const startAparts = [
         "added": "2025-04-27",
         "saved": 0,
         "status": "available",
-        "image": ["https://glosseniora.pl/wp-content/uploads/calypso_0544-1024x683.jpg", "https://glosseniora.pl/wp-content/uploads/calypso_0549-1024x683.jpg"],
+        "image": ['https://glosseniora.pl/wp-content/uploads/calypso_0544-1024x683.jpg', 'https://glosseniora.pl/wp-content/uploads/calypso_0549-1024x683.jpg'],
         "category": "business"
     },
     {
@@ -295,7 +295,7 @@ const startAparts = [
         "added": "2025-04-26",
         "saved": 0,
         "status": "reserved",
-        "image": ["https://i.pinimg.com/736x/23/53/a2/2353a2955653335cfc461193c8186cc3.jpg"],
+        "image": ['https://i.pinimg.com/736x/23/53/a2/2353a2955653335cfc461193c8186cc3.jpg'],
         "category": "living"
     },
     {
@@ -321,7 +321,7 @@ const startAparts = [
         "added": "2025-04-16",
         "saved": 1,
         "status": "available",
-        "image": ["https://luxsto.com.ua/wp-content/uploads/2024/05/AF1QipPFjcuW0OR-uqByypOj14EpiIJeIKnGl7TlhffPw800-h500-k-no.jpeg", "https://sklep.skoda.pl/_next/image?url=https%3A%2F%2Fakcesoria-vgp.pl%2Fupload%2Fproduct%2F9c1676f1-8fc6-4eb4-9fa5-11c8d981bcb0%2Fprofile_img%2F22bc3efc-629b-41fc-ba41-ec07949efdf6-stavebnice-service-station-3.jpg&w=3840&q=75", "https://blog.friday-ad.co.uk/wp-content/uploads/2017/12/photo-1570071677470-c04398af73ca-912x675.jpeg"],
+        "image": ['https://luxsto.com.ua/wp-content/uploads/2024/05/AF1QipPFjcuW0OR-uqByypOj14EpiIJeIKnGl7TlhffPw800-h500-k-no.jpeg', 'https://hyperionautorepair.com/wp-content/uploads/2025/08/ultra-realistic_high-resolution_photograph_of_a_vehicle_on_a_professional_auto_frame_straightening__vn938v3hjwrz4v24rxh6_1.png', 'https://blog.friday-ad.co.uk/wp-content/uploads/2017/12/photo-1570071677470-c04398af73ca-912x675.jpeg'],
         "category": "business"
     },
     {
@@ -373,7 +373,7 @@ const startAparts = [
         "added": "2025-03-11",
         "saved": 0,
         "status": "reserved",
-        "image": ["https://decoholic.org/wp-content/uploads/2020/04/London-apartment-interior-2-720x399.jpeg"],
+        "image": ['https://decoholic.org/wp-content/uploads/2020/04/London-apartment-interior-2-720x399.jpeg'],
         "category": "living"
     },
     {
@@ -386,7 +386,7 @@ const startAparts = [
         "added": "2025-04-13",
         "saved": 0,
         "status": "available",
-        "image": ["https://lumiteam.eu/wp-content/uploads/2021/05/lotos-09.jpg", "https://lumiteam.eu/wp-content/uploads/2021/05/lotos-04b.jpg", "https://topauto.co.za/wp-content/uploads/2025/02/The-Pantry-petrol-station-5.jpg"],
+        "image": ['https://lumiteam.eu/wp-content/uploads/2021/05/lotos-09.jpg', 'https://lumiteam.eu/wp-content/uploads/2021/05/lotos-04b.jpg', 'https://i.pinimg.com/736x/2f/bc/5f/2fbc5fea1c4fb03681246e813d0d7206.jpg'],
         "category": "business"
     },
     {
@@ -425,7 +425,7 @@ const startAparts = [
         "added": "2025-04-10",
         "saved": 1,
         "status": "reserved",
-        "image": ["https://www.decorilla.com/online-decorating/wp-content/uploads/2020/08/mid-century-modern-apartment-decor.jpg"],
+        "image": ['https://www.decorilla.com/online-decorating/wp-content/uploads/2020/08/mid-century-modern-apartment-decor.jpg'],
         "category": "living"
     },
     {
@@ -451,7 +451,7 @@ const startAparts = [
         "added": "2025-01-31",
         "saved": 0,
         "status": "available",
-        "image": ["https://visionshopfitters.co.uk/wp-content/uploads/2019/11/Mansons-Pharmacy-Shopfront-1800x1200.jpg", "https://antdisplay.com/pub/media/furniture/022e9691c5ba65d23cbf27a53f83163e.jpg"],
+        "image": ['https://visionshopfitters.co.uk/wp-content/uploads/2019/11/Mansons-Pharmacy-Shopfront-1800x1200.jpg', 'https://cechownia.pl/wp-content/uploads/2023/07/ada72533708d4de1eeb4817a50c4535c.jpg'],
         "category": "business"
     },
     {
@@ -568,7 +568,7 @@ const startAparts = [
         "added": "2025-03-15",
         "saved": 0,
         "status": "available",
-        "image": ['https://www.mitie.com/wp-content/uploads/2022/09/Modern-office-workspace-with-different-areas-for-employees.jpg', 'https://static.skepp.com/public/cache/cover_s3/images/uploads/blog/overzichtsfoto-urban-min-1-2002.jpg', 'https://i.pinimg.com/736x/f9/40/f7/f940f756980330513e2907decd5dd4f0.jpg'],
+        "image": ['https://www.mitie.com/wp-content/uploads/2022/09/Modern-office-workspace-with-different-areas-for-employees.jpg', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2022/10/Common-area-by-Crown-Workspace-office-space-designers-and-decorators.jpeg', 'https://i.pinimg.com/736x/f9/40/f7/f940f756980330513e2907decd5dd4f0.jpg'],
         "category": "business"
     },
     {
