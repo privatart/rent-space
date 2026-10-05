@@ -9,7 +9,7 @@ const startAparts = [
         "added": "2025-03-27",
         "saved": 0,
         "status": "available",
-        "image": ['https://medialibrarycfo.entrata.com/fit-in/700x700/15077/MLv3/3/27/2022/07/27/124402/62e18772519326.42629581743.jpg', 'https://i.digsdigs.com/2013/07/45-cozy-rustic-bedroom-design-ideas-8.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg'],
+        "image": ['https://github.com/privatart/rent-space/blob/main/src/img/frisco.jpeg', 'https://i.digsdigs.com/2013/07/45-cozy-rustic-bedroom-design-ideas-8.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg'],
         "category": "living"
     },
     {
