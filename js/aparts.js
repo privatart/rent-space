@@ -9,7 +9,7 @@ const startAparts = [
         "added": "2025-03-27",
         "saved": 0,
         "status": "available",
-        "image": ['https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/frisco.jpeg', 'https://i.digsdigs.com/2013/07/45-cozy-rustic-bedroom-design-ideas-8.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg'],
+        "image": ['https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/frisco.jpeg', 'https://i.digsdigs.com/2013/07/45-cozy-rustic-bedroom-design-ideas-8.jpg', 'https://u.profitroom.pl/2019-marinaapartments-pl/thumb/1920x1080/uploads/vlcsnap-2020-02-06-11h50m25s133.jpg','https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/frisco-2.jpeg'],
         "category": "living"
     },
     {
@@ -225,12 +225,12 @@ const startAparts = [
         "adres": "Warsaw, Marysin",
         "price": 3105,
         "currency": "EUR",
-        "details": "100 000 sq.m. warehouse in logistic park with TGW automation",
+        "details": "100 000 sq.m. warehouse with TGW automation",
         "size": 100000,
         "added": "2025-03-10",
         "saved": 0,
         "status": "available",
-        "image": ['https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/P3.jpeg', 'https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg', 'https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/P3-2.jpeg','https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg', 'https://www.eastmidlandsbusinesslink.co.uk/mag/wp-content/uploads/2024/02/AdobeStock_289332658.jpeg'],
+        "image": ['https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/P3.jpeg', 'https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg', 'https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/P3-2.jpeg','https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg', 'https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/tgw.jpeg'],
         "category": "business"
     },
     {
