@@ -225,12 +225,12 @@ const startAparts = [
         "adres": "Warsaw, Marysin",
         "price": 3105,
         "currency": "EUR",
-        "details": "1400 sq.m. warehouse in logistic park",
-        "size": 1400,
+        "details": "100 000 sq.m. warehouse in logistic park with TGW automation",
+        "size": 100000,
         "added": "2025-03-10",
         "saved": 0,
         "status": "available",
-        "image": ['https://www.theconstructionindex.co.uk/assets/news_articles/2026/08/1787552934_im02---units-4-5-&-6.jpeg', 'https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg", "https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg', 'https://www.eastmidlandsbusinesslink.co.uk/mag/wp-content/uploads/2024/02/AdobeStock_289332658.jpeg'],
+        "image": ['https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/P3.jpeg', 'https://www.elementlogic.net/content/uploads/sites/8/2024/10/for-4-main-functions-of-warehouse-1200x649-1.jpg', 'https://raw.githubusercontent.com/privatart/rent-space/refs/heads/main/src/img/P3-2.jpeg','https://portcitylogistics.com/wp-content/uploads/2024/06/warehouse.jpg', 'https://www.eastmidlandsbusinesslink.co.uk/mag/wp-content/uploads/2024/02/AdobeStock_289332658.jpeg'],
         "category": "business"
     },
     {
